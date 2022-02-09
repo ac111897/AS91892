@@ -11,7 +11,7 @@ public class Startup
 
     public IConfiguration Configuration { get; }
 
-    public void Configure(IServiceCollection services)
+    public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
         services.AddDbContext<ApplicationDbContext>();

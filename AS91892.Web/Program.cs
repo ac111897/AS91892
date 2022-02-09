@@ -6,7 +6,11 @@ public class Program
     {
         CreateHostBuilder(args).Build().Run();
     }
+
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webbuilder => webbuilder.UseStartup<Startup>());
+        .ConfigureWebHostDefaults(webbuilder =>
+        {
+            webbuilder.UseStartup<Startup>();
+        });
 }
