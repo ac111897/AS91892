@@ -1,12 +1,13 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
 
-namespace AS91892.UnitTests;
+namespace AS91892.Tests;
 
 public class DatabaseTests
 {
-    [Fact]
-    public void FirstTest()
-    {
 
+    [Fact]
+    public async Task FirstTestAsync()
+    {
     }
 }
