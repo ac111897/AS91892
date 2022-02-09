@@ -19,4 +19,8 @@
     <ProjectReference Include="..\AS91892.Data\AS91892.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>
