@@ -1,5 +1,4 @@
-﻿using AS91892.Data.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace AS91892.Data.Context;
 
@@ -14,9 +13,9 @@ public class ApplicationDbContext : DbContext
     /// Initializes a new instance of the <see cref="ApplicationDbContext"/> class
     /// </summary>
     /// <param name="options">The options provided for the <see cref="ApplicationDbContext"/></param>
-    public ApplicationDbContext(DbContextOptions options) : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        /// ensures that the database has been created before providing the context
+        // ensures that the database has been created before providing the context
         Database.EnsureCreated();
     }
 
@@ -32,5 +31,9 @@ public class ApplicationDbContext : DbContext
     /// The artists contained within the database
     /// </summary>
     public DbSet<Artist> Artists { get; set; }
-
+    
+    /// <summary>
+    /// The images contained within the database
+    /// </summary>
+    public DbSet<Image> Images { get; set; }
 }

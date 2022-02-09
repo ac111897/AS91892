@@ -5,18 +5,12 @@
 /// <summary>
 /// An <see cref="Artist"/>'s <see cref="Song"/> in the database
 /// </summary>
-public class Song
+public class Song : BaseEntity
 {
-    /// <summary>
-    /// Represents the primary key in the database
-    /// </summary>
-    [Key]
-    [Required]
-    public Guid Id { get; set; }
-
     /// <summary>
     /// Represents the title of the <see cref="Song"/>
     /// </summary>
-    [Required]
+    [Required(AllowEmptyStrings = false)]
+    [StringLength(50, MinimumLength = 1)]
     public string Title { get; set; }
 }

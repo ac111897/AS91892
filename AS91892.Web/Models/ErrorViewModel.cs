@@ -1,7 +1,7 @@
 ﻿namespace AS91892.Web.Models;
 
 /// <summary>
-/// A view of an erro
+/// A view of an error
 /// </summary>
 public class ErrorViewModel
 {

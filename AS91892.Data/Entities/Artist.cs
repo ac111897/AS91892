@@ -8,17 +8,18 @@
 /// <remarks>
 /// An <see cref="Artist"/> is the top level in the database as it holds multiple <see cref="Album"/>'s which each contain <see cref="Song"/>'s
 /// </remarks>
-public class Artist
+public class Artist : BaseEntity
 {
-    /// <summary>
-    /// Represents the primary key in the database
-    /// </summary>
-    [Key]
-    [Required]
-    public Guid Id { get; set; }
     /// <summary>
     /// Represents the albums the artists have created
     /// </summary>
     [Required]
     public IList<Album> Albums { get; set; }
+
+    /// <summary>
+    /// Represents the <see cref="Artist"/>'s name
+    /// </summary>
+    [Required(AllowEmptyStrings = false)]
+    [StringLength(50, MinimumLength = 1)]
+    public string ArtistName { get; set; }
 }
