@@ -10,7 +10,7 @@ public class Song : BaseEntity
     /// <summary>
     /// Represents the title of the <see cref="Song"/>
     /// </summary>
-    [Required(AllowEmptyStrings = false)]
+    [Required(AllowEmptyStrings = false, ErrorMessage = $"You must provide a {nameof(Title)} for {nameof(Song)}")]
     [StringLength(50, MinimumLength = 1)]
     public string Title { get; set; }
 }

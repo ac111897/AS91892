@@ -13,7 +13,8 @@ public class Image : BaseEntity
     public string ImageTitle { get; set; }
 
     /// <summary>
-    /// The data for the <see cref="Image"/>
+    /// Represents the file path of the image
     /// </summary>
-    public byte[] ImageData { get; set; }
+    [Required]
+    public string FilePath { get; set; }
 }
