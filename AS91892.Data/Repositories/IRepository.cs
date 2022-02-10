@@ -6,6 +6,7 @@
 /// <typeparam name="TModel">The model to create, modify, delete and fufill other duties</typeparam>
 /// <typeparam name="TModelID">The id type that the model uses to uniquely identify itself</typeparam>
 public interface IRepository<TModel, TModelID> where TModel : BaseEntity
+    where TModelID : notnull
 {
     /// <summary>
     /// Gets all of the <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/>
@@ -13,12 +14,20 @@ public interface IRepository<TModel, TModelID> where TModel : BaseEntity
     /// <returns>Every model in the <see cref="IRepository{TModel,TModelID}"/></returns>
     Task<IList<TModel>> GetAllAsync();
 
+
     /// <summary>
-    /// Gets all of <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/> that match the <see cref="Predicate{T}"/>
+    /// Gets a <typeparamref name="TModel"/> by its identifier of <typeparamref name="TModelID"/>
+    /// </summary>
+    /// <param name="id">The id to search for</param>
+    /// <returns>A <see cref="Task{TResult}"/> where <typeparamref name="TModel"/> could be <see langword="null"/></returns>
+    Task<TModel?> GetAsync(TModelID id);
+
+    /// <summary>
+    /// Gets all of <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/> that match the condition passed
     /// </summary>
     /// <param name="predicate">Condition of the items to retrieve</param>
     /// <returns></returns>
-    Task<IList<TModel>?> GetAll(Predicate<TModel> predicate);
+    Task<IList<TModel>?> GetAllAsync(Func<TModel, bool> predicate);
     /// <summary>
     /// Creates a <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/>
     /// </summary>

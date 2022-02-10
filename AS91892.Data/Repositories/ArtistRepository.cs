@@ -21,6 +21,7 @@ public class ArtistRepository : IArtistRepository
     /// <inheritdoc></inheritdoc>
     public async Task CreateAsync(Artist model)
     {
+        ArgumentNullException.ThrowIfNull(model);
         Context.Artists.Add(model);
         await Context.SaveChangesAsync().ConfigureAwait(false); // stop deadlocks
     }
@@ -39,9 +40,9 @@ public class ArtistRepository : IArtistRepository
         await Context.SaveChangesAsync().ConfigureAwait(false);
     }
     /// <inheritdoc></inheritdoc>
-    public async Task<IList<Artist>?> GetAll(Predicate<Artist> predicate)
+    public async Task<IList<Artist>?> GetAllAsync(Func<Artist, bool> predicate)
     {
-        return null; // TODO: finish method
+        return await Task.FromResult(Context.Artists.Where(predicate).ToList());
     }
     /// <inheritdoc></inheritdoc>
     public async Task<IList<Artist>> GetAllAsync()
@@ -49,12 +50,20 @@ public class ArtistRepository : IArtistRepository
         return await Task.FromResult(Context.Artists.ToList());
     }
     /// <inheritdoc></inheritdoc>
+    public async Task<Artist?> GetAsync(Guid id)
+    {
+        return await Context.Artists.FindAsync(id);
+    }
+
+    /// <inheritdoc></inheritdoc>
     public async Task UpdateAsync(Guid id, Artist model)
     {
+        ArgumentNullException.ThrowIfNull(model, nameof(model)); // null guard
+
         if (id != model.Id)
         {
             throw new ArgumentException("The id passed in the first parameter is not the same as the containing model", nameof(id));
         }
-
+        
     }
 }

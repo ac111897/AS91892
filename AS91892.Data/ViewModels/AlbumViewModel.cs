@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
-namespace AS91892.Web.ViewModels;
+namespace AS91892.Data.ViewModels;
 
 #nullable disable
 

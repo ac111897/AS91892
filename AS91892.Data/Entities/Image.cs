@@ -10,6 +10,7 @@ public class Image : BaseEntity
     /// <summary>
     /// Represents the title of the image in the database
     /// </summary>
+    [Required]
     public string ImageTitle { get; set; }
 
     /// <summary>
