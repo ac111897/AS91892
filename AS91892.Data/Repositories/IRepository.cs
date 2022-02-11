@@ -5,7 +5,8 @@
 /// </summary>
 /// <typeparam name="TModel">The model to create, modify, delete and fufill other duties</typeparam>
 /// <typeparam name="TModelID">The id type that the model uses to uniquely identify itself</typeparam>
-public interface IRepository<TModel, TModelID> where TModel : BaseEntity
+public interface IRepository<TModel, TModelID> : IDisposable
+    where TModel : BaseEntity
     where TModelID : notnull
 {
     /// <summary>
