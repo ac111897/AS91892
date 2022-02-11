@@ -92,6 +92,16 @@ public class ArtistTests
         Assert.NotEmpty(await repo.GetAllAsync());
     }
 
+    [Fact]
+    public async void ShouldBeDisposed()
+    {
+        IArtistRepository repo = new ArtistRepository(await CreateContext());
+
+        repo?.Dispose();
+
+        await Assert.ThrowsAsync<ObjectDisposedException>(() => repo!.CreateAsync(new()));
+    }
+
     private async Task ExceptionThrowingMethod()
     {
         var repository = new ArtistRepository(await CreateContext());
@@ -99,13 +109,7 @@ public class ArtistTests
     }
     private static async Task<ApplicationDbContext> CreateContext()
     {
-        var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options;
-
-        var context = new ApplicationDbContext(options);
-
-        context.Artists.AddRange(GetDataset());
-
-        context.Artists.Add(new Artist() { ArtistName = "OK", Id = Guid.NewGuid(), Albums = new List<Album>() });
+        var context = Creation.CreateContext((x, r) => r.Artists.Add(x), GetDataset());
 
         await context.SaveChangesAsync();
 
