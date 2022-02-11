@@ -1,4 +1,5 @@
-﻿using AS91892.Data.Context;
+﻿using AS91892.Core.ImageConversion;
+using AS91892.Data.Context;
 using AS91892.Data.Repositories;
 
 namespace AS91892.Web;
@@ -31,7 +32,9 @@ public class Startup
     {
         services.AddControllersWithViews();
         services.AddDbContext<ApplicationDbContext>();
+        services.AddSingleton<IImageConverter<Guid>, ImageConverter>();
         services.AddScoped<IArtistRepository, ArtistRepository>();
+        services.AddScoped<IAlbumRepository, AlbumRepository>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

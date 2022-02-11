@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AS91892.Core\AS91892.Core.csproj" />
     <ProjectReference Include="..\AS91892.Data\AS91892.Data.csproj" />
   </ItemGroup>
 

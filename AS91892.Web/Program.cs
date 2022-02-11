@@ -21,8 +21,8 @@ public class Program
     /// <returns>A <see cref="IHostBuilder"/></returns>
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webbuilder =>
+        .ConfigureWebHostDefaults(webBuilder =>
         {
-            webbuilder.UseStartup<Startup>();
+            webBuilder.UseStartup<Startup>();
         });
 }
