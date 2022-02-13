@@ -3,22 +3,16 @@
 /// <summary>
 /// Repository to manage <see cref="Artist"/>'s
 /// </summary>
-public class ArtistRepository : IArtistRepository
+public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistRepository
 {
-    private bool disposedValue;
-
     /// <summary>
-    /// Initializes a new instance of the <see cref="ArtistRepository"/>
+    /// Initializes a new instance of the <see cref="ArtistRepository"/> class
     /// </summary>
-    public ArtistRepository(ApplicationDbContext context)
+    /// <param name="context"></param>
+    public ArtistRepository(ApplicationDbContext context) : base(context)
     {
-        Context = context;
-    }
 
-    /// <summary>
-    /// Backing database for <see cref="ArtistRepository"/>
-    /// </summary>
-    private ApplicationDbContext Context { get; }
+    }
 
     /// <inheritdoc></inheritdoc>
     public async Task CreateAsync(Artist model)
@@ -42,7 +36,7 @@ public class ArtistRepository : IArtistRepository
         await Context.SaveChangesAsync().ConfigureAwait(false);
     }
     /// <inheritdoc></inheritdoc>
-    public async Task<IList<Artist>?> GetAllAsync(Func<Artist, bool> predicate)
+    public async Task<IList<Artist>> GetAllAsync(Func<Artist, bool> predicate)
     {
         return await Task.FromResult(Context.Artists.Where(predicate).ToList());
     }
@@ -67,35 +61,5 @@ public class ArtistRepository : IArtistRepository
             throw new ArgumentException("The id passed in the first parameter is not the same as the containing model", nameof(id));
         }
         
-    }
-    /// <inheritdoc></inheritdoc>
-    protected virtual void Dispose(bool disposing)
-    {
-        if (!disposedValue)
-        {
-            if (disposing)
-            {
-                Context.Dispose();
-                // TODO: dispose managed state (managed objects)
-            }
-
-            // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-            // TODO: set large fields to null
-            disposedValue = true;
-        }
-    }
-
-    // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-    // ~ArtistRepository()
-    // {
-    //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-    //     Dispose(disposing: false);
-    // }
-    /// <inheritdoc></inheritdoc>
-    public void Dispose()
-    {
-        // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        Dispose(disposing: true);
-        GC.SuppressFinalize(this);
     }
 }

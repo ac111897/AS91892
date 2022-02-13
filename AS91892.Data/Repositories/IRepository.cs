@@ -28,7 +28,7 @@ public interface IRepository<TModel, TModelID> : IDisposable
     /// </summary>
     /// <param name="predicate">Condition of the items to retrieve</param>
     /// <returns></returns>
-    Task<IList<TModel>?> GetAllAsync(Func<TModel, bool> predicate);
+    Task<IList<TModel>> GetAllAsync(Func<TModel, bool> predicate);
     /// <summary>
     /// Creates a <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/>
     /// </summary>
