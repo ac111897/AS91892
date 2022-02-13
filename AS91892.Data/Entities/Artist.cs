@@ -19,6 +19,7 @@ public class Artist : BaseEntity
     /// <summary>
     /// Represents the <see cref="Artist"/>'s name
     /// </summary>
+    [Display(Name = "Name")]
     [Required(AllowEmptyStrings = false, ErrorMessage = $"You must provide a value for the {nameof(Artist)}")]
     [StringLength(50, MinimumLength = 1)]
     public string ArtistName { get; set; }

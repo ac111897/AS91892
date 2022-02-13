@@ -13,4 +13,10 @@ public class Song : BaseEntity
     [Required(AllowEmptyStrings = false, ErrorMessage = $"You must provide a {nameof(Title)} for {nameof(Song)}")]
     [StringLength(50, MinimumLength = 1)]
     public string Title { get; set; }
+
+    /// <summary>
+    /// The length of the song
+    /// </summary>
+    [Required]
+    public TimeSpan Duration { get; set; }
 }
