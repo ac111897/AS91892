@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AS91892.Web</title>
+    <title>@ViewData["Title"] - Music Library</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AS91892.Web.styles.css" asp-append-version="true" />
@@ -23,6 +23,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Artists" asp-action="Index">Artists</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -39,7 +44,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            Website Docs - <a href="@configuration["Website-Docs"]">@configuration["Website-Docs"]</a> - &copy; @DateTime.Now.Year - AS91892.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a href="@configuration["Website-Docs"]">Website Docs</a> - &copy; @DateTime.Now.Year - AS91892.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

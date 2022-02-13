@@ -1,6 +1,7 @@
 ﻿using AS91892.Core.ImageConversion;
 using AS91892.Data.Context;
 using AS91892.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace AS91892.Web;
 
@@ -31,7 +32,20 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddDbContext<ApplicationDbContext>();
+        services.AddMvc();
+
+        services.AddDbContext<ApplicationDbContext>(options =>
+        {
+            if (Configuration.GetValue<bool>("Enable-Test-Data"))
+            {
+                options.UseInMemoryDatabase($"Tests{Guid.NewGuid()}");
+            }
+            else
+            {
+                options.UseSqlServer(Configuration.GetConnectionString(nameof(ApplicationDbContext)));
+            }
+        });
+        
         services.AddSingleton<IImageConverter<Guid>, ImageConverter>();
         services.AddScoped<IArtistRepository, ArtistRepository>();
         services.AddScoped<IAlbumRepository, AlbumRepository>();

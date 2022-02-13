@@ -1,0 +1,31 @@
+﻿@using AS91892.Data.Entities;
+@model IEnumerable<Artist>
+
+@{
+    ViewData["Title"] = "Artists";
+}
+
+<p>
+    <a asp-action="Create">Create new</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                Name
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model!)
+        {
+            
+        }
+    </tbody>
+</table>
