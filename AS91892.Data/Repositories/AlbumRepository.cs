@@ -18,13 +18,23 @@ public class AlbumRepository : BaseRepository<AlbumRepository>, IAlbumRepository
     public async Task CreateAsync(Album model)
     {
         ArgumentNullException.ThrowIfNull(model, nameof(model));
-       
+        Context.Albums.Add(model);
+        await Context.SaveChangesAsync();
     }
 
     /// <inheritdoc></inheritdoc>
-    public Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var item = await Context.Albums.FindAsync(id);
+
+        if (item is null)
+        {
+            return;
+        }
+
+        Context.Albums.Remove(item);
+
+        await Context.SaveChangesAsync();
     }
 
     /// <inheritdoc></inheritdoc>

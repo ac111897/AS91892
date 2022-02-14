@@ -60,6 +60,9 @@ public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistReposit
         {
             throw new ArgumentException("The id passed in the first parameter is not the same as the containing model", nameof(id));
         }
-        
+
+        Context.Artists.Update(model);
+
+        await Context.SaveChangesAsync();
     }
 }

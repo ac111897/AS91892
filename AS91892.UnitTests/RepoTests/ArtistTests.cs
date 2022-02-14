@@ -54,15 +54,11 @@ public class ArtistTests
 
         Assert.NotNull(createdObject?.ArtistName);
 
-        var artist = new Artist() { Id = id, ArtistName = "nice" };
+        createdObject!.ArtistName = "nice";
 
-        await repo.UpdateAsync(id, artist);
+        await repo.UpdateAsync(id, createdObject);
 
-        var modified = await repo.GetAsync(id);
-
-        Assert.NotNull(modified);
-
-        Assert.Equal("nice", artist.ArtistName);
+        Assert.Equal("nice", createdObject.ArtistName);
     }
 
     // test that creating and then deleting said object should work

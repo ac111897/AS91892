@@ -1,4 +1,5 @@
 ﻿using AS91892.Core.ImageConversion;
+using AS91892.Core.MockData;
 using AS91892.Data.Context;
 using AS91892.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,7 @@ public class Startup
     /// </summary>
     /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services)
-    {
+    {        
         services.AddControllersWithViews();
         services.AddMvc();
 
@@ -38,14 +39,14 @@ public class Startup
         {
             if (Configuration.GetValue<bool>("Enable-Test-Data"))
             {
-                options.UseInMemoryDatabase($"Tests{Guid.NewGuid()}");
+                options.UseInMemoryDatabase($"Tests");
             }
             else
             {
                 options.UseSqlServer(Configuration.GetConnectionString(nameof(ApplicationDbContext)));
             }
+
         });
-        
         services.AddSingleton<IImageConverter<Guid>, ImageConverter>();
         services.AddScoped<IArtistRepository, ArtistRepository>();
         services.AddScoped<IAlbumRepository, AlbumRepository>();
@@ -57,8 +58,15 @@ public class Startup
     /// </summary>
     /// <param name="app"></param>
     /// <param name="env"></param>
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    /// <param name="context"></param>
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
     {
+        if (Configuration.GetValue<bool>("Enable-Test-Data"))
+        {
+            context.Artists.AddRange(TestData.Generate());
+            context.SaveChanges();
+        }
+
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
