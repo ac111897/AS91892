@@ -6,7 +6,6 @@ namespace AS91892.Web.Controllers;
 /// <summary>
 /// Controller for artists
 /// </summary>
-[Route("[controller]")]
 public class ArtistsController : Controller
 {
     /// <summary>
@@ -27,10 +26,20 @@ public class ArtistsController : Controller
     /// Gets the main page
     /// </summary>
     /// <returns></returns>
-    public async Task<IActionResult> Index()
+    [Route("{id:guid}")]
+    public async Task<IActionResult> Index(Guid? id)
     {
-        return View(await Repository.GetAllAsync());
-    }
+        if (id is null)
+        {
+            return View(await Repository.GetAllAsync());
+        }
+        var model = await Repository.GetAsync(id.Value);
 
-    
+        if (model is null)
+        {
+            return NotFound();
+        }
+
+        return View(model);
+    }
 }

@@ -37,15 +37,15 @@ public class Startup
 
         services.AddDbContext<ApplicationDbContext>(options =>
         {
+            // If Enable-Test-Data is set to true then Add-Migration [migration-name] won't as this is an in memory db
             if (Configuration.GetValue<bool>("Enable-Test-Data"))
             {
                 options.UseInMemoryDatabase($"Tests");
-            }
-            else
-            {
-                options.UseSqlServer(Configuration.GetConnectionString(nameof(ApplicationDbContext)));
+                return;
             }
 
+            options.UseSqlServer(Configuration.GetConnectionString(nameof(ApplicationDbContext)), x => x.MigrationsAssembly("AS91892.Data"));
+            
         });
         services.AddSingleton<IImageConverter<Guid>, ImageConverter>();
         services.AddScoped<IArtistRepository, ArtistRepository>();
@@ -61,7 +61,7 @@ public class Startup
     /// <param name="context"></param>
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
     {
-        if (Configuration.GetValue<bool>("Enable-Test-Data"))
+        if (Configuration.GetValue<bool>("Enable-Test-Data")) // adds our dummy data to the app
         {
             context.Artists.AddRange(TestData.Generate());
             context.SaveChanges();

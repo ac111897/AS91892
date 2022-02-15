@@ -14,7 +14,7 @@ public class Artist : BaseEntity
     /// Represents the albums the artists have created
     /// </summary>
     [Required]
-    public IList<Album> Albums { get; set; }
+    public ICollection<Album> Albums { get; set; }
 
     /// <summary>
     /// Represents the <see cref="Artist"/>'s name
