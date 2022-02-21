@@ -11,11 +11,13 @@ public class Image : BaseEntity
     /// Represents the title of the image in the database
     /// </summary>
     [Required]
+    [StringLength(100, MinimumLength = 1, ErrorMessage = "Image title should be between 1 and 100")]
     public string ImageTitle { get; set; }
 
     /// <summary>
     /// Represents the file path of the image
     /// </summary>
     [Required]
+    [Url]
     public string FilePath { get; set; }
 }

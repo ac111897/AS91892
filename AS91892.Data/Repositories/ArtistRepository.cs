@@ -11,7 +11,6 @@ public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistReposit
     /// <param name="context"></param>
     public ArtistRepository(ApplicationDbContext context) : base(context)
     {
-
     }
 
     /// <inheritdoc></inheritdoc>
