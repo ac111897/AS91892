@@ -4,7 +4,7 @@ namespace AS91892.Core.MockData;
 
 public static class TestData 
 {
-    public static IEnumerable<Artist> Generate()
+    public static IEnumerable<Artist> GenerateMock()
     {
         return new List<Artist>()
         {
