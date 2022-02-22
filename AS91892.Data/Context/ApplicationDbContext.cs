@@ -36,4 +36,14 @@ public class ApplicationDbContext : DbContext
     /// The images contained within the database
     /// </summary>
     public DbSet<Image> Images { get; set; }
+
+    /// <summary>
+    /// Record labels contained within the database
+    /// </summary>
+    public DbSet<RecordLabel> RecordLabels { get; set; }
+
+    /// <summary>
+    /// The music genres contained within the database
+    /// </summary>
+    public DbSet<Genre> Genres { get; set; }
 }

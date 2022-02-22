@@ -7,7 +7,7 @@ namespace AS91892.Data.ViewModels;
 /// <summary>
 /// View model to upload the image to the server and store the reference for later use
 /// </summary>
-public class AlbumViewModel : IValidatableObject
+public class ImageViewModel : IValidatableObject
 {
     /// <summary>
     /// The photo for the album
@@ -19,7 +19,7 @@ public class AlbumViewModel : IValidatableObject
     /// <inheritdoc></inheritdoc>
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-        var photo = ((AlbumViewModel)validationContext.ObjectInstance).Photo;
+        var photo = ((ImageViewModel)validationContext.ObjectInstance).Photo;
         var extension = Path.GetExtension(photo.FileName);
         var size = photo.Length;
 
