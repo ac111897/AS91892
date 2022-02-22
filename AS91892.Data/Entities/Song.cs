@@ -12,6 +12,16 @@ public class Song : BaseEntity
     [Required(AllowEmptyStrings = false, ErrorMessage = $"You must provide a {nameof(Title)} for {nameof(Song)}")]
     [StringLength(50, MinimumLength = 1)]
     public string Title { get; set; }
+
+    /// <summary>
+    /// Represents other artists that may appear on this track
+    /// </summary>
+    public ICollection<Artist> Features { get; set; }
+
+    /// <summary>
+    /// The music genre that thet the <see cref="Song"></see>
+    /// </summary>
+    public Genre Genre { get; set; }
 #nullable restore
     /// <summary>
     /// The length of the song

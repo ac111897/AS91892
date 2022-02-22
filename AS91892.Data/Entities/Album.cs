@@ -5,17 +5,24 @@
 /// </summary>
 public class Album : BaseEntity
 {
+    /// <summary>
+    /// An image for the album covers
+    /// </summary>
+    public Image? AlbumCover { get; set; }
 #nullable disable
     /// <summary>
     /// Represents the songs in the album
     /// </summary>
     [Required]
-    public IList<Song> AlbumSongs { get; set; }
-
-#nullable restore
+    public ICollection<Song> AlbumSongs { get; set; }
 
     /// <summary>
-    /// An image for the album covers
+    /// Title of the album
     /// </summary>
-    public Image? AlbumCover { get; set; }
+    public string Title { get; set; }
+
+    /// <summary>
+    /// Year that the album was released
+    /// </summary>
+    public int Year { get; set; }
 }

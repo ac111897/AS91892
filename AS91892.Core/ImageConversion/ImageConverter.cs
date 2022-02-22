@@ -19,7 +19,7 @@ public class ImageConverter : IImageConverter<Guid>
             Directory.CreateDirectory(directory);
         }
 
-        string path = Path.Join(directory.AsSpan(), fileName.ToString() + ".jpg");
+        string path = Path.Join(directory.AsSpan(), $"{fileName}.jpg");
 
         using var fileStream = File.Create(path);
 

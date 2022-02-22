@@ -23,4 +23,9 @@ public class Artist : BaseEntity
     [Required(AllowEmptyStrings = false, ErrorMessage = $"You must provide a value for the {nameof(Artist)}")]
     [StringLength(50, MinimumLength = 1)]
     public string ArtistName { get; set; }
+
+    /// <summary>
+    /// The <see cref="Artist"/>'s label that they are signed to
+    /// </summary>
+    public RecordLabel Label { get; set; }
 }
