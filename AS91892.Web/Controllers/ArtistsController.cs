@@ -26,8 +26,8 @@ public class ArtistsController : Controller
     /// Gets the main page
     /// </summary>
     /// <returns></returns>
-    [Route("{id:guid}")]
-    public async Task<IActionResult> Index(Guid? id)
+    [Route("{id}")]
+    public async Task<IActionResult> Index(Guid? id = null)
     {
         if (id is null)
         {
@@ -41,5 +41,30 @@ public class ArtistsController : Controller
         }
 
         return View(model);
+    }
+
+    /// <summary>
+    /// Creates an <see cref="Artist"/> in the database
+    /// </summary>
+    /// <param name="artist"></param>
+    /// <returns></returns>
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(Artist artist)
+    {
+        Logger.LogInformation("Created {model}", artist);
+
+        await Repository.CreateAsync(artist);
+
+        return View(artist);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Update(Artist artist)
+    {
+        if (await Repository.GetAsync(artist.Id) is null)
+        {
+            
+        }
     }
 }

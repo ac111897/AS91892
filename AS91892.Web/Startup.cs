@@ -63,7 +63,7 @@ public class Startup
     {
         if (Configuration.GetValue<bool>("Enable-Test-Data")) // adds our dummy data to the app
         {
-            context.Artists.AddRange(TestData.Generate());
+            context.Artists.AddRange(TestData.GenerateMock());
             context.SaveChanges();
         }
 
