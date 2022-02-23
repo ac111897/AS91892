@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using AS91892.Data.Context;
-using AS91892.Data.Entities;
-using AS91892.Data.Repositories;
-using Xunit;
-
 namespace AS91892.Tests.RepoTests;
 
 public class GeneralTests
