@@ -38,14 +38,14 @@ public class LabelRepository : BaseRepository<LabelRepository>, ILabelRepository
 
     }
     /// <inheritdoc></inheritdoc>
-    public Task<IList<RecordLabel>> GetAllAsync()
+    public async Task<IList<RecordLabel>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await Task.FromResult(Context.RecordLabels.ToList());
     }
     /// <inheritdoc></inheritdoc>
-    public Task<IList<RecordLabel>> GetAllAsync(Func<RecordLabel, bool> predicate)
+    public async Task<IList<RecordLabel>> GetAllAsync(Func<RecordLabel, bool> predicate)
     {
-        throw new NotImplementedException();
+        return await Task.FromResult(Context.RecordLabels.Where(predicate).ToList());
     }
     /// <inheritdoc></inheritdoc>
     public Task<RecordLabel?> GetAsync(Guid id)
@@ -53,8 +53,14 @@ public class LabelRepository : BaseRepository<LabelRepository>, ILabelRepository
         return Context.RecordLabels.FindAsync(id).AsTask();
     }
     /// <inheritdoc></inheritdoc>
-    public Task UpdateAsync(Guid id, RecordLabel model)
+    public async Task UpdateAsync(Guid id, RecordLabel model)
     {
-        throw new NotImplementedException();
+        ArgumentNullException.ThrowIfNull(model, nameof(model));
+
+        Assertion.AssertIdIsSame(id, model);
+
+        Context.RecordLabels.Update(model);
+
+        await Context.SaveChangesAsync();
     }
 }

@@ -55,10 +55,7 @@ public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistReposit
     {
         ArgumentNullException.ThrowIfNull(model, nameof(model)); // null guard
 
-        if (id != model.Id)
-        {
-            throw new ArgumentException("The id passed in the first parameter is not the same as the containing model", nameof(id));
-        }
+        Assertion.AssertIdIsSame(id, model);
 
         Context.Artists.Update(model);
 

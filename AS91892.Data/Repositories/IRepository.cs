@@ -27,12 +27,14 @@ public interface IRepository<TModel, TModelID> : IDisposable
     /// Gets all of <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/> that match the condition passed
     /// </summary>
     /// <param name="predicate">Condition of the items to retrieve</param>
+    /// <exception cref="ArgumentNullException"></exception>
     /// <returns></returns>
     Task<IList<TModel>> GetAllAsync(Func<TModel, bool> predicate);
     /// <summary>
     /// Creates a <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/>
     /// </summary>
     /// <param name="model">The model to create</param>
+    /// <exception cref="ArgumentNullException"></exception>
     /// <returns>A <see cref="Task"/> to <see langword="await"/></returns>
     Task CreateAsync(TModel model);
 
@@ -41,6 +43,8 @@ public interface IRepository<TModel, TModelID> : IDisposable
     /// </summary>
     /// <param name="model"></param>
     /// <param name="id">The id in the database used to update</param>
+    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="ArgumentNullException"></exception>
     /// <returns>A <see cref="Task"/> to <see langword="await"/></returns>
     Task UpdateAsync(TModelID id, TModel model);
 
