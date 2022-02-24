@@ -5,10 +5,7 @@
 /// </summary>
 public class LabelRepository : BaseRepository<LabelRepository>, ILabelRepository
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="LabelRepository"/>
-    /// </summary>
-    /// <param name="context">Database context</param>
+    /// <inheritdoc></inheritdoc>/>
     public LabelRepository(ApplicationDbContext context) : base(context)
     {
     }

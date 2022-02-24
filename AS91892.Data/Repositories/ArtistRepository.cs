@@ -5,10 +5,7 @@
 /// </summary>
 public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistRepository
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ArtistRepository"/> class
-    /// </summary>
-    /// <param name="context"></param>
+    /// <inheritdoc></inheritdoc>/>
     public ArtistRepository(ApplicationDbContext context) : base(context)
     {
     }

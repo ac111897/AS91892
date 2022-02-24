@@ -10,6 +10,8 @@ public class RecordLabel : BaseEntity
     /// <summary>
     /// Name of the <see cref="RecordLabel"/>
     /// </summary>
+    [Required]
+    [StringLength(50, ErrorMessage = $"Length of {nameof(Name)} should be between 2 & 50", MinimumLength = 2)]
     public string Name { get; set; }
 
     /// <summary>
