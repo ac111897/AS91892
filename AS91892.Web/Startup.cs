@@ -47,9 +47,9 @@ public class Startup
             options.UseSqlServer(Configuration.GetConnectionString(nameof(ApplicationDbContext)), x => x.MigrationsAssembly("AS91892.Data"));
             
         });
-        services.AddSingleton<IImageConverter<Guid>, ImageConverter>();
-        services.AddScoped<IArtistRepository, ArtistRepository>();
-        services.AddScoped<IAlbumRepository, AlbumRepository>();
+
+        ServicesSetup.ConfigureSingletons(services);
+        ServicesSetup.ConfigureScoped(services);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
