@@ -1,4 +1,5 @@
-﻿using AS91892.Core.ImageConversion;
+﻿using System.Web.Mvc;
+using AS91892.Core.ImageConversion;
 using AS91892.Core.MockData;
 using AS91892.Data.Context;
 using AS91892.Data.Repositories;
@@ -76,11 +77,15 @@ public class Startup
             app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
         }
+
+        app.UseStatusCodePagesWithReExecute("/Home/HandlerErrorAsync/{0}");
+
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"));
+        app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Artists}/{action=Index}/{id?}", new { id = UrlParameter.Optional }));
     }
 }
