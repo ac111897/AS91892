@@ -39,6 +39,16 @@ public class HomeController : Controller
         return View();
     }
 
+    [Route("Home/HandleError/{code:int}")]
+    public async Task<IActionResult> HandleErrorAsync(int code)
+    {
+        if (code == 404)
+        {
+            return View("/NotFound");
+        }
+        return View();
+    }
+
     /// <summary>
     /// Gets an <see cref="ErrorViewModel"/> view
     /// </summary>

@@ -5,6 +5,7 @@ namespace AS91892.Web.Controllers;
 /// <summary>
 /// Controller for artists
 /// </summary>
+[Route("artists")]
 public class ArtistsController : Controller
 {
     /// <summary>
@@ -25,7 +26,7 @@ public class ArtistsController : Controller
     /// </summary>
     /// <returns></returns>
     [Route("{id}")]
-    public async Task<IActionResult> Index(Guid? id = null)
+    public async Task<IActionResult> Index(Guid? id)
     {
         if (id is null)
         {
@@ -50,9 +51,9 @@ public class ArtistsController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Artist artist)
     {
-        Logger.LogInformation("Created: {model}", artist);
-
         await Repository.CreateAsync(artist);
+
+        Logger.LogInformation("Created: {model}", artist);
 
         return View(artist);
     }
