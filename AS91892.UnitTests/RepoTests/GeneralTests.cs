@@ -10,7 +10,7 @@ public class GeneralTests
         var context = await CreateContext();
         IArtistRepository repo = new ArtistRepository(context);
 
-        Album album = new() { AlbumCover = null, Id = Guid.NewGuid() };
+        Album album = new() { AlbumCover = null, Id = Guid.NewGuid(), Title = "Nice" };
 
         Artist artist = new() { ArtistName = "nice", Id = Guid.NewGuid(), Albums = new List<Album>() { album } };
 
@@ -29,7 +29,9 @@ public class GeneralTests
     }
     private static List<Artist> GetDataset() => new()
         {
-            new Artist() { Id = Guid.NewGuid(), ArtistName = "safsdfklsdfj", Albums = new List<Album>()},
+            new Artist() 
+            { Id = Guid.NewGuid(), ArtistName = "safsdfklsdfj", Albums = new List<Album>()
+            },
             new Artist() { Id = Guid.NewGuid(), ArtistName = "somessafjd", Albums = new List<Album>()}
 
         };
