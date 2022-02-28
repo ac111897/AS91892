@@ -17,6 +17,7 @@ internal static class ServicesSetup
         services.AddScoped<IGenreRepository, GenreRepository>();
         services.AddScoped<ILabelRepository, LabelRepository>();
         services.AddScoped<ISongRepository, SongRepository>(); 
+        services.AddScoped<IImageRepository, ImageRepository>();
     }
 
     /// <summary>
