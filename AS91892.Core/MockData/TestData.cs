@@ -8,7 +8,7 @@ public static class TestData
     {
         return new List<Artist>()
         {
-            new Artist() { Id = Guid.NewGuid(), ArtistName = "Something", Albums = new List<Album>() }
+            new Artist() { Id = Guid.NewGuid(), ArtistName = "Something", Albums = new List<Album>(), Label = new RecordLabel() { Id = Guid.NewGuid(), Name = "Nice" } }
         };
     }
 }

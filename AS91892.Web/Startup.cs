@@ -78,14 +78,11 @@ public class Startup
             app.UseHsts();
         }
 
-        app.UseStatusCodePagesWithReExecute("/Home/HandlerErrorAsync/{0}");
-
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"));
-        app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Artists}/{action=Index}/{id?}", new { id = UrlParameter.Optional }));
     }
 }

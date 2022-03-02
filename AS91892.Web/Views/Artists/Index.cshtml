@@ -16,16 +16,37 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                Name
+                @Html.DisplayNameFor(model => model.ArtistName)
             </th>
-
-
+            <th>
+                @Html.DisplayNameFor(model => model.Label)
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model!)
         {
-            
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.ArtistName)
+                </td>
+                <td>
+                    @if (item.Label is null)
+                    {
+                        @Html.DisplayText("None")
+                    }
+                    else {
+                        @Html.DisplayFor(model => item.Label.Name)
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+@if (!Model.Any()) {
+    <h1>No items availible</h1>
+}

@@ -5,7 +5,7 @@ namespace AS91892.Web.Controllers;
 /// <summary>
 /// Controller for artists
 /// </summary>
-[Route("artists")]
+[Route("Artists")]
 public class ArtistsController : Controller
 {
     /// <summary>
@@ -25,21 +25,19 @@ public class ArtistsController : Controller
     /// Gets the main page
     /// </summary>
     /// <returns></returns>
-    [Route("{id}")]
-    public async Task<IActionResult> Index(Guid? id)
+    public async Task<IActionResult> Index()
     {
-        if (id is null)
-        {
-            return View(await Repository.GetAllAsync());
-        }
-        var model = await Repository.GetAsync(id.Value);
+        return View(await Repository.GetAllAsync());
+    }
 
-        if (model is null)
-        {
-            return NotFound();
-        }
-
-        return View(model);
+    /// <summary>
+    /// Returns the create view
+    /// </summary>
+    /// <returns></returns>
+    [Route("Create")]
+    public IActionResult Create()
+    {
+        return View();
     }
 
     /// <summary>
@@ -49,11 +47,18 @@ public class ArtistsController : Controller
     /// <returns></returns>
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(Artist artist)
+    public async Task<IActionResult> Create([Bind("ArtistName")] Artist artist)
     {
-        await Repository.CreateAsync(artist);
+        artist.Id = Guid.NewGuid();
 
-        Logger.LogInformation("Created: {model}", artist);
+        if (ModelState.IsValid)
+        {
+            await Repository.CreateAsync(artist);
+            Logger.LogInformation("Created {model}", artist);
+            return RedirectToAction(nameof(Index));
+        }
+
+        Logger.LogDebug("ModelState is {model}", ModelState.ValidationState);
 
         return View(artist);
     }
