@@ -1,0 +1,18 @@
+{
+  "artists": [
+    {
+      "id": "b1aa345d-284e-48e3-9f54-91d6ca99b1d8",
+
+      "artistName": "something",
+
+      "albums": [
+
+      ],
+
+      "label": {
+        "name": "Some Productions",
+        "address": "82 Some Address"
+      }
+    }
+  ]
+}
