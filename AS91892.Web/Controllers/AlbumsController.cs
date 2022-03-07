@@ -39,6 +39,11 @@ public class AlbumsController : Controller
 
     }
 
+    /// <summary>
+    /// Update endpoint for the <see cref="AlbumsController"/> class
+    /// </summary>
+    /// <param name="album"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<IActionResult> UpdateAsync(Album album)
     {
@@ -46,6 +51,16 @@ public class AlbumsController : Controller
         {
             return View();
         }
+
+        if (ModelState.IsValid)
+        {
+            Logger.LogInformation("Updated model with id of {id}", album.Id);
+
+            await Repository.UpdateAsync(album.Id, album);
+
+            return RedirectToAction(nameof(Index));
+        }
+
         return View();
     }
 
