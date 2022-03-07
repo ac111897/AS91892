@@ -12,5 +12,6 @@ public class Genre : BaseEntity
     /// </summary>
     [Required]
     [StringLength(50, ErrorMessage = $"Length of {nameof(Title)} should be between 2 & 50", MinimumLength = 2)]
+    [JsonPropertyName("title")]
     public string Title { get; set; }
 }

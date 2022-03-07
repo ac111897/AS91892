@@ -12,6 +12,7 @@ public class Image : BaseEntity
     /// </summary>
     [Required]
     [StringLength(100, MinimumLength = 1, ErrorMessage = "Image title should be between 1 and 100")]
+    [JsonPropertyName("imageTitle")]
     public string ImageTitle { get; set; }
 
     /// <summary>
@@ -19,5 +20,6 @@ public class Image : BaseEntity
     /// </summary>
     [Required]
     [Url]
+    [JsonPropertyName("filePath")]
     public string FilePath { get; set; }
 }

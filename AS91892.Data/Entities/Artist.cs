@@ -14,6 +14,7 @@ public class Artist : BaseEntity
     /// Represents the albums the artists have created
     /// </summary>
     [Required]
+    [JsonPropertyName("albums")]
     public ICollection<Album> Albums { get; set; }
 
     /// <summary>
@@ -22,10 +23,12 @@ public class Artist : BaseEntity
     [Display(Name = "Name")]
     [Required(AllowEmptyStrings = false, ErrorMessage = $"You must provide a value for the {nameof(Artist)}")]
     [StringLength(50, MinimumLength = 1)]
+    [JsonPropertyName("artistName")]
     public string ArtistName { get; set; }
 
     /// <summary>
     /// The <see cref="Artist"/>'s label that they are signed to
     /// </summary>
+    [JsonPropertyName("label")]
     public RecordLabel Label { get; set; }
 }

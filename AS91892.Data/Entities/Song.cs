@@ -11,16 +11,19 @@ public class Song : BaseEntity
     /// </summary>
     [Required(AllowEmptyStrings = false, ErrorMessage = $"You must provide a {nameof(Title)} for {nameof(Song)}")]
     [StringLength(50, MinimumLength = 1)]
+    [JsonPropertyName("title")]
     public string Title { get; set; }
 
     /// <summary>
     /// Represents other artists that may appear on this track
     /// </summary>
+    [JsonPropertyName("features")]
     public ICollection<Artist> Features { get; set; }
 
     /// <summary>
     /// The music genre that thet the <see cref="Song"></see>
     /// </summary>
+    [JsonPropertyName("genre")]
     public Genre Genre { get; set; }
 #nullable restore
     /// <summary>
@@ -28,10 +31,12 @@ public class Song : BaseEntity
     /// </summary>
     [Required]
     [DataType(DataType.Duration)]
+    [JsonPropertyName("duration")]
     public TimeSpan Duration { get; set; }
 
     /// <summary>
     /// The cover of the song
     /// </summary>
+    [JsonPropertyName("cover")]
     public Image? Cover { get; set; }
 }

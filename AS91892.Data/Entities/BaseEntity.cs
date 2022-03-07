@@ -11,7 +11,8 @@ public abstract class BaseEntity
     /// Represents the key of the entity in the database
     /// </summary>
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    [Key]
+    [JsonPropertyName("id")]
     [Required]
+    [Key]
     public Guid Id { get; set; }
 }
