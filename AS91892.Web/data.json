@@ -1,18 +1,29 @@
-{
-  "artists": [
-    {
-      "id": "b1aa345d-284e-48e3-9f54-91d6ca99b1d8",
+[
+  {
+    "id": "b1aa345d-284e-48e3-9f54-91d6ca99b1d8",
 
-      "artistName": "something",
+    "artistName": "something",
 
-      "albums": [
-
-      ],
-
-      "label": {
-        "name": "Some Productions",
-        "address": "82 Some Address"
+    "albums": [
+      {
+        "title": "Album one",
+        "year": 2022,
+        "albumSongs": [
+          {
+            "title": "song one",
+            "genre": {
+              "title":  "rock"
+            },
+            "cover": null
+          }
+        ],
+        "albumCover": null
       }
+    ],
+
+    "label": {
+      "name": "Some Productions",
+      "address": "82 Some Address"
     }
-  ]
-}
+  }
+]
