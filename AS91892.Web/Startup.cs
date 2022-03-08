@@ -26,6 +26,9 @@ public class Startup
     /// </summary>
     public IConfiguration Configuration { get; }
 
+
+    private bool IsTest => Configuration.GetValue<bool>("Enable-Test-Data");
+
     // This method gets called by the runtime. Use this method to add services to the container.
     /// <summary>
     /// Configures services to be used in the application
@@ -36,10 +39,12 @@ public class Startup
         services.AddControllersWithViews();
         services.AddMvc();
 
+        services.AddScoped<IMockDataResolver<Artist>, ArtistMockResolver>();
+
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             // If Enable-Test-Data is set to true then Add-Migration [migration-name] won't as this is an in memory db
-            if (Configuration.GetValue<bool>("Enable-Test-Data"))
+            if (IsTest)
             {
                 options.UseInMemoryDatabase($"Tests");
                 return;
@@ -60,11 +65,12 @@ public class Startup
     /// <param name="app"></param>
     /// <param name="env"></param>
     /// <param name="context"></param>
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
+    /// <param name="resolver"></param>
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context, IMockDataResolver<Artist> resolver)
     {
-        if (Configuration.GetValue<bool>("Enable-Test-Data")) // adds our dummy data to the app
+        if (IsTest) // adds our dummy data to the app
         {
-            context.Artists.AddRange(TestData.GenerateMock());
+            context.Artists.AddRange(resolver.GenerateMock());
             context.SaveChanges();
         }
 
