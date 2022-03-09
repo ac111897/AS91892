@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+#if DEBUG
+using System.Diagnostics;
+#endif
 
 namespace AS91892.Web.Controllers;
 
@@ -27,6 +30,9 @@ public class ArtistsController : Controller
     /// <returns></returns>
     public async Task<IActionResult> Index()
     {
+#if DEBUG
+        Debug.WriteLine("hit Artists/Index");
+#endif
         return View(await Repository.GetAllAsync());
     }
 
@@ -37,6 +43,9 @@ public class ArtistsController : Controller
     [Route("Create")]
     public IActionResult Create()
     {
+#if DEBUG
+        Debug.WriteLine("hit Artists/Create (stateless)");
+#endif
         return View();
     }
 
@@ -46,19 +55,28 @@ public class ArtistsController : Controller
     /// <param name="artist"></param>
     /// <returns></returns>
     [HttpPost]
+    [Route("Create")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("ArtistName")] Artist artist)
     {
+#if DEBUG
+        Debug.WriteLine("hit Artists/Create");
+#endif
         artist.Id = Guid.NewGuid();
 
         if (ModelState.IsValid)
         {
+#if DEBUG
+            Debug.WriteLine("trying create Artists/Create");
+#endif
             await Repository.CreateAsync(artist);
             Logger.LogInformation("Created {model}", artist);
             return RedirectToAction(nameof(Index));
         }
-
-        Logger.LogDebug("ModelState is {model}", ModelState.ValidationState);
+#if DEBUG
+        Debug.WriteLine("returning Artists/Create");
+#endif
+        Logger.LogInformation("ModelState is {model}, Reasons: {reasons}", ModelState.ValidationState, string.Join(", ", ModelState.Values.Select(x => x.RawValue)));
 
         return View(artist);
     }

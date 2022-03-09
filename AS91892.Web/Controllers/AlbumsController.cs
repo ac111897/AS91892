@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+#if DEBUG
+using System.Diagnostics;
+#endif
 
 namespace AS91892.Web.Controllers;
 
@@ -30,6 +33,9 @@ public class AlbumsController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateAsync(Album album)
     {
+#if DEBUG
+        Debug.WriteLine($"hit Albums/Create with {album}");
+#endif
         await Repository.CreateAsync(album);
 
         Logger.LogInformation("Created {album}", album);
@@ -45,8 +51,12 @@ public class AlbumsController : Controller
     /// <param name="album"></param>
     /// <returns></returns>
     [HttpPost]
+    [Route("update")]
     public async Task<IActionResult> UpdateAsync(Album album)
     {
+#if DEBUG
+        Debug.WriteLine($"hit Albums/Update with {album}");
+#endif
         if (await Repository.GetAsync(album.Id) is null)
         {
             return View();
@@ -71,6 +81,9 @@ public class AlbumsController : Controller
     /// <returns></returns>
     public IActionResult Index()
     {
+#if DEBUG
+        Debug.WriteLine("Hit Albums/Index");
+#endif
         return View();
     }
 }
