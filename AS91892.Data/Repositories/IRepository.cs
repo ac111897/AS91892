@@ -48,6 +48,11 @@ public interface IRepository<TModel, TModelID> : IDisposable
     /// <returns>A <see cref="Task"/> to <see langword="await"/></returns>
     Task UpdateAsync(TModelID id, TModel model);
 
+    /// <summary>
+    /// Gets the number of records in the database table
+    /// </summary>
+    /// <returns>The number of records in the database table</returns>
+    Task<int> CountAsync();
 
     /// <summary>
     /// Removes a <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/>
