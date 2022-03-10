@@ -1,8 +1,20 @@
-﻿@{
+﻿@inject IArtistRepository artistRepository;
+
+@{
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="panel panel-primary" style="border: 2px solid blue">
+
+<div class="panel-header">
+      Artists
+</div>
+
+<div class="panel-body">
+    Page for artists
+</div>
+<div class="panel-footer">\
+   
+
+</div>
 </div>

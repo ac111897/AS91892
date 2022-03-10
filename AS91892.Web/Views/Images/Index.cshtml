@@ -7,31 +7,41 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id);
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageTitle);
+                @Html.DisplayNameFor(model => model.ImageTitle)
             </th>
         </tr>
     </thead>
-    if (Model is null || !Model.Any()) {
-    <tbody>
-        @foreach (var item in Model!)
+
+
+    @if (Model is not null) {
+        @if (Model.Any())
         {
-            <tr>
+            <tbody>
+            @foreach (var item in Model)
+            {
+              <tr>
                 <td>
-                    @Html.DisplayFor(model => item.Id);
+                    <a href="img/@System.IO.Path.Join(item.Id.ToString(), ".png")">@Html.DisplayFor(model => item.Id);</a>
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.ImageTitle);
                 </td>
             </tr>
+          }
+          </tbody>
         }
-    </tbody>
     }
 </table>
-
-@if (!Model!.Any())
-{
-    <h1>No models availible</h1>
+@{
+    if (Model is null)
+    {
+        <h1>No models availible</h1>
+    }
+    else if (!Model.Any())
+    {
+        <h1>No models availible</h1>
+    }
 }
