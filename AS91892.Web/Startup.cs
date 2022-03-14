@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using AS91892.Core.ImageConversion;
+﻿using AS91892.Core.ImageConversion;
 using AS91892.Core.MockData;
 using AS91892.Data.Context;
 using AS91892.Data.Repositories;
