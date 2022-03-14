@@ -10,6 +10,12 @@ public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistReposit
     {
     }
 
+    /// <inheritdoc></inheritdoc>/>
+    public async Task<int> CountAsync()
+    {
+        return await Context.Artists.CountAsync();
+    }
+
     /// <inheritdoc></inheritdoc>
     public async Task CreateAsync(Artist model)
     {

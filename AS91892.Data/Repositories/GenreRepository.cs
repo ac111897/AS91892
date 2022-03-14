@@ -11,6 +11,12 @@ public class GenreRepository : BaseRepository<GenreRepository>, IGenreRepository
     }
 
     /// <inheritdoc></inheritdoc>/>
+    public async Task<int> CountAsync()
+    {
+        return await Context.Albums.CountAsync();
+    }
+
+    /// <inheritdoc></inheritdoc>/>
     public async Task CreateAsync(Genre model)
     {
         ArgumentNullException.ThrowIfNull(model, nameof(model));

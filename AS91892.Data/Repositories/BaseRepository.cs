@@ -7,10 +7,6 @@ namespace AS91892.Data.Repositories;
 /// </summary>
 public abstract class BaseRepository<T> : IDisposable
 {
-    /// <summary>
-    /// The name of the table in sql
-    /// </summary>
-    protected string TableName { get; set; }
     private bool disposedValue;
 
     /// <summary>
@@ -25,14 +21,7 @@ public abstract class BaseRepository<T> : IDisposable
     public BaseRepository(ApplicationDbContext context)
     {
         ArgumentNullException.ThrowIfNull(context, nameof(context));
-        TableName = Context!.Model.FindEntityType(typeof(T))!.GetTableName()!;
         Context = context;
-    }
-
-    /// <inheritdoc></inheritdoc>
-    public async Task<int> CountAsync()
-    {
-        return 0;
     }
 
     /// <inheritdoc></inheritdoc>/>

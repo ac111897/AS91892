@@ -12,6 +12,12 @@ public class ImageRepository : BaseRepository<ImageRepository>, IImageRepository
     }
 
     /// <inheritdoc></inheritdoc>/>
+    public async Task<int> CountAsync()
+    {
+        return await Context.Images.CountAsync();
+    }
+
+    /// <inheritdoc></inheritdoc>/>
     public async Task CreateAsync(Image model)
     {
         ArgumentNullException.ThrowIfNull(model, nameof(model));

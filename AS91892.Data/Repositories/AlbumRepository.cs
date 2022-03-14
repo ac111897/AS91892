@@ -9,6 +9,12 @@ public class AlbumRepository : BaseRepository<AlbumRepository>, IAlbumRepository
     }
 
     /// <inheritdoc></inheritdoc>
+    public async Task<int> CountAsync()
+    {
+        return await Context.Albums.CountAsync();
+    }
+
+    /// <inheritdoc></inheritdoc>
     public async Task CreateAsync(Album model)
     {
         ArgumentNullException.ThrowIfNull(model, nameof(model));

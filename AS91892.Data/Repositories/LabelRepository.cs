@@ -10,6 +10,12 @@ public class LabelRepository : BaseRepository<LabelRepository>, ILabelRepository
     {
     }
 
+    /// <inheritdoc></inheritdoc>/>
+    public async Task<int> CountAsync()
+    {
+        return await Context.RecordLabels.CountAsync();
+    }
+
     /// <inheritdoc></inheritdoc>
     public async Task CreateAsync(RecordLabel model)
     {

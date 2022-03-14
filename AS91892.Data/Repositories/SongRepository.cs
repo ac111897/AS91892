@@ -11,6 +11,12 @@ public class SongRepository : BaseRepository<SongRepository>, ISongRepository
     }
 
     /// <inheritdoc></inheritdoc>/>
+    public async Task<int> CountAsync()
+    {
+        return await Context.Songs.CountAsync();
+    }
+
+    /// <inheritdoc></inheritdoc>/>
     public async Task CreateAsync(Song model)
     {
         ArgumentNullException.ThrowIfNull(model, nameof(model));
