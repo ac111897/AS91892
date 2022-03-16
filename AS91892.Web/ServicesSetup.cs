@@ -26,6 +26,7 @@ internal static class ServicesSetup
     /// <param name="services">An <see cref="IServiceCollection"/> to configure the services</param>
     internal static void ConfigureSingletons(IServiceCollection services)
     {
+        // add image converter to convert an IFormFile to an image and save it to our wwwroot in the project to be referenced later
         services.AddSingleton<IImageConverter<Guid>, ImageConverter>();
     }
 }
