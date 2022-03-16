@@ -1,10 +1,15 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "404 - Not Found";
 }
 <!-- Not found page -->
 <div class="text-center">
     <h1 class="display-3 alert-danger">@ViewData["Title"]</h1>
-    <p class="display-4 font-weight-bold">Could not find requested resource</p>
+    <p class="display-4 font-weight-bold">Could not find requested resource "@ViewData["Path"]"</p>
     <br />
-    <p class="display-4">Return to the <a asp-page="/Home">home page</a>?</p> // ask user for redirect to home page
+     @{ 
+         // ask user to return to the home page
+     }
+    <p class="display-4">Return to the <a  asp-controller="/Home" asp-action="Index">home page</a>?</p>
 </div>

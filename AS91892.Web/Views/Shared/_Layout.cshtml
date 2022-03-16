@@ -48,7 +48,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            <a href="@configuration["Website-Docs"]">Website Docs</a> - &copy; @DateTime.Now.Year - AS91892.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a href="@configuration.GetSection("Paths")["Website-Docs"]">Website Docs</a> - &copy; @DateTime.Now.Year - AS91892.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
