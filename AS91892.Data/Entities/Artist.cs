@@ -32,7 +32,7 @@ public class Artist : BaseEntity
     [JsonPropertyName("label")]
     public RecordLabel Label { get; set; }
 
-    /// <inheritdoc>
+    /// <inheritdoc></inheritdoc>
     public override string ToString()
     {
         return $"ID: {Id}, ArtistName: {ArtistName}, Label: {Label?.Name ?? "None"}, Albums: {string.Join(", ", Albums)}";
