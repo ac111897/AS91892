@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Albums\" />
-    <Folder Include="Views\Labels\" />
     <Folder Include="Views\Genres\" />
     <Folder Include="Views\Songs\" />
     <Folder Include="wwwroot\img\" />
