@@ -26,7 +26,7 @@ public class Startup
     public IConfiguration Configuration { get; }
 
 
-    private bool IsTest => Configuration.GetValue<bool>("Enable-Test-Data");
+    private bool IsTest => Configuration.GetSection("Data").GetValue<bool>("Enable-Test-Data");
 
     // This method gets called by the runtime. Use this method to add services to the container.
     /// <summary>
@@ -82,6 +82,16 @@ public class Startup
             app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
         }
+
+        app.Use(async (context, next) =>
+        {
+            await next();
+            if (context.Response.StatusCode == 404)
+            {
+                context.Request.Path = "/NotFound";
+                await next();
+            }
+        });
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();

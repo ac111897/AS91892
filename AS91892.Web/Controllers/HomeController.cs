@@ -39,13 +39,27 @@ public class HomeController : Controller
         return View();
     }
 
-    [Route("Home/HandleError/{code:int}")]
-    public async Task<IActionResult> HandleErrorAsync(int code)
+    /// <summary>
+    /// Returns the not found page when the user enters an unknown route on the web application
+    /// </summary>
+    /// <returns></returns>
+    [Route("NotFound")]
+    public new IActionResult NotFound()
     {
-        if (code == 404)
+        string originalPath = "unknown";
+        if (HttpContext.Items.ContainsKey("originalPath"))
         {
-            return View("/NotFound");
+            if (HttpContext.Items["originalPath"] is string value)
+            {
+                if (value is not null)
+                {
+                    originalPath = value;
+                }
+            }
         }
+
+        ViewData["Path"] = originalPath;
+
         return View();
     }
 
