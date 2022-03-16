@@ -5,6 +5,9 @@
 ![Website](https://img.shields.io/website?down_color=red&label=website-docs&up_message=online%21&url=https%3A%2F%2FAS91892-docs.ac111897.repl.co)
 ![GitHub repo size](https://img.shields.io/github/repo-size/ac111897/AS91892)
 
+![Lines of code](https://img.shields.io/tokei/lines/github/ac111897/AS91892)
+
+
 ## Running the project
 1. clone from repo
 2. to apply migrations and use the dotnet-ef commands change "Enable-Test-Data" to false or else it will use the in memory database provider where you cannot make migrations/use ef commands.
