@@ -22,4 +22,10 @@ public class RecordLabel : BaseEntity
     [StringLength(50, ErrorMessage = $"Length of {nameof(Address)} should be between 2 & 50", MinimumLength = 2)]
     [JsonPropertyName("address")]
     public string Address { get; set; }
+
+    /// <inheritdoc></inheritdoc>/>
+    public override string ToString()
+    {
+        return $"{Name} - {Address}";
+    }
 }
