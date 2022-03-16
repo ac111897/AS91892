@@ -12,7 +12,8 @@
           {
             "title": "song one",
             "genre": {
-              "title":  "rock"
+              "id": "583a0ad5-95fa-439b-8502-c3cc801b54f0",
+              "title": "rock"
             },
             "cover": null
           }
@@ -22,6 +23,7 @@
     ],
 
     "label": {
+      "id": "5d3240d6-543b-415d-a5ed-278e51cebf08",
       "name": "Some Productions",
       "address": "82 Some Address"
     }
