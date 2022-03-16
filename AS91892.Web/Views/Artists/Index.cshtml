@@ -9,6 +9,8 @@
     <a asp-action="Create">Create new</a>
 </p>
 
+<h1>Artists</h1>
+
 <table class="table">
     <thead>
         <tr>
@@ -18,9 +20,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.ArtistName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Label.Name)
-            </th>
         </tr>
     </thead>
     <tbody>
@@ -28,19 +27,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(model => item.Id)
+                    <a asp-action="Details" asp-route-id="@item.Id">@Html.Encode(item.Id).ToUpper()</a>
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.ArtistName)
-                </td>
-                <td>
-                    @if (item.Label is null)
-                    {
-                        @Html.DisplayText("None")
-                    }
-                    else {
-                        @Html.DisplayFor(model => item.Label.Name)
-                    }
                 </td>
             </tr>
         }

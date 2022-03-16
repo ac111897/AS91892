@@ -1,0 +1,55 @@
+﻿@model Artist;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<a asp-action="Index">
+    <h2>Back to main page</h2>
+</a>
+
+<br />
+
+<h1>Details</h1>
+
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.ArtistName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(x => x.ArtistName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.Label)
+        </dt>
+
+        <dd class="col-sm-10">
+            @{
+                if (Model?.Label is not null)
+                {
+                    <a asp-controller="Labels" asp-action="Details" asp-route-id="Model!.Label.Id">
+                        @Html.Encode(Model.Label.ToString())
+                    </a>
+                }
+                else
+                {
+                    <p>No Label</p>
+                }
+            }
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.Albums)
+        </dt>
+
+        @if (Model?.Albums is not null && Model!.Albums.Any())
+        {
+         // TODO: Display the data from the albums and hyperlink the stuff   
+        }
+
+    </dl>
+
+</div>

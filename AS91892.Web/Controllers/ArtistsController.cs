@@ -37,6 +37,25 @@ public class ArtistsController : Controller
     }
 
     /// <summary>
+    /// Returns the details of a particular object
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [Route("Details")]
+    public async Task<IActionResult> Details(Guid id)
+    {
+        var model = await Repository.GetAsync(id);
+
+        if (model is null)
+        {
+            return NotFound();
+        }
+
+        return View(model);
+    }
+
+
+    /// <summary>
     /// Returns the create view
     /// </summary>
     /// <returns></returns>
