@@ -9,49 +9,15 @@ namespace AS91892.Web.Controllers;
 /// Controller for artists
 /// </summary>
 [Route("Artists")]
-public class ArtistsController : Controller
+public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRepository, Artist>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ArtistsController"/> class
     /// </summary>
     /// <param name="logger"></param>
     /// <param name="repository"></param>
-    public ArtistsController(ILogger<ArtistsController> logger, IArtistRepository repository)
+    public ArtistsController(ILogger<ArtistsController> logger, IArtistRepository repository) : base(logger, repository)
     {
-        Logger = logger;
-        Repository = repository;
-    }
-    private ILogger<ArtistsController> Logger { get; }
-    private IArtistRepository Repository { get; }
-
-    /// <summary>
-    /// Gets the main page
-    /// </summary>
-    /// <returns></returns>
-    public async Task<IActionResult> Index()
-    {
-#if DEBUG
-        Debug.WriteLine("hit Artists/Index");
-#endif
-        return View(await Repository.GetAllAsync());
-    }
-
-    /// <summary>
-    /// Returns the details of a particular object
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    [Route("Details")]
-    public async Task<IActionResult> Details(Guid id)
-    {
-        var model = await Repository.GetAsync(id);
-
-        if (model is null)
-        {
-            return NotFound();
-        }
-
-        return View(model);
     }
 
 

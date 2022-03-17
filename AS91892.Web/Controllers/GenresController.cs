@@ -5,19 +5,13 @@ namespace AS91892.Web.Controllers;
 /// <summary>
 /// Controller for the <see cref="Genre"/> model
 /// </summary>
-public class GenresController : Controller
+[Route("Genres")]
+public class GenresController : ControllerWithRepo<GenresController, IGenreRepository, Genre>
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="GenresController"/> class
-    /// </summary>
-    public GenresController(ILogger<GenresController> logger, IGenreRepository repository)
+    /// <inheritdoc></inheritdoc>
+    public GenresController(ILogger<GenresController> logger, IGenreRepository repository) : base(logger, repository)
     {
-        Logger = logger;
-        Repository = repository;
     }
-
-    private ILogger<GenresController> Logger { get; }
-    private IGenreRepository Repository { get; }
 
 
     /// <summary>
@@ -35,15 +29,5 @@ public class GenresController : Controller
         Logger.LogInformation("Created: {genre}", genre);
 
         return View(await Repository.GetAsync(genre.Id));
-    }
-
-
-    /// <summary>
-    /// Index method of the <see cref="GenresController"/>
-    /// </summary>
-    /// <returns></returns>
-    public IActionResult Index()
-    {
-        return View();
     }
 }

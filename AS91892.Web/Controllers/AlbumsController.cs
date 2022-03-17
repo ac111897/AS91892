@@ -8,19 +8,13 @@ namespace AS91892.Web.Controllers;
 /// <summary>
 /// Controller for the <see cref="Album"/> model
 /// </summary>
-public class AlbumsController : Controller
+[Route("Albums")]
+public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepository, Album>
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AlbumsController"/> class
-    /// </summary>
-    public AlbumsController(ILogger<AlbumsController> logger, IAlbumRepository repository)
+    /// <inheritdoc></inheritdoc>
+    public AlbumsController(ILogger<AlbumsController> logger, IAlbumRepository repository) : base(logger, repository)
     {
-        Logger = logger;
-        Repository = repository;
     }
-
-    private ILogger<AlbumsController> Logger { get; }
-    private IAlbumRepository Repository { get; }
 
 
     /// <summary>
@@ -71,19 +65,6 @@ public class AlbumsController : Controller
             return RedirectToAction(nameof(Index));
         }
 
-        return View();
-    }
-
-
-    /// <summary>
-    /// Index method of the <see cref="AlbumsController"/>
-    /// </summary>
-    /// <returns></returns>
-    public IActionResult Index()
-    {
-#if DEBUG
-        Debug.WriteLine("Hit Albums/Index");
-#endif
         return View();
     }
 }
