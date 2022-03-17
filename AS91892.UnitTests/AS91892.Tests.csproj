@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AS91892.Core\AS91892.Core.csproj" />
     <ProjectReference Include="..\AS91892.Data\AS91892.Data.csproj" />
+    <ProjectReference Include="..\AS91892.Web\AS91892.Web.csproj" />
   </ItemGroup>
 
 </Project>
