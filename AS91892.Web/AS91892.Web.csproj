@@ -29,9 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Albums\" />
-    <Folder Include="Views\Genres\" />
-    <Folder Include="Views\Songs\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 

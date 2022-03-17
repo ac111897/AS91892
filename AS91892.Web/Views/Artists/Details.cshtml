@@ -30,13 +30,13 @@
             @{
                 if (Model?.Label is not null)
                 {
-                    <a asp-controller="Labels" asp-action="Details" asp-route-id="Model!.Label.Id">
+                    <a asp-controller="Labels" asp-action="Details" asp-route-id="@Model!.Label.Id">
                         @Html.Encode(Model.Label.ToString())
                     </a>
                 }
                 else
                 {
-                    <p>No Label</p>
+                    <p class="text-danger">No Label</p>
                 }
             }
         </dd>
@@ -44,11 +44,6 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(x => x.Albums)
         </dt>
-
-        @if (Model?.Albums is not null && Model!.Albums.Any())
-        {
-         // TODO: Display the data from the albums and hyperlink the stuff   
-        }
 
     </dl>
 
