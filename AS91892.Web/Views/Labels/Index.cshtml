@@ -1,4 +1,5 @@
-﻿@model IEnumerable<RecordLabel>
+﻿@using System.Globalization
+@model IEnumerable<RecordLabel>
 
 @{
     ViewData["Title"] = "Labels";
@@ -17,4 +18,22 @@
             </th>
         </tr>
     </thead>
+    @if (Model is not null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        <a asp-controller="Labels" asp-action="Details" asp-route-id="@item.Id"> 
+                            @Html.Encode(item.Id.ToString().ToUpper())
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Name)
+                    </td>
+                </tr>
+            </tbody>
+        }
+    }
 </table>

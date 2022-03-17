@@ -45,6 +45,38 @@
             @Html.DisplayNameFor(x => x.Albums)
         </dt>
 
+        @{
+            if (Model!.Albums is null)
+            {
+                <dd class="col-sm-10">
+                    @Html.Encode("No albums available")
+                </dd>
+            }
+            else if (!Model!.Albums.Any())
+            {
+                <dd class="col-sm-10">
+                    @Html.Encode("No albums available")
+                </dd>
+            }
+        }
     </dl>
+
+    <table class="table">
+        @if (Model!.Albums is not null && Model.Albums.Any())
+        {
+            @foreach (var item in Model.Albums) 
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            <a asp-action="Details" asp-controller="Albums" asp-route-id="@item.Id">
+                                @Html.Encode(item.Title)
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        }
+    </table>
 
 </div>

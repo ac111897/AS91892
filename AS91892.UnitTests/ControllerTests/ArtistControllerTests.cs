@@ -18,6 +18,7 @@ public class ArtistControllerTests
         Assert.True(result is ViewResult);
     }
 
+    [Fact]
     public async Task ArtistsController_Should_Return_NotFound()
     {
         ArtistsController controller = new(
