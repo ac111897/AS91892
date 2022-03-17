@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using AS91892.Core.ImageConversion;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 
 namespace AS91892.Tests;
 
