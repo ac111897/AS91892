@@ -1,7 +1,37 @@
-﻿@model IEnumerable<Genre>
+﻿@using System.Globalization
+@model IEnumerable<Genre>
 
 @{
     ViewData["Title"] = "Genres";
 }
 
 <h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+        </tr>
+    </thead>
+    @{
+        if (Model is not null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+               <tbody>
+               <tr>
+                  <td>
+                     <a asp-action="Details" asp-route-id="@item.Id">@Html.Encode(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(item.Title))</a>
+                  </td>
+               </tr>
+                </tbody>
+            }
+        }
+    }
+</table>
+
+@if (Model is null || !Model.Any()) {
+    <h2>No data available</h2>
+}
