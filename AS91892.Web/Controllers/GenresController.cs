@@ -19,7 +19,7 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
     /// </summary>
     /// <param name="genre"></param>
     /// <returns></returns>
-    [Route("create")]
+    [Route("Create")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateAsync(Genre genre)
@@ -29,5 +29,34 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
         Logger.LogInformation("Created: {genre}", genre);
 
         return View(await Repository.GetAsync(genre.Id));
+    }
+
+
+    [Route("Delete")]
+    public async Task<IActionResult> DeleteAsync(Guid id)
+    {
+        var item = await Repository.GetAsync(id);
+
+        if (item is null)
+        {
+            return NotFound();
+        }
+
+        return View(item);
+    }
+
+
+    /// <summary>
+    /// Confirms the deletion of a target resource from the database
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmedAsync(Guid id)
+    {
+        await Repository.DeleteAsync(id);
+
+        return RedirectToAction(nameof(Index));
     }
 }
