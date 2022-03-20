@@ -39,7 +39,7 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     /// </summary>
     /// <param name="artist"></param>
     /// <returns></returns>
-    [HttpPost]
+    [HttpPost, ActionName("Create")]
     [Route("Create")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("ArtistName")] Artist artist)
@@ -72,6 +72,7 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     /// <param name="artist">The <see cref="Artist"/> to update</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="Artist"/> to <see langword="await"/></returns>
     [HttpPost]
+    [Route("Update")]
     public async Task<IActionResult> Update(Artist artist)
     {
         if (await Repository.GetAsync(artist.Id) is null)
@@ -84,5 +85,40 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
         await Repository.UpdateAsync(artist.Id, artist);
 
         return View(await Repository.GetAllAsync());
+    }
+
+
+    /// <summary>
+    /// Returns the delete view
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [Route("Delete")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var item = await Repository.GetAsync(id);
+
+        if (item is null)
+        {
+            return NotFound();
+        }
+
+        return View(item);
+    }
+
+
+    /// <summary>
+    /// Confirms the deletion of a target resource from the database
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    [Route("Delete")]
+    public async Task<IActionResult> DeleteConfirmedAsync(Guid id)
+    {
+        await Repository.DeleteAsync(id);
+
+        return RedirectToAction(nameof(Index));
     }
 }

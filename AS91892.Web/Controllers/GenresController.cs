@@ -31,9 +31,13 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
         return View(await Repository.GetAsync(genre.Id));
     }
 
-
+    /// <summary>
+    /// Returns the delete view
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [Route("Delete")]
-    public async Task<IActionResult> DeleteAsync(Guid id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         var item = await Repository.GetAsync(id);
 
@@ -52,6 +56,7 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpPost, ActionName("Delete")]
+    [Route("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmedAsync(Guid id)
     {
