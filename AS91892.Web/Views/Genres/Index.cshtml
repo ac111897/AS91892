@@ -13,6 +13,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
+            <th></th>
         </tr>
     </thead>
     @{
@@ -24,6 +25,11 @@
                <tr>
                   <td>
                      <a asp-action="Details" asp-route-id="@item.Id">@Html.Encode(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(item.Title))</a>
+                  </td>
+                  <td>
+                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                     <a asp-action="Delete" asp-route-id="@item.Id" class="link-danger">Delete</a>
+                     
                   </td>
                </tr>
                 </tbody>

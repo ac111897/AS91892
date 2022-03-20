@@ -1,4 +1,4 @@
-﻿@model Genre
+﻿@model Artist
 
 @{
     ViewData["Title"] = "Delete";
@@ -10,7 +10,7 @@
 <h3>This action cannot be reverted.</h3>
 
 <div>
-    <h4>@nameof(Genre)</h4>
+    <h4>@nameof(Artist)</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -20,17 +20,17 @@
             @Html.Encode(Model!.Id.ToString().ToUpper())
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.ArtistName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.ArtistName)
         </dd>
     </dl>
 
-    <form asp-controller="Genres" asp-action="Delete">
+    <form asp-controller="Artists" asp-action="Delete">
         <input type="hidden" asp-for="@Model.Id"/>
         <input type="submit" value="Delete" class="btn btn-danger" formmethod="post" /> |
-        <a asp-controller="Genres" asp-action="Index">Back to main page</a>
+        <a asp-controller="Artists" asp-action="Index">Back to main page</a>
     </form>
 
 </div>
