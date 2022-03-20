@@ -39,6 +39,7 @@ public abstract class ControllerWithRepo<TController, TRepository, TModel> : Con
     /// <param name="repository">A repository used for data access for the model</param>
     public ControllerWithRepo(ILogger<TController> logger, TRepository repository)
     {
+        ArgumentNullException.ThrowIfNull(repository);
         Logger = logger;
         Repository = repository;
     }
@@ -69,5 +70,39 @@ public abstract class ControllerWithRepo<TController, TRepository, TModel> : Con
         }
 
         return View(item);
+    }
+
+    /// <summary>
+    /// Returns the delete view
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [Route("Delete")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var item = await Repository.GetAsync(id);
+
+        if (item is null)
+        {
+            return NotFound();
+        }
+
+        return View(item);
+    }
+
+
+    /// <summary>
+    /// Confirms the deletion of a target resource from the database
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpPost, ActionName("Delete")]
+    [Route("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmedAsync(Guid id)
+    {
+        await Repository.DeleteAsync(id);
+
+        return RedirectToAction(nameof(Index));
     }
 }

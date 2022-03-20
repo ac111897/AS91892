@@ -45,7 +45,7 @@ public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepos
     /// <param name="album"></param>
     /// <returns></returns>
     [HttpPost]
-    [Route("update")]
+    [Route("Update")]
     public async Task<IActionResult> UpdateAsync(Album album)
     {
 #if DEBUG

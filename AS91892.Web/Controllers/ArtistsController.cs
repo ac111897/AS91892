@@ -25,6 +25,7 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     /// Returns the create view
     /// </summary>
     /// <returns></returns>
+    [HttpGet]
     [Route("Create")]
     public IActionResult Create()
     {
@@ -85,40 +86,5 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
         await Repository.UpdateAsync(artist.Id, artist);
 
         return View(await Repository.GetAllAsync());
-    }
-
-
-    /// <summary>
-    /// Returns the delete view
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    [Route("Delete")]
-    public async Task<IActionResult> Delete(Guid id)
-    {
-        var item = await Repository.GetAsync(id);
-
-        if (item is null)
-        {
-            return NotFound();
-        }
-
-        return View(item);
-    }
-
-
-    /// <summary>
-    /// Confirms the deletion of a target resource from the database
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    [Route("Delete")]
-    public async Task<IActionResult> DeleteConfirmedAsync(Guid id)
-    {
-        await Repository.DeleteAsync(id);
-
-        return RedirectToAction(nameof(Index));
     }
 }
