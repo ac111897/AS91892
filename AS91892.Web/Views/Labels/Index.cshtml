@@ -16,6 +16,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
+            <th></th>
         </tr>
     </thead>
     @if (Model is not null && Model.Any())
@@ -32,8 +33,15 @@
                     <td>
                         @Html.DisplayFor(model => item.Name)
                     </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="link-danger">Delete</a> 
+                    </td>
                 </tr>
             </tbody>
         }
     }
 </table>
+@if (Model is null || !Model.Any()) {
+    <h2>No data available</h2>
+}
