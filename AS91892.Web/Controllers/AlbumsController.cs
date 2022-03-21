@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AS91892.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 #if DEBUG
 using System.Diagnostics;
 #endif
@@ -11,11 +12,27 @@ namespace AS91892.Web.Controllers;
 [Route("Albums")]
 public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepository, Album>
 {
+    private IImageConverter<Guid> Converter { get; }
+    private IWebHostEnvironment Environment { get; }
+
     /// <inheritdoc></inheritdoc>
-    public AlbumsController(ILogger<AlbumsController> logger, IAlbumRepository repository) : base(logger, repository)
+    public AlbumsController(ILogger<AlbumsController> logger, IAlbumRepository repository, 
+        IImageConverter<Guid> converter, IWebHostEnvironment environment) : base(logger, repository)
     {
+        Converter = converter;
+        Environment = environment;
     }
 
+    /// <summary>
+    /// Returns a Create view
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [Route("Create")]
+    public IActionResult Create()
+    {
+        return View();
+    }
 
     /// <summary>
     /// Creation endpoint for the <see cref="AlbumsController"/> class
@@ -23,20 +40,40 @@ public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepos
     /// <param name="album"></param>
     /// <returns></returns>
     [HttpPost]
-    [Route("create")]
+    [Route("Create")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateAsync(Album album)
+    public async Task<IActionResult> CreateAsync(AlbumViewModel album)
     {
 #if DEBUG
         Debug.WriteLine($"hit Albums/Create with {album}");
 #endif
-        await Repository.CreateAsync(album);
+        if (album is null || album.Value is null || album.Image is null)
+        {
+            return BadRequest();
+        }
 
-        Logger.LogInformation("Created {album}", album);
+        album.Value.Id = Guid.NewGuid();
 
+        var imageObject = await Converter.ToImageAsync(album.Image, Environment.WebRootPath, album.Value.Id);
 
-        return View(await Repository.GetAsync(album.Id));
+        album.Value.AlbumCover = imageObject;
 
+        try
+        {
+            await Repository.CreateAsync(album.Value);
+        }
+        catch
+        {
+            if (System.IO.File.Exists(imageObject.FilePath))
+            {
+                System.IO.File.Delete(imageObject.FilePath);
+            }
+
+            return RedirectToRoute(nameof(Index));
+        }
+
+       
+        return View(nameof(Details), album.Value);
     }
 
     /// <summary>
