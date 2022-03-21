@@ -20,28 +20,13 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     {
     }
 
-
-    /// <summary>
-    /// Returns the create view
-    /// </summary>
-    /// <returns></returns>
-    [HttpGet]
-    [Route("Create")]
-    public IActionResult Create()
-    {
-#if DEBUG
-        Debug.WriteLine("hit Artists/Create (stateless)");
-#endif
-        return View();
-    }
-
     /// <summary>
     /// Creates an <see cref="Artist"/> in the database
     /// </summary>
     /// <param name="artist"></param>
     /// <returns></returns>
-    [HttpPost, ActionName("Create")]
-    [Route("Create")]
+    [HttpPost, ActionName(nameof(Create))]
+    [Route(nameof(Create))]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("ArtistName")] Artist artist)
     {
@@ -85,6 +70,6 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
 
         await Repository.UpdateAsync(artist.Id, artist);
 
-        return View(await Repository.GetAllAsync());
+        return RedirectToAction(nameof(Details), new { id = artist.Id });
     }
 }

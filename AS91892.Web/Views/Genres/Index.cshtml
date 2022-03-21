@@ -1,9 +1,16 @@
 ﻿@using System.Globalization
+
+@inject ISongRepository songRepository;
+
 @model IEnumerable<Genre>
 
 @{
     ViewData["Title"] = "Genres";
 }
+
+<p>
+    <a asp-action="Create">Create new</a>
+</p>
 
 <h1>@ViewData["Title"]</h1>
 
@@ -12,6 +19,9 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                References
             </th>
             <th></th>
         </tr>
@@ -26,10 +36,14 @@
                   <td>
                      <a asp-action="Details" asp-route-id="@item.Id">@Html.Encode(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(item.Title))</a>
                   </td>
+
+                  <td>
+                     @Html.Encode((await songRepository.CountAsync(x => x.Genre.Id == item.Id)));
+                  </td>
+
                   <td>
                      <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                     <a asp-action="Delete" asp-route-id="@item.Id" class="link-danger">Delete</a>
-                     
+                     <a asp-action="Delete" asp-route-id="@item.Id" class="link-danger">Delete</a>   
                   </td>
                </tr>
                 </tbody>

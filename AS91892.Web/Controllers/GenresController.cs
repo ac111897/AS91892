@@ -14,6 +14,7 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
     }
 
 
+
     /// <summary>
     /// Creation end point on the <see cref="GenresController"/>
     /// </summary>
@@ -22,12 +23,16 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
     [Route("Create")]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateAsync(Genre genre)
+    public async Task<IActionResult> CreateAsync([Bind("Title")] Genre genre)
     {
-        await Repository.CreateAsync(genre);
+        genre.Id = Guid.NewGuid();
 
+
+        await Repository.CreateAsync(genre);
+        
         Logger.LogInformation("Created: {genre}", genre);
 
-        return View(await Repository.GetAsync(genre.Id));
+
+        return RedirectToAction(nameof(Details), new { id = genre.Id });
     }
 }

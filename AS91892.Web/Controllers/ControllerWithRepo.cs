@@ -72,6 +72,18 @@ public abstract class ControllerWithRepo<TController, TRepository, TModel> : Con
         return View(item);
     }
 
+
+    /// <summary>
+    /// Returns the view for create
+    /// </summary>
+    /// <returns>An <see cref="IActionResult"/></returns>
+    [HttpGet]
+    [Route("Create")]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
     /// <summary>
     /// Returns the delete view
     /// </summary>

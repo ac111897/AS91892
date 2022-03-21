@@ -24,25 +24,14 @@ public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepos
     }
 
     /// <summary>
-    /// Returns a Create view
-    /// </summary>
-    /// <returns></returns>
-    [HttpGet]
-    [Route("Create")]
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    /// <summary>
     /// Creation endpoint for the <see cref="AlbumsController"/> class
     /// </summary>
     /// <param name="album"></param>
     /// <returns></returns>
     [HttpPost]
-    [Route("Create")]
+    [Route(nameof(Create))]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateAsync(AlbumViewModel album)
+    public async Task<IActionResult> CreateAsync([Bind("")] AlbumViewModel album)
     {
 #if DEBUG
         Debug.WriteLine($"hit Albums/Create with {album}");

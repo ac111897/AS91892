@@ -1,4 +1,7 @@
-﻿@model AS91892.Data.Entities.Artist
+﻿@inject ILabelRepository labelRepository
+
+
+@model AS91892.Data.Entities.Artist
 
 @{
     ViewData["Title"] = "Create";
@@ -18,6 +21,8 @@
                 <label asp-for="ArtistName" class="control-label"></label>
                 <input asp-for="ArtistName" class="form-control" />
                 <span asp-validation-for="ArtistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
             </div>
             <br />
             <div class="form-group">
