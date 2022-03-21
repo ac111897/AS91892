@@ -8,6 +8,13 @@ public class AlbumRepository : BaseRepository<AlbumRepository>, IAlbumRepository
     {
     }
 
+
+    /// <inheritdoc></inheritdoc>
+    public async Task<int> CountAsync(Expression<Func<Album, bool>> predicate)
+    {
+        return await Context.Albums.CountAsync(predicate);
+    }
+
     /// <inheritdoc></inheritdoc>
     public async Task<int> CountAsync()
     {

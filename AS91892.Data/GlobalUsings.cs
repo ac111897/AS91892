@@ -6,3 +6,4 @@ global using AS91892.Data.Context;
 global using AS91892.Data.ViewModels;
 global using AS91892.Data.Repositories.Abstractions;
 global using Microsoft.EntityFrameworkCore;
+global using System.Linq.Expressions;

@@ -1,4 +1,6 @@
-﻿namespace AS91892.Data;
+﻿using System.Linq.Expressions;
+
+namespace AS91892.Data;
 
 /// <summary>
 /// Generic repository for data models
@@ -53,6 +55,13 @@ public interface IRepository<TModel, TModelID> : IDisposable
     /// </summary>
     /// <returns>The number of records in the database table</returns>
     Task<int> CountAsync();
+
+    /// <summary>
+    /// Gets the number of records in the database table that match the predicates
+    /// </summary>
+    /// <param name="predicate">The condition that it must match</param>
+    /// <returns>A filtered count by the predicate</returns>
+    Task<int> CountAsync(Expression<Func<TModel, bool>> predicate);
 
     /// <summary>
     /// Removes a <typeparamref name="TModel"/> in the <see cref="IRepository{TModel,TModelID}"/>

@@ -10,6 +10,12 @@ public class SongRepository : BaseRepository<SongRepository>, ISongRepository
     {
     }
 
+    /// <inheritdoc></inheritdoc>
+    public async Task<int> CountAsync(Expression<Func<Song, bool>> predicate)
+    {
+        return await Context.Songs.CountAsync(predicate);
+    }
+
     /// <inheritdoc></inheritdoc>/>
     public async Task<int> CountAsync()
     {

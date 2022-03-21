@@ -10,6 +10,12 @@ public class GenreRepository : BaseRepository<GenreRepository>, IGenreRepository
     {
     }
 
+    /// <inheritdoc></inheritdoc>
+    public async Task<int> CountAsync(Expression<Func<Genre, bool>> predicate)
+    {
+        return await Context.Genres.CountAsync(predicate);
+    }
+
     /// <inheritdoc></inheritdoc>/>
     public async Task<int> CountAsync()
     {

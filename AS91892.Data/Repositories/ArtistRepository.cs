@@ -1,4 +1,6 @@
-﻿namespace AS91892.Data.Repositories;
+﻿using System.Linq.Expressions;
+
+namespace AS91892.Data.Repositories;
 
 /// <summary>
 /// Repository to manage <see cref="Artist"/>'s
@@ -10,7 +12,13 @@ public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistReposit
     {
     }
 
-    /// <inheritdoc></inheritdoc>/>
+    /// <inheritdoc></inheritdoc>
+    public async Task<int> CountAsync(Expression<Func<Artist, bool>> predicate)
+    {
+        return await Context.Artists.CountAsync(predicate);
+    }
+
+    /// <inheritdoc></inheritdoc>
     public async Task<int> CountAsync()
     {
         return await Context.Artists.CountAsync();

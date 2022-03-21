@@ -11,6 +11,13 @@ public class ImageRepository : BaseRepository<ImageRepository>, IImageRepository
     {
     }
 
+
+    /// <inheritdoc></inheritdoc>
+    public async Task<int> CountAsync(Expression<Func<Image, bool>> predicate)
+    {
+        return await Context.Images.CountAsync(predicate);
+    }
+
     /// <inheritdoc></inheritdoc>/>
     public async Task<int> CountAsync()
     {
