@@ -42,6 +42,6 @@
     </tbody>
 </table>
 
-@if (!Model.Any()) {
-    <h1>No items available</h1>
+@if (Model is null || !Model.Any()) {
+    <h2>No data available</h2>
 }
