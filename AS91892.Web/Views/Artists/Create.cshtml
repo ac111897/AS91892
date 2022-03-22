@@ -1,7 +1,6 @@
-﻿@inject ILabelRepository labelRepository
+﻿@inject ILabelRepository LabelRepository
 
-
-@model AS91892.Data.Entities.Artist
+@model ArtistViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -15,15 +14,30 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" asp-controller="Artists">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                       
             <div class="form-group">
                 <label asp-for="ArtistName" class="control-label"></label>
                 <input asp-for="ArtistName" class="form-control" />
                 <span asp-validation-for="ArtistName" class="text-danger"></span>
             </div>
+
+            <br />
+
             <div class="form-group">
+                <label asp-for="LabelId"></label>
+                <select>
+                    <option value="@Guid.Empty">None</option>
+                    @{
+                        foreach (var item in await LabelRepository.GetAllAsync())
+                        {
+                            <option value="@item.Id">@Html.Encode(item.Name)</option>
+                        }
+                    }
+                </select>
             </div>
+
             <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary"/>

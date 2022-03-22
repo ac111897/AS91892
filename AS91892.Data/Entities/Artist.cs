@@ -13,7 +13,6 @@ public class Artist : BaseEntity
     /// <summary>
     /// Represents the albums the artists have created
     /// </summary>
-    [Required]
     [JsonPropertyName("albums")]
     public ICollection<Album> Albums { get; set; }
 
@@ -35,6 +34,6 @@ public class Artist : BaseEntity
     /// <inheritdoc></inheritdoc>
     public override string ToString()
     {
-        return $"ID: {Id}, ArtistName: {ArtistName}, Label: {Label?.Name ?? "None"}, Albums: {string.Join(", ", Albums)}";
+        return $"ID: {Id}, ArtistName: {ArtistName}, Label: {Label?.Name ?? "None"}, Albums: {(Albums is not null ? string.Join(", ", Albums) : "None")}";
     }
 }

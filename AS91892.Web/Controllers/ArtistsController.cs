@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AS91892.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 #if DEBUG
 using System.Diagnostics;
 #endif
@@ -16,9 +17,13 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     /// </summary>
     /// <param name="logger"></param>
     /// <param name="repository"></param>
-    public ArtistsController(ILogger<ArtistsController> logger, IArtistRepository repository) : base(logger, repository)
+    /// <param name="labelRepository"></param>
+    public ArtistsController(ILogger<ArtistsController> logger, IArtistRepository repository, ILabelRepository labelRepository) : base(logger, repository)
     {
+        LabelRepository = labelRepository;
     }
+
+    private ILabelRepository LabelRepository { get; }
 
     /// <summary>
     /// Creates an <see cref="Artist"/> in the database
@@ -28,20 +33,31 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     [HttpPost, ActionName(nameof(Create))]
     [Route(nameof(Create))]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("ArtistName")] Artist artist)
+    public async Task<IActionResult> Create([Bind("ArtistName, LabelId")] ArtistViewModel artist)
     {
 #if DEBUG
         Debug.WriteLine("hit Artists/Create");
 #endif
         artist.Id = Guid.NewGuid();
 
+        artist.Label = artist.LabelId != Guid.Empty ? await LabelRepository.GetAsync(artist.LabelId) : null;
+
+        artist.Albums = new List<Album>();
+
+        var completeArtist = new Artist()
+        {
+            Id = artist.Id,
+            ArtistName = artist.ArtistName,
+            Label = artist.Label
+        };
+
         if (ModelState.IsValid)
         {
 #if DEBUG
             Debug.WriteLine("trying create Artists/Create");
 #endif
-            await Repository.CreateAsync(artist);
-            Logger.LogInformation("Created {model}", artist);
+            await Repository.CreateAsync(completeArtist);
+            Logger.LogInformation("Created {model}", completeArtist);
             return RedirectToAction(nameof(Index));
         }
 #if DEBUG
