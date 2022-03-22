@@ -8,9 +8,9 @@ public class AlbumViewModel
     /// <summary>
     /// Containing album
     /// </summary>
-    public Album? Value { get; set; }
+    public Album Value { get; set; } = new();
     /// <summary>
     /// Provides a class to deal with an <see cref="IFormFile"/>
     /// </summary>
-    public ImageViewModel? Image { get; set; }
+    public ImageViewModel Image { get; set; } = new();
 }
