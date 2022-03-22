@@ -38,7 +38,7 @@
                   </td>
 
                   <td>
-                     @Html.Encode((await songRepository.CountAsync(x => x.Genre.Id == item.Id)));
+                     @Html.Encode((await songRepository.CountAsync(x => x.Genre.Id == item.Id)))
                   </td>
 
                   <td>
