@@ -37,10 +37,16 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     {
 #if DEBUG
         Debug.WriteLine("hit Artists/Create");
+        Debug.WriteLine($"LabelId is {artist.LabelId}");
 #endif
         artist.Id = Guid.NewGuid();
 
-        artist.Label = artist.LabelId != Guid.Empty ? await LabelRepository.GetAsync(artist.LabelId) : null;
+        if (!Guid.TryParse(artist.LabelId, out var labelId))
+        {
+            return BadRequest();    
+        }
+
+        artist.Label = labelId == Guid.Empty ? null : await LabelRepository.GetAsync(labelId);
 
         artist.Albums = new List<Album>();
 

@@ -26,13 +26,12 @@
             <br />
 
             <div class="form-group">
-                <label asp-for="LabelId"></label>
-                <select>
-                    <option value="@Guid.Empty">None</option>
+                <select asp-for="LabelId">
                     @{
+                        <option value="@Guid.Empty.ToString()">None</option>
                         foreach (var item in await LabelRepository.GetAllAsync())
                         {
-                            <option value="@item.Id">@Html.Encode(item.Name)</option>
+                            <option value="@item.Id">@item.Name</option>
                         }
                     }
                 </select>
