@@ -11,7 +11,7 @@ public class ArtistControllerTests
     {
         ArtistsController controller = new(
             Creation.CreateLogger<ArtistsController>(),
-            new ArtistRepository(await CreateContext()));
+            new ArtistRepository(await CreateContext()), new LabelRepository(await CreateContext()));
 
         var result = await controller.Index();
 
@@ -23,7 +23,7 @@ public class ArtistControllerTests
     {
         ArtistsController controller = new(
             Creation.CreateLogger<ArtistsController>(),
-            new ArtistRepository(await CreateContext()));
+            new ArtistRepository(await CreateContext()), new LabelRepository(await CreateContext()));
 
         var result = await controller.Details(Guid.Empty);
 
