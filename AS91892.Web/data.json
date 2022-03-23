@@ -6,6 +6,7 @@
 
     "albums": [
       {
+        "id": "235ec46a-2c69-4ff7-aac5-0a82f28c6367",
         "title": "Album one",
         "year": 2022,
         "albumSongs": [
