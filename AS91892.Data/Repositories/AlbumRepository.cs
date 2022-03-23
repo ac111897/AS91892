@@ -59,7 +59,10 @@ public class AlbumRepository : BaseRepository<AlbumRepository>, IAlbumRepository
     /// <inheritdoc></inheritdoc>
     public async Task<Album?> GetAsync(Guid id)
     {
-        return await Context.Albums.FindAsync(id);
+        return await Context.Albums
+            .Include(x => x.AlbumCover)
+            .Include(x => x.AlbumSongs)
+            .SingleOrDefaultAsync(x => x.Id == id);
     }
 
     /// <inheritdoc></inheritdoc>

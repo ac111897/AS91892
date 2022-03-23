@@ -58,7 +58,9 @@ public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistReposit
     /// <inheritdoc></inheritdoc>
     public async Task<Artist?> GetAsync(Guid id)
     {
-        return await Context.Artists.FindAsync(id);
+        return await Context.Artists.Include(x => x.Label)
+            .Include(x => x.Albums)
+            .SingleOrDefaultAsync(x => x.Id == id);
     }
 
     /// <inheritdoc></inheritdoc>
