@@ -102,6 +102,25 @@ public abstract class ControllerWithRepo<TController, TRepository, TModel> : Con
         return View(item);
     }
 
+    /// <summary>
+    /// Returns the update view
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [Route(nameof(Update))]
+    [HttpGet]
+    public async Task<IActionResult> Update(Guid id)
+    {
+        var item = await Repository.GetAsync(id);
+
+        if (item is null)
+        {
+            return NotFound();
+        }
+
+        return View(item);
+    }
+
 
     /// <summary>
     /// Confirms the deletion of a target resource from the database
