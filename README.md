@@ -13,9 +13,6 @@
 2. to apply migrations and use the dotnet-ef commands change "Enable-Test-Data" to false or else it will use the in memory database provider where you cannot make migrations/use ef commands.
 3. Build and run the web project.
 
-Some notes:
-- Note that running in debug mode will have the reset db button on the home page to delete all the records in the database, preferably use this when "Enable-Test-Data".
-
 ## Relevant Implications of the Project
 - This project will not infringe on copyright by using mocked data or test data. This includes stuff like not using assets such as images or videos that are copyright protected and not free use in my project.
 - The project is licensed under the MIT License and might use other code snippet solutions granted they are under legal constraints where I can use them free of infringement.
