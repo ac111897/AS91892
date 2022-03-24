@@ -83,16 +83,7 @@ public class Startup
             app.UseHsts();
         }
 
-        app.Use(async (context, next) =>
-        {
-            await next();
-
-            if (CodePaths.ContainsKey(context.Response.StatusCode))
-            {
-                context.Request.Path = CodePaths[context.Response.StatusCode];
-                await next();
-            }
-        });
+        app.UseStatusCodePagesWithReExecute("/Home/HandleError/{0}");
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
@@ -101,10 +92,4 @@ public class Startup
 
         app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"));
     }
-
-    private static Dictionary<int, string> CodePaths { get; } = new()
-    {
-        { StatusCodes.Status404NotFound, "/NotFound"},
-        { StatusCodes.Status400BadRequest, "/BadRequest"},
-    };
 }

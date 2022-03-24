@@ -1,0 +1,12 @@
+﻿@model int
+
+@{
+    ViewData["Title"] = $"Error Code - {Model}";
+}
+
+<div class="text-center">
+    <h1 class="display-3 alert-danger">@ViewData["Title"]</h1>
+    <p class="display-4 font-weight-bold">Unresolved error</p>
+    <br />
+    <p class="display-4">Return to the <a  asp-controller="/Home" asp-action="Index">home page</a>?</p>
+</div>
