@@ -9,7 +9,11 @@ namespace AS91892.Web.Controllers;
 /// </summary>
 public class HomeController : Controller
 {
-
+    private static Dictionary<int, string> CodePaths { get; } = new()
+    {
+        { StatusCodes.Status404NotFound, "NotFound" },
+        { StatusCodes.Status400BadRequest, "BadRequest" },
+    };
     private ILogger<HomeController> Logger { get; }
 
     /// <summary>
@@ -40,38 +44,23 @@ public class HomeController : Controller
     }
 
     /// <summary>
-    /// The path for when the client receives a bad request from the server
+    /// Reroutes erros to pages
     /// </summary>
+    /// <param name="code"></param>
     /// <returns></returns>
-    [Route("BadRequest")]
-    public new IActionResult BadRequest()
+    [Route("/Home/HandleError/{code:int}")]
+    public IActionResult HandleError(int code)
     {
-        return View();
-    }
-
-    /// <summary>
-    /// Returns the not found page when the user enters an unknown route on the web application
-    /// </summary>
-    /// <returns></returns>
-    [Route("NotFound")]
-    public new IActionResult NotFound()
-    {
-        string originalPath = "unknown";
-        if (HttpContext.Items.ContainsKey("originalPath"))
+        if (CodePaths.ContainsKey(code))
         {
-            if (HttpContext.Items["originalPath"] is string value)
-            {
-                if (value is not null)
-                {
-                    originalPath = value;
-                }
-            }
+            return View(CodePaths[code]);
         }
 
-        ViewData["Path"] = originalPath;
+        Logger.LogDebug("Server encoutered error code {code}", code);
 
-        return View();
+        return View("HomeError", code);
     }
+
 
     /// <summary>
     /// Gets an <see cref="ErrorViewModel"/> view
