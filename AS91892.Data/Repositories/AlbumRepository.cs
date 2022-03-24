@@ -62,6 +62,11 @@ public class AlbumRepository : BaseRepository<AlbumRepository>, IAlbumRepository
         return await Context.Albums
             .Include(x => x.AlbumCover)
             .Include(x => x.AlbumSongs)
+            .ThenInclude(x => x.Features)
+            .Include(x => x.AlbumSongs)
+            .ThenInclude(x => x.Cover)
+            .Include(x => x.AlbumSongs)
+            .ThenInclude(x => x.Genre)
             .SingleOrDefaultAsync(x => x.Id == id);
     }
 
