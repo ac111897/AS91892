@@ -43,11 +43,11 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
     [Route(nameof(Update))]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> UpdateAsync(Guid id, [Bind("Title")] Genre genre)
+    public async Task<IActionResult> UpdateAsync(Guid id, [Bind("Id, Title")] Genre genre)
     {
         if (genre.Id != id)
         {
-            return NotFound();
+            return BadRequest();
         }
 
         await Repository.UpdateAsync(id, genre);
