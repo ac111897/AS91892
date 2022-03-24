@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "400 - Bad Request";
+}
+<!-- Not found page -->
+<div class="text-center">
+    <h1 class="display-3 alert-danger">@ViewData["Title"]</h1>
+    <p class="display-4 font-weight-bold">Bad request was made to the server</p>
+    <br />
+     @{ 
+         // ask user to return to the home page
+     }
+    <p class="display-4">Return to the <a  asp-controller="/Home" asp-action="Index">home page</a>?</p>
+</div>

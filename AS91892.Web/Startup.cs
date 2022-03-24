@@ -86,9 +86,10 @@ public class Startup
         app.Use(async (context, next) =>
         {
             await next();
-            if (context.Response.StatusCode == 404)
+
+            if (CodePaths.ContainsKey(context.Response.StatusCode))
             {
-                context.Request.Path = "/NotFound";
+                context.Request.Path = CodePaths[context.Response.StatusCode];
                 await next();
             }
         });
@@ -100,4 +101,10 @@ public class Startup
 
         app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"));
     }
+
+    private static Dictionary<int, string> CodePaths { get; } = new()
+    {
+        { StatusCodes.Status404NotFound, "/NotFound"},
+        { StatusCodes.Status400BadRequest, "/BadRequest"},
+    };
 }

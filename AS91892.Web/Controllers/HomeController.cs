@@ -40,6 +40,16 @@ public class HomeController : Controller
     }
 
     /// <summary>
+    /// The path for when the client receives a bad request from the server
+    /// </summary>
+    /// <returns></returns>
+    [Route("BadRequest")]
+    public new IActionResult BadRequest()
+    {
+        return View();
+    }
+
+    /// <summary>
     /// Returns the not found page when the user enters an unknown route on the web application
     /// </summary>
     /// <returns></returns>
