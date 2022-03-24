@@ -35,6 +35,7 @@ public class ImageTests
         Assert.True(outputPath == saved.FilePath);
         Assert.True(File.Exists(outputPath));
         Assert.True(!IsCorrupt(outputPath));
+        Assert.True(new FileInfo(outputPath).Length > 0);
         
     }
 

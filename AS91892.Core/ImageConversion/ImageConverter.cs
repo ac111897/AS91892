@@ -14,20 +14,15 @@ public class ImageConverter : IImageConverter<Guid>
         ArgumentNullException.ThrowIfNull(image, nameof(image));
         ArgumentNullException.ThrowIfNull(directory, nameof(directory));
 
-        using var memoryStream = new MemoryStream();
-
-        await image.Photo.CopyToAsync(memoryStream).ConfigureAwait(false);
-
         if (!Directory.Exists(directory))
         {
             Directory.CreateDirectory(directory);
         }
-
         string path = Path.Join(directory.AsSpan(), $"{fileName}.jpg");
 
         using var fileStream = File.Create(path);
 
-        await memoryStream.CopyToAsync(fileStream).ConfigureAwait(false);
+        await image.Photo.CopyToAsync(fileStream).ConfigureAwait(false);
 
         return new Image() { FilePath = path, Id = fileName };
     }
