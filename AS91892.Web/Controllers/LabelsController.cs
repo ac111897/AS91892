@@ -34,4 +34,25 @@ public class LabelsController : ControllerWithRepo<LabelsController, ILabelRepos
 
         return RedirectToAction(nameof(Details), new { id = label.Id });
     }
+
+    /// <summary>
+    /// Updates a record in the database asynchronously
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="label"></param>
+    /// <returns></returns>
+    [Route(nameof(Update))]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateAsync(Guid id, [Bind("Id, Name, Address")] RecordLabel label)
+    {
+        if (label.Id != id || label.Id == Guid.Empty)
+        {
+            return BadRequest();
+        }
+
+        await Repository.UpdateAsync(id, label);
+
+        return RedirectToAction(nameof(Details), new { id });
+    }
 }
