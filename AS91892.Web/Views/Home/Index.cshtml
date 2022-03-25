@@ -1,21 +1,29 @@
-﻿@inject IArtistRepository artistRepository;
+﻿@using AS91892.Web.ControllerFinder
+@inject IArtistRepository ArtistRepository
+@inject IAlbumRepository AlbumRepository
+@inject ISongRepository SongRepository
+@inject IGenreRepository GenreRepository
+@inject ILabelRepository LabelRepository
+
+
+@inject IControllerNameFinder Finder
 
 @{
     ViewData["Title"] = "Home";
+    
 }
 
 <h1 class="text-center">Overview</h1>
-
 
 
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-xl-3">
             <a class="exclude-a" asp-controller="Artists" asp-action="Index">
-                <div class="card bg-c-blue order-card">
+                <div class="card bg-c-blue item-card">
                     <div class="card-block">
                         <h6 class="m-b-20">Artists</h6>
-                        <h2 class="text-right"><span>@await artistRepository.CountAsync()</span></h2>
+                        <h2 class="text-right"><span>@await ArtistRepository.CountAsync()</span></h2>
                         <p class="m-b-0">Number of Artists<span class="f-right"></span></p>
                     </div>
                 </div>
@@ -23,33 +31,51 @@
         </div>
         
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-green order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+            <a class="exclude-a" asp-controller="Albums" asp-action="Index">
+                <div class="card bg-c-green item-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Albums</h6>
+                        <h2 class="text-right"><span>@await AlbumRepository.CountAsync()</span></h2>
+                        <p class="m-b-0">Number of Albums<span class="f-right"></span></p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-yellow order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+            <a class="exclude-a" asp-controller="Songs" asp-action="Index">
+                <div class="card bg-c-yellow item-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Songs</h6>
+                        <h2 class="text-right"><span>@await SongRepository.CountAsync()</span></h2>
+                        <p class="m-b-0">Number of Songs<span class="f-right"></span></p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-pink order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+            <a class="exclude-a" asp-controller="Genres" asp-action="Index">
+                <div class="card bg-c-pink item-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Genres</h6>
+                        <h2 class="text-right"><span>@await GenreRepository.CountAsync()</span></h2>
+                        <p class="m-b-0">Number of Genres<span class="f-right"></span></p>
+                    </div>
                 </div>
-            </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+            <a class="exclude-a" asp-controller="Labels" asp-action="Index">
+                <div class="card bg-c-blue item-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Labels</h6>
+                        <h2 class="text-right"><span>@await LabelRepository.CountAsync()</span></h2>
+                        <p class="m-b-0">Number of Labels<span class="f-right"></span></p>
+                    </div>
+                </div>
+            </a>
         </div>
 	</div>
 </div>

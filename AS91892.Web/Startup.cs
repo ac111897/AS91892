@@ -53,8 +53,8 @@ public class Startup
             
         });
 
-        ServicesSetup.ConfigureSingletons(services);
-        ServicesSetup.ConfigureScoped(services);
+        services.ConfigureSingletons();
+        services.ConfigureScoped();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
