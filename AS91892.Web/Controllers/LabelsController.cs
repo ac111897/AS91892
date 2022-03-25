@@ -51,6 +51,11 @@ public class LabelsController : ControllerWithRepo<LabelsController, ILabelRepos
             return BadRequest();
         }
 
+        if (!ModelState.IsValid)
+        {
+            return View(nameof(Update));
+        }
+
         await Repository.UpdateAsync(id, label);
 
         return RedirectToAction(nameof(Details), new { id });

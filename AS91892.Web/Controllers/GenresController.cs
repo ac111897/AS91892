@@ -50,6 +50,11 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
             return BadRequest();
         }
 
+        if (!ModelState.IsValid)
+        {
+            return View(nameof(Update));
+        }
+
         await Repository.UpdateAsync(id, genre);
 
         return RedirectToAction(nameof(Details), new { id });

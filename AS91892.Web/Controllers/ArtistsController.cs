@@ -90,6 +90,11 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
 
         Logger.LogInformation("Updated: {model}", artist);
 
+        if (!ModelState.IsValid)
+        {
+            return View(nameof(Update));
+        }
+
         await Repository.UpdateAsync(artist.Id, artist);
 
         return RedirectToAction(nameof(Details), new { id = artist.Id });
