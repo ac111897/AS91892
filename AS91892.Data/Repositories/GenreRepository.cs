@@ -19,7 +19,7 @@ public class GenreRepository : BaseRepository<GenreRepository>, IGenreRepository
     /// <inheritdoc></inheritdoc>/>
     public async Task<int> CountAsync()
     {
-        return await Context.Albums.CountAsync();
+        return await Context.Genres.CountAsync();
     }
 
     /// <inheritdoc></inheritdoc>/>
