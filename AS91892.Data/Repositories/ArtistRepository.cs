@@ -60,6 +60,10 @@ public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistReposit
     {
         return await Context.Artists.Include(x => x.Label)
             .Include(x => x.Albums)
+            .ThenInclude(x => x.AlbumSongs)
+            .Include(x => x.Albums)
+            .ThenInclude(x => x.AlbumCover)
+            .Include(x => x.Label)
             .SingleOrDefaultAsync(x => x.Id == id);
     }
 

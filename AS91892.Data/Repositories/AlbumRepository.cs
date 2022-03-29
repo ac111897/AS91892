@@ -47,7 +47,10 @@ public class AlbumRepository : BaseRepository<AlbumRepository>, IAlbumRepository
     /// <inheritdoc></inheritdoc>
     public async Task<IList<Album>> GetAllAsync()
     {
-        return await Task.FromResult(Context.Albums.ToList());
+        return await Context.Albums
+            .Include(x => x.AlbumCover)
+            .Include(x => x.AlbumSongs)
+            .ToListAsync();
     }
 
     /// <inheritdoc></inheritdoc>
