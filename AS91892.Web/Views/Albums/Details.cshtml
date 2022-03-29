@@ -1,7 +1,50 @@
-﻿@model Album
+﻿@inject IArtistRepository ArtistRepository
+
+@model Album
 
 @{
     ViewData["Title"] = "Details";
 }
 
+<a asp-action="Index">
+    <h2>Back to main page</h2>
+</a>
 
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>@nameof(Album)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tracklist
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                if (Model.AlbumSongs is null || !Model.AlbumSongs.Any())
+                {
+                    @Html.Display("No Tracks");
+                }
+                else
+                {
+                    @Html.Display(string.Join(", ", Model.AlbumSongs))
+                }
+            }
+        </dd>
+    </dl>
+</div>

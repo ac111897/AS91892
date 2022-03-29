@@ -6,3 +6,4 @@ global using AS91892.Data.Repositories.Abstractions;
 global using AS91892.Data.Repositories;
 global using AS91892.Data.ViewModels;
 global using AS91892.Web.ControllerFinder;
+global using AS91892.Core;

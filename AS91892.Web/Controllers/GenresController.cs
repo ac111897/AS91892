@@ -14,6 +14,15 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
     }
 
     /// <summary>
+    /// Returns the index view of genres
+    /// </summary>
+    /// <returns></returns>
+    public async Task<IActionResult> Index()
+    {
+        return View(await Repository.GetAllAsync());
+    }
+
+    /// <summary>
     /// Creation end point on the <see cref="GenresController"/>
     /// </summary>
     /// <param name="genre"></param>

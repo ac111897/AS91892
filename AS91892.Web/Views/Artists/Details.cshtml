@@ -31,7 +31,7 @@
                 if (Model?.Label is not null)
                 {
                     <a asp-controller="Labels" asp-action="Details" asp-route-id="@Model!.Label.Id">
-                        @Html.Encode(Model.Label.ToString())
+                        @Html.Encode(Model.Label.Name)
                     </a>
                 }
                 else

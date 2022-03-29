@@ -1,24 +1,36 @@
 ﻿@using AS91892.Data.Entities;
-@model IEnumerable<Artist>
+
+@model PaginatedList<Artist>
 
 @{
     ViewData["Title"] = "Artists";
 }
 
+<h1>@ViewData["Title"]</h1>
+
 <p>
     <a asp-action="Create">Create new</a>
 </p>
 
-<h1>@ViewData["Title"]</h1>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                Id
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ArtistName)
+                Name <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"  asp-route-currentFilter="@ViewData["CurrentFilter"]">Sort (A-Z)</a>
             </th>
             <th></th>
         </tr>
@@ -45,3 +57,23 @@
 @if (Model is null || !Model.Any()) {
     <h2>No data available</h2>
 }
+
+@{
+    var previousIsDisabled = !Model!.HasPreviousPage ? "disabled" : string.Empty;
+    var nextIsDisabled = !Model!.HasNextPage ? "disabled" : string.Empty;
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @previousIsDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextIsDisabled">
+    Next
+</a>

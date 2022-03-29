@@ -44,15 +44,6 @@ public abstract class ControllerWithRepo<TController, TRepository, TModel> : Con
         Repository = repository;
     }
 
-    /// <summary>
-    /// Returns the index view
-    /// </summary>
-    /// <returns></returns>
-    [Route("Index")]
-    public async Task<IActionResult> Index()
-    {
-        return View(await Repository.GetAllAsync());
-    }
 
     /// <summary>
     /// Returns the details of a particular object

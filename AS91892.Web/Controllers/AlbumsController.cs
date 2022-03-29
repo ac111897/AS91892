@@ -24,6 +24,16 @@ public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepos
     }
 
     /// <summary>
+    /// Returns the index view
+    /// </summary>
+    /// <returns></returns>
+    [Route(nameof(Index))]
+    public async Task<IActionResult> Index()
+    {
+        return View(await Repository.GetAllAsync());
+    }
+
+    /// <summary>
     /// Creation endpoint for the <see cref="AlbumsController"/> class
     /// </summary>
     /// <param name="album"></param>

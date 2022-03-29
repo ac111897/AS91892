@@ -26,6 +26,47 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     private ILabelRepository LabelRepository { get; }
 
     /// <summary>
+    /// Returns the index view of the controller
+    /// </summary>
+    /// <returns></returns>
+    [Route("Index")]
+    public async Task<IActionResult> Index(
+        string sortOrder,
+        string currentFilter,
+        string searchString,
+        int? pageNumber)
+    {
+        ViewData["CurrentSort"] = sortOrder;
+        ViewData["NameSortParm"] = string.IsNullOrEmpty(sortOrder) ? "name_desc" : string.Empty;
+
+        if (searchString is not null)
+        {
+            pageNumber = 1;
+        }
+        else
+        {
+            searchString = currentFilter;
+        }
+
+        ViewData["CurrentFiler"] = searchString;
+
+
+        var artists = !string.IsNullOrEmpty(searchString) ? 
+            await Repository.GetAllAsync(x => x.ArtistName.Contains(searchString)) 
+            : await Repository.GetAllAsync();
+
+        artists = sortOrder switch
+        {
+            "name_desc" => artists.OrderByDescending(x => x.ArtistName).ToList(),
+            _ => artists.OrderBy(x => x.ArtistName).ToList(),
+        };
+
+        int pageSize = 5;
+
+        return View(PaginatedList<Artist>.Create(artists, pageNumber ?? 1, pageSize));
+    }
+
+    /// <summary>
     /// Creates an <see cref="Artist"/> in the database
     /// </summary>
     /// <param name="artist"></param>
