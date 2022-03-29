@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using AS91892.Core;
 
 namespace AS91892.Web.ControllerFinder;
 
@@ -40,7 +39,7 @@ public class ControllerNameFinder : IControllerNameFinder
             .Select(name => name.Replace("Controller", string.Empty))
             .ToList();
 
-        list.MoveItemAtIndexToFront(list.FindIndex(x => x == "Home"));
+        list.MoveToFront(list.FindIndex(x => x == "Home"));
 
         return list;
     }
