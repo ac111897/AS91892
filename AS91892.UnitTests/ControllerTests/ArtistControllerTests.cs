@@ -13,7 +13,7 @@ public class ArtistControllerTests
             Creation.CreateLogger<ArtistsController>(),
             new ArtistRepository(await CreateContext()), new LabelRepository(await CreateContext()));
 
-        var result = await controller.Index();
+        var result = await controller.Index(string.Empty, string.Empty, string.Empty, 1);
 
         Assert.True(result is ViewResult);
     }
