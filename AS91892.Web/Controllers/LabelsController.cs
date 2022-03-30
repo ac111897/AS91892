@@ -13,6 +13,17 @@ public class LabelsController : ControllerWithRepo<LabelsController, ILabelRepos
     {
     }
 
+
+    /// <summary>
+    /// Returns the index view of the labels controller
+    /// </summary>
+    /// <returns></returns>
+    [Route("Index")]
+    public async Task<IActionResult> Index()
+    {
+        return View(await Repository.GetAllAsync());
+    }
+
     /// <summary>
     /// Endpoint to create a record label in the database
     /// </summary>

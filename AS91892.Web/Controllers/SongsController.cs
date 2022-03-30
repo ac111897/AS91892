@@ -14,4 +14,16 @@ public class SongsController : ControllerWithRepo<SongsController, ISongReposito
     public SongsController(ILogger<SongsController> logger, ISongRepository repository) : base(logger, repository)
     {
     }
+
+
+    /// <summary>
+    /// Returns the index view of the controller
+    /// </summary>
+    /// <returns></returns>
+    [Route("Index")]
+    public async Task<IActionResult> Index()
+    {
+        return View(await Repository.GetAllAsync());
+
+    }
 }

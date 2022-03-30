@@ -52,7 +52,7 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
 
 
         var artists = !string.IsNullOrEmpty(searchString) ? 
-            await Repository.GetAllAsync(x => x.ArtistName.Contains(searchString)) 
+            await Repository.GetAllAsync(x => x.ArtistName.ToLower().Contains(searchString.ToLower())) 
             : await Repository.GetAllAsync();
 
         artists = sortOrder switch
@@ -88,6 +88,11 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
         }
 
         artist.Label = labelId == Guid.Empty ? null : await LabelRepository.GetAsync(labelId);
+
+        if (artist.Label is null)
+        {
+            return BadRequest();
+        }
 
         artist.Albums = new List<Album>();
 
