@@ -26,6 +26,25 @@
                     }
                 </select>
             </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Minutes"></label>
+                <input asp-for="Minutes" min=0/>
+                <br />
+                <span asp-validation-for="Minutes" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Seconds"></label>
+                <input asp-for="Seconds" min=0/>
+                <br />
+                <span asp-validation-for="Seconds" class="text-danger"></span>
+            </div>
+
             <br />
             <div class="form-group">
                 <label asp-for="Image.Photo"></label>

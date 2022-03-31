@@ -10,15 +10,17 @@ public class SongsController : ControllerWithRepo<SongsController, ISongReposito
 {
     private IImageConverter<Guid> Converter { get; }
     private IWebHostEnvironment Environment { get; }
+    private IGenreRepository GenreRepository { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SongsController"/>
     /// </summary>
     public SongsController(ILogger<SongsController> logger, ISongRepository repository, 
-        IImageConverter<Guid> converter, IWebHostEnvironment environment) : base(logger, repository)
+        IImageConverter<Guid> converter, IWebHostEnvironment environment, IGenreRepository genreRepository) : base(logger, repository)
     {
         Converter = converter;
         Environment = environment;
+        GenreRepository = genreRepository;
     }
 
 
@@ -40,21 +42,33 @@ public class SongsController : ControllerWithRepo<SongsController, ISongReposito
     [HttpPost, ActionName(nameof(Create))]
     [Route(nameof(Create))]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateAsync([Bind("")] SongViewModel song)
+    public async Task<IActionResult> CreateAsync([Bind("Seconds, Minutes, GenreId")] SongViewModel song)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest();
         }
 
+        if (!Guid.TryParse(song.GenreId.AsSpan(), out var genreId))
+        {
+            return BadRequest();
+        }
+
+        var genre = await GenreRepository.GetAsync(genreId);
+
         Song actualObject = new()
         {
             Id = Guid.NewGuid(),
+            Title = song.Title,
+            Genre = genre,
+            Duration = new TimeSpan(0, song.Minutes, song.Seconds),
         };
 
         Image imageObject = await Converter.ToImageAsync(song.Image, Environment.WebRootPath, actualObject.Id);
 
         actualObject.Cover = imageObject;
+
+        await Repository.CreateAsync(actualObject);
 
         return View();
     }
