@@ -46,20 +46,20 @@ public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepos
 #if DEBUG
         Debug.WriteLine($"hit Albums/Create with {album}");
 #endif
-        if (album is null || album.Value is null || album.Image is null)
+        if (!ModelState.IsValid)
         {
-            return BadRequest();
+            return BadRequest(ModelState);
         }
 
-        album.Value.Id = Guid.NewGuid();
+        album.Id = Guid.NewGuid();
 
-        var imageObject = await Converter.ToImageAsync(album.Image, Environment.WebRootPath, album.Value.Id);
+        var imageObject = await Converter.ToImageAsync(album.Photo, Environment.WebRootPath, album.Id);
 
-        album.Value.AlbumCover = imageObject;
+        album.AlbumCover = imageObject;
 
         try
         {
-            await Repository.CreateAsync(album.Value);
+            await Repository.CreateAsync(album);
         }
         catch
         {
@@ -72,7 +72,7 @@ public class AlbumsController : ControllerWithRepo<AlbumsController, IAlbumRepos
         }
 
        
-        return View(nameof(Details), album.Value);
+        return View(nameof(Details), album);
     }
 
     /// <summary>

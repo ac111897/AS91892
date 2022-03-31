@@ -42,16 +42,16 @@ public class SongsController : ControllerWithRepo<SongsController, ISongReposito
     [HttpPost, ActionName(nameof(Create))]
     [Route(nameof(Create))]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateAsync([Bind("Seconds, Minutes, GenreId")] SongViewModel song)
+    public async Task<IActionResult> CreateAsync([Bind("Title, Seconds, Minutes, GenreId, Photo")] SongViewModel song)
     {
         if (!ModelState.IsValid)
         {
-            return BadRequest();
+            return BadRequest(ModelState);
         }
 
         if (!Guid.TryParse(song.GenreId.AsSpan(), out var genreId))
         {
-            return BadRequest();
+            return BadRequest(ModelState);
         }
 
         var genre = await GenreRepository.GetAsync(genreId);
@@ -64,12 +64,12 @@ public class SongsController : ControllerWithRepo<SongsController, ISongReposito
             Duration = new TimeSpan(0, song.Minutes, song.Seconds),
         };
 
-        Image imageObject = await Converter.ToImageAsync(song.Image, Environment.WebRootPath, actualObject.Id);
+        Image imageObject = await Converter.ToImageAsync(song.Photo, Environment.WebRootPath, actualObject.Id);
 
         actualObject.Cover = imageObject;
 
         await Repository.CreateAsync(actualObject);
 
-        return View();
+        return RedirectToAction(nameof(Index));
     }
 }

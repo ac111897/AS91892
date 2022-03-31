@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AS91892.Data.Validation;
 
 namespace AS91892.Web.Models;
 
 /// <summary>
-/// Contains a <see cref="Song"/> and an <see cref="ImageViewModel"/>
+/// Contains a <see cref="Song"/> and an <see cref="IFormFile"/>
 /// </summary>
 public class SongViewModel : Song
 {
@@ -15,14 +16,18 @@ public class SongViewModel : Song
         Duration = default;
         // set duration to default so we dont get model errors
     }
-    /// <summary>
-    /// Provides a class to deal with <see cref="IFormFile"/>
-    /// </summary>
-    [Required]
-    public ImageViewModel Image { get; set; } = new();
 
 #nullable disable
-    
+
+    /// <summary>
+    /// The photo for the song
+    /// </summary>
+    [Required(ErrorMessage = "Please select a file")]
+    [MaxFileSize(10 * 1024 * 1024, ErrorMessage = "File can not be larger than 10 megabytes")]
+    [AllowedExtensions(new string[] { ".jpg" })]
+    [DataType(DataType.Upload)]
+    public IFormFile Photo { get; set; }
+
     /// <summary>
     /// The number of seconds in the duration
     /// </summary>

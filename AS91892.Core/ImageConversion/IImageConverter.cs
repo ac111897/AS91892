@@ -1,5 +1,5 @@
 ﻿using AS91892.Data.Entities;
-using AS91892.Data.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace AS91892.Core.ImageConversion;
 
@@ -15,5 +15,5 @@ public interface IImageConverter<in TID>
     /// <param name="directory"></param>
     /// <param name="fileName"></param>
     /// <returns><see cref="Task{TResult}"/> of <see cref="ImageViewModel"/> to <see langword="await"/></returns>
-    Task<Image> ToImageAsync(ImageViewModel image, string directory, TID fileName);
+    Task<Image> ToImageAsync(IFormFile image, string directory, TID fileName);
 }

@@ -1,5 +1,5 @@
 ﻿using AS91892.Data.Entities;
-using AS91892.Data.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace AS91892.Core.ImageConversion;
 
@@ -9,7 +9,7 @@ namespace AS91892.Core.ImageConversion;
 public class ImageConverter : IImageConverter<Guid>
 {
     /// <inheritdoc></inheritdoc>
-    public async Task<Image> ToImageAsync(ImageViewModel image, string directory, Guid fileName)
+    public async Task<Image> ToImageAsync(IFormFile image, string directory, Guid fileName)
     {
         ArgumentNullException.ThrowIfNull(image, nameof(image));
         ArgumentNullException.ThrowIfNull(directory, nameof(directory));
@@ -22,8 +22,8 @@ public class ImageConverter : IImageConverter<Guid>
 
         using var fileStream = File.Create(path);
 
-        await image.Photo.CopyToAsync(fileStream).ConfigureAwait(false);
+        await image.CopyToAsync(fileStream).ConfigureAwait(false);
 
-        return new Image() { FilePath = path, Id = fileName };
+        return new Image() { FilePath = path, Id = fileName, ImageTitle = image.Name };
     }
 }

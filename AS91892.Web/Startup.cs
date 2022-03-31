@@ -83,7 +83,7 @@ public class Startup
             app.UseHsts();
         }
 
-        app.UseStatusCodePagesWithReExecute("/Home/HandleError/{0}");
+        //app.UseStatusCodePagesWithReExecute("/Home/HandleError/{0}");
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();

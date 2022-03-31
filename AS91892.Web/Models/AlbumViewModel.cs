@@ -1,16 +1,20 @@
-﻿namespace AS91892.Web.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using AS91892.Data.Validation;
+
+namespace AS91892.Web.Models;
 
 /// <summary>
-/// Contains an <see cref="Album"/> and an <see cref="ImageViewModel"/>
+/// Contains an <see cref="Album"/>
 /// </summary>
-public class AlbumViewModel
+public class AlbumViewModel : Album
 {
+#nullable disable
     /// <summary>
-    /// Containing album
+    /// The photo for the album
     /// </summary>
-    public Album Value { get; set; } = new();
-    /// <summary>
-    /// Provides a class to deal with an <see cref="IFormFile"/>
-    /// </summary>
-    public ImageViewModel Image { get; set; } = new();
+    [Required(ErrorMessage = "Please select a file")]
+    [MaxFileSize(10 * 1024 * 1024, ErrorMessage = "File can not be larger than 10 megabytes")]
+    [AllowedExtensions(new string[] { ".jpg" })]
+    [DataType(DataType.Upload)]
+    public IFormFile Photo { get; set; }
 }
