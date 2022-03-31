@@ -13,9 +13,10 @@
           {
             "id": "be236bee-9311-4749-a4c0-e4cef4522315",
             "title": "song one",
+            "duration": "00:01:12",
             "genre": {
               "id": "583a0ad5-95fa-439b-8502-c3cc801b54f0",
-              "title": "rock"
+              "title": "Rock"
             },
             "cover": null
           }
