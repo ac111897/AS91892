@@ -7,7 +7,7 @@ namespace AS91892.Core.MockData;
 public class LabelMockResolver : MockResolverBase<RecordLabel>
 {
     public LabelMockResolver(ILogger<IMockDataResolver<RecordLabel>> logger, IConfiguration configuration)
-        : base("/TestData/artists.json", logger, configuration)
+        : base("/TestData/labels.json", logger, configuration)
     { }
 }
 
