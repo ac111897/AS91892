@@ -38,19 +38,17 @@ public class Startup
         services.AddControllersWithViews();
         services.AddMvc();
 
-        services.AddScoped<IMockDataResolver<Artist>, ArtistMockResolver>();
-
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             // If Enable-Test-Data is set to true then Add-Migration [migration-name] won't as this is an in memory db
             if (IsTest)
             {
                 options.UseInMemoryDatabase($"Tests");
-                return;
             }
-
-            options.UseSqlServer(Configuration.GetConnectionString(nameof(ApplicationDbContext)), x => x.MigrationsAssembly("AS91892.Data"));
-            
+            else
+            {
+                options.UseSqlServer(Configuration.GetConnectionString(nameof(ApplicationDbContext)), x => x.MigrationsAssembly("AS91892.Data"));
+            }
         });
 
         services.ConfigureSingletons();
@@ -64,13 +62,12 @@ public class Startup
     /// <param name="app"></param>
     /// <param name="env"></param>
     /// <param name="context"></param>
-    /// <param name="resolver"></param>
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context, IMockDataResolver<Artist> resolver)
+    /// <param name="provider"></param>
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context, IServiceProvider provider)
     {
         if (IsTest) // adds our dummy data to the app
         {
-            context.Artists.AddRange(resolver.GenerateMock());
-            context.SaveChanges();
+            InitialiseData(ref context, provider);
         }
 
         if (env.IsDevelopment())
@@ -91,5 +88,21 @@ public class Startup
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"));
+    }
+
+    private static void InitialiseData(ref ApplicationDbContext context, IServiceProvider provider)
+    {
+        var genreResolver = provider.GetService<IMockDataResolver<Genre>>();
+        var labelResolver = provider.GetService<IMockDataResolver<RecordLabel>>();
+
+        if (genreResolver is null || labelResolver is null)
+        {
+            throw new InvalidOperationException("Test data services not added to the container");
+        }
+
+        context.Genres.AddRange(genreResolver.GenerateMock());
+        context.RecordLabels.AddRange(labelResolver.GenerateMock());
+
+        context.SaveChanges();
     }
 }

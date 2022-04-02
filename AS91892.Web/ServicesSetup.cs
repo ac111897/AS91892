@@ -1,4 +1,5 @@
-﻿using AS91892.Web.ControllerFinder;
+﻿using AS91892.Core.MockData;
+using AS91892.Web.ControllerFinder;
 
 namespace AS91892.Web;
 
@@ -13,6 +14,10 @@ internal static class ServicesSetup
     /// <param name="services">An <see cref="IServiceCollection"/> to configure the services</param>
     internal static void ConfigureScoped(this IServiceCollection services)
     {
+        services.AddScoped<IMockDataResolver<Artist>, ArtistMockResolver>();
+        services.AddScoped<IMockDataResolver<RecordLabel>, LabelMockResolver>();
+        services.AddScoped<IMockDataResolver<Genre>, GenreMockResolver>();
+
         // configure our data repositories
         services.AddScoped<IArtistRepository, ArtistRepository>();
         services.AddScoped<IAlbumRepository, AlbumRepository>();

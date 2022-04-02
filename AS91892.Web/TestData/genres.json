@@ -1,0 +1,38 @@
+[
+  {
+    "id": "adf7af1c-5623-4107-8adc-0e456404910e",
+    "title": "Electronic Dance"
+  },
+  {
+    "id": "e36076cd-2cca-4c04-8d1f-2dac6ff98e7d",
+    "title": "Rock"
+  },
+  {
+    "id": "60c49188-623f-43cd-9ba5-42751c06c996",
+    "title": "R&B"
+  },
+  {
+    "id": "50ad3ba3-089e-4298-8770-4e11dbb6e638",
+    "title": "Rap"
+  },
+  {
+    "id": "2f0dc4b9-2b9a-4837-be48-5d4c9cf55190",
+    "title": "Indie"
+  },
+  {
+    "id": "9d877bf7-dc0d-4447-b06c-006d40623510",
+    "title": "Classical"
+  },
+  {
+    "id": "497e7602-35a5-47c4-ad83-ce07ea64da47",
+    "title": "Country"
+  },
+  {
+    "id": "13c4751b-9172-477c-9507-d83031b0b62e",
+    "title": "Latin"
+  },
+  {
+    "id": "a63d3f2f-726c-4e20-9b8f-2010e721126a",
+    "title": "Metal"
+  }
+]
