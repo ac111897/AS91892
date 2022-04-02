@@ -17,114 +17,29 @@ namespace AS91892.Web.Controllers;
 /// public class TModelController : <see cref="ControllerWithRepo{TController, TRepository, TModel}"/>
 /// </code>
 /// </remarks>
-public abstract class ControllerWithRepo<TController, TRepository, TModel> : Controller
+public abstract class ControllerWithRepo<TController, TRepository, TModel> : ControllerReadOnly<TController, TRepository, TModel> 
     where TController : Controller
     where TModel : BaseEntity
     where TRepository : IRepository<TModel, Guid>
 {
-    /// <summary>
-    /// Logger for the controller
-    /// </summary>
-    protected ILogger<TController> Logger { get; }
 
     /// <summary>
-    /// Data access for the controller
+    /// Initializes a new instance of the 
     /// </summary>
-    protected TRepository Repository { get; }
-
-    /// <summary>
-    /// Initializes a new instance of the <typeparamref name="TController"/> class with a Logger and a <typeparamref name="TRepository"/>
-    /// </summary>
-    /// <param name="logger">A logger for the class</param>
-    /// <param name="repository">A repository used for data access for the model</param>
-    public ControllerWithRepo(ILogger<TController> logger, TRepository repository)
+    /// <param name="logger"></param>
+    /// <param name="repository"></param>
+    public ControllerWithRepo(ILogger<TController> logger, TRepository repository) : base(logger, repository)
     {
-        ArgumentNullException.ThrowIfNull(repository);
-        Logger = logger;
-        Repository = repository;
+
     }
 
-
     /// <summary>
-    /// Returns the details of a particular object
+    /// Returns the create view to the user
     /// </summary>
-    /// <param name="id"></param>
     /// <returns></returns>
-    [Route("Details")]
-    public async Task<IActionResult> Details(Guid id)
-    {
-        var item = await Repository.GetAsync(id);
-
-        if (item is null)
-        {
-            return NotFound();
-        }
-
-        return View(item);
-    }
-
-
-    /// <summary>
-    /// Returns the view for create
-    /// </summary>
-    /// <returns>An <see cref="IActionResult"/></returns>
-    [HttpGet]
     [Route("Create")]
     public IActionResult Create()
     {
         return View();
-    }
-
-    /// <summary>
-    /// Returns the delete view
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    [Route("Delete")]
-    public async Task<IActionResult> Delete(Guid id)
-    {
-        var item = await Repository.GetAsync(id);
-
-        if (item is null)
-        {
-            return NotFound();
-        }
-
-        return View(item);
-    }
-
-    /// <summary>
-    /// Returns the update view
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    [Route(nameof(Update))]
-    [HttpGet]
-    public async Task<IActionResult> Update(Guid id)
-    {
-        var item = await Repository.GetAsync(id);
-
-        if (item is null)
-        {
-            return NotFound();
-        }
-
-        return View(item);
-    }
-
-
-    /// <summary>
-    /// Confirms the deletion of a target resource from the database
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    [HttpPost, ActionName("Delete")]
-    [Route("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmedAsync(Guid id)
-    {
-        await Repository.DeleteAsync(id);
-
-        return RedirectToAction(nameof(Index));
     }
 }

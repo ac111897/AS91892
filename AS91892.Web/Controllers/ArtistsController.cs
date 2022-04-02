@@ -51,7 +51,7 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
         ViewData["CurrentFiler"] = searchString;
 
 
-        var artists = !string.IsNullOrEmpty(searchString) ? 
+        IList<Artist> artists = !string.IsNullOrEmpty(searchString) ? 
             await Repository.GetAllAsync(x => x.ArtistName.ToLower().Contains(searchString.ToLower())) 
             : await Repository.GetAllAsync();
 

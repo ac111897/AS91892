@@ -6,21 +6,24 @@ namespace AS91892.Web.Controllers;
 /// Controller for the <see cref="Song"/> model
 /// </summary>
 [Route("Songs")]
-public class SongsController : ControllerWithRepo<SongsController, ISongRepository, Song>
+public class SongsController : ControllerReadOnly<SongsController, ISongRepository, Song>
 {
     private IImageConverter<Guid> Converter { get; }
     private IWebHostEnvironment Environment { get; }
     private IGenreRepository GenreRepository { get; }
+    private IAlbumRepository AlbumRepository { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SongsController"/>
     /// </summary>
     public SongsController(ILogger<SongsController> logger, ISongRepository repository, 
-        IImageConverter<Guid> converter, IWebHostEnvironment environment, IGenreRepository genreRepository) : base(logger, repository)
+        IImageConverter<Guid> converter, IWebHostEnvironment environment, 
+        IGenreRepository genreRepository, IAlbumRepository albumRepository) : base(logger, repository)
     {
         Converter = converter;
         Environment = environment;
         GenreRepository = genreRepository;
+        AlbumRepository = albumRepository;
     }
 
 
@@ -33,6 +36,28 @@ public class SongsController : ControllerWithRepo<SongsController, ISongReposito
     {
         return View(await Repository.GetAllAsync());
     }
+
+    /// <summary>
+    /// The create action for a song
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+
+    [Route(nameof(Create))]
+    public async Task<IActionResult> Create(Guid id)
+    {
+        var album = await AlbumRepository.GetAsync(id);
+
+        if (album is null)
+        {
+            return NotFound();
+        }
+
+        ViewData["AlbumId"] = album.Id;
+
+        return View();
+    }
+
 
     /// <summary>
     /// Creates a song in the repository
