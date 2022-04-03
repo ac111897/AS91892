@@ -19,16 +19,11 @@ public class ImageTests
 
         IFormFile file = new FormFile(image, 0, image.Length, "Data", "image.jpg");
 
-        ImageViewModel imageModel = new()
-        {
-            Photo = file
-        };
-
         var id = Guid.NewGuid();
 
         string directory = Path.Join(Directory.GetCurrentDirectory(), "/img/");
 
-        var saved = await convert.ToImageAsync(imageModel, directory, id);
+        var saved = await convert.ToImageAsync(file, directory, id);
 
         string outputPath = Path.Join(Directory.GetCurrentDirectory().AsSpan(), "/img/", $"{id}.jpg");
 

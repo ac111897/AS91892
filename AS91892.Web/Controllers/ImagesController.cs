@@ -31,4 +31,24 @@ public class ImagesController : Controller
     {
         return View(await Repository.GetAllAsync());
     }
+
+
+    /// <summary>
+    /// Details of an image - displays it
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [Route("Details")]
+    public async Task<IActionResult> Details(Guid id)
+    {
+        var image = await Repository.GetAsync(id);
+
+        if (image is null)
+        {
+            return NotFound();
+        }
+
+
+        return View(image);
+    }
 }

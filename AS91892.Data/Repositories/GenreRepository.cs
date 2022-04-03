@@ -1,4 +1,4 @@
-﻿namespace AS91892.Data.Repositories.Abstractions;
+﻿namespace AS91892.Data.Repositories;
 
 /// <summary>
 /// Repository for <see cref="GenreRepository"/>

@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace AS91892.Data;
+namespace AS91892.Data.Repositories;
 
 /// <summary>
 /// Generic repository for data models
