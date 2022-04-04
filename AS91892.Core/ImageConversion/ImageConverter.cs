@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 namespace AS91892.Core.ImageConversion;
 
 /// <summary>
-/// Saves an <see cref="ImageViewModel"/> into a file using the specified unique key and directory, then returns the path that is what is saved in and the image id to look for
+/// Saves an <see cref="IFormFile"/> into a file using the specified unique key and directory, then returns the path that is what is saved in and the image id to look for
 /// </summary>
 public class ImageConverter : IImageConverter<Guid>
 {

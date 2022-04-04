@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace AS91892.Data.Repositories;
+﻿namespace AS91892.Data.Repositories;
 
 /// <summary>
 /// Serves as the base repository to inherit from, this will provide our <see cref="ApplicationDbContext"/> and will implement our dipose pattern

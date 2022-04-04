@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AS91892.Data.Context;
-using AS91892.Data.Entities;
-using Microsoft.EntityFrameworkCore;
-using Xunit;
+﻿namespace AS91892.Tests.RepoTests;
 
-namespace AS91892.Tests.RepoTests;
-
+/// <summary>
+/// Tests for the artist repository, methods do not have commenting as they are self explanatory
+/// </summary>
 public class ArtistTests
 {
     [Fact]

@@ -3,6 +3,8 @@
 /// <inheritdoc></inheritdoc>
 public class AlbumRepository : BaseRepository<AlbumRepository>, IAlbumRepository
 {
+    /// <inheritdoc></inheritdoc>/>
+    public IQueryable<Album> Source => Context.Albums.AsNoTracking();
     /// <inheritdoc></inheritdoc>
     public AlbumRepository(ApplicationDbContext context) : base(context)
     {

@@ -8,6 +8,8 @@ namespace AS91892.Data.Repositories;
 public class ArtistRepository : BaseRepository<ArtistRepository>, IArtistRepository
 {
     /// <inheritdoc></inheritdoc>/>
+    public IQueryable<Artist> Source => Context.Artists.AsNoTracking();
+    /// <inheritdoc></inheritdoc>/>
     public ArtistRepository(ApplicationDbContext context) : base(context)
     {
     }

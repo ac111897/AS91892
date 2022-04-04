@@ -1,8 +1,11 @@
 ﻿using AS91892.Web.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace AS91892.Tests.ControllerTests;
+
+/// <summary>
+/// Tests for the artist controller, methods do not need commenting as they are self explaining
+/// </summary>
 public class ArtistControllerTests
 {
     

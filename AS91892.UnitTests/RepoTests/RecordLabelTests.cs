@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AS91892.Data.Context;
-using AS91892.Data.Entities;
+﻿namespace AS91892.Tests.RepoTests;
 
-namespace AS91892.Tests.RepoTests;
-
+/// <summary>
+/// Tests for the record label repository, method are self-explanatory
+/// </summary>
 public class RecordLabelTests
 {
     [Fact]

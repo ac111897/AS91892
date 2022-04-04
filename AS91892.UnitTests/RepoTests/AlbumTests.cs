@@ -1,5 +1,8 @@
 ﻿namespace AS91892.Tests.RepoTests;
 
+/// <summary>
+/// Tests for the album repository, methods are self-explanatory so they don't need commenting
+/// </summary>
 public class AlbumTests
 {
     [Fact]

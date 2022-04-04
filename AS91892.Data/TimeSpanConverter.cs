@@ -1,7 +1,7 @@
 ﻿namespace AS91892.Data;
 
 /// <summary>
-/// Custom type converter 
+/// Custom type converter to serialize a string into a timespan
 /// </summary>
 public class TimeSpanConverter : JsonConverter<TimeSpan>
 {

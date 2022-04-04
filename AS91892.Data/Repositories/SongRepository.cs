@@ -6,6 +6,8 @@
 public class SongRepository : BaseRepository<SongRepository>, ISongRepository
 {
     /// <inheritdoc></inheritdoc>/>
+    public IQueryable<Song> Source => Context.Songs.AsNoTracking();
+    /// <inheritdoc></inheritdoc>/>
     public SongRepository(ApplicationDbContext context) : base(context)
     {
     }

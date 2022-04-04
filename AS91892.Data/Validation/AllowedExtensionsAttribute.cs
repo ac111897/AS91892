@@ -20,15 +20,15 @@ public class AllowedExtensionsAttribute : ValidationAttribute
     /// <inheritdoc></inheritdoc>
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        var file = value as IFormFile;
+        var file = value as IFormFile; // cast the object to a form file
 
         if (file is not null)
         {
-            ReadOnlySpan<char> extension = Path.GetExtension(file.FileName.AsSpan());
+            ReadOnlySpan<char> extension = Path.GetExtension(file.FileName.AsSpan()); // validate that this is the right extension
 
             if (!_extensions.Contains(extension.ToString().ToLower()))
             {
-                return new ValidationResult(GetErrorMessage());
+                return new ValidationResult(GetErrorMessage()); 
             }
         }
 

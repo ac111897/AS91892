@@ -1,5 +1,8 @@
 ﻿namespace AS91892.Core;
 
+/// <summary>
+/// Extensions class used for methods that aren't to specific to one dll and could be used elsewhere
+/// </summary>
 public static class Extensions
 {
     // from https://stackoverflow.com/a/2575603 (slightly modified)

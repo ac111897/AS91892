@@ -1,9 +1,8 @@
-﻿using System;
-using AS91892.Data.Entities;
-using AS91892.Data.Repositories;
+﻿namespace AS91892.Tests;
 
-namespace AS91892.Tests;
-
+/// <summary>
+/// General internals relating to the project tests
+/// </summary>
 public class InternalsTests
 {
     [Fact]

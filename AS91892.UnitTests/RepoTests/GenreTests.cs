@@ -1,5 +1,8 @@
 ﻿namespace AS91892.Tests.RepoTests;
 
+/// <summary>
+/// Tests for the genre repository, method are self-explanatory
+/// </summary>
 public class GenreTests
 {
     [Fact]

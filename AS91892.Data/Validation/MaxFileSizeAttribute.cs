@@ -24,8 +24,8 @@ public class MaxFileSizeAttribute : ValidationAttribute
 
         if (file is not null)
         {
-            if (file.Length > _maxFileSize)
-            {
+            if (file.Length > _maxFileSize) // check if the file is larger than the max
+            { 
                 return new ValidationResult(GetErrorMessage());
             }
         }

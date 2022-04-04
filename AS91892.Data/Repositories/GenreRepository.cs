@@ -6,6 +6,10 @@
 public class GenreRepository : BaseRepository<GenreRepository>, IGenreRepository
 {
     /// <inheritdoc></inheritdoc>/>
+    public IQueryable<Genre> Source => Context.Genres.AsNoTracking();
+
+
+    /// <inheritdoc></inheritdoc>/>
     public GenreRepository(ApplicationDbContext context) : base(context)
     {
     }
@@ -69,4 +73,5 @@ public class GenreRepository : BaseRepository<GenreRepository>, IGenreRepository
 
         await Context.SaveChangesAsync().ConfigureAwait(false);
     }
+
 }

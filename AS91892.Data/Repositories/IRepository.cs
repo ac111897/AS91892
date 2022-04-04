@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace AS91892.Data.Repositories;
+﻿namespace AS91892.Data.Repositories;
 
 /// <summary>
 /// Generic repository for data models
@@ -69,4 +67,9 @@ public interface IRepository<TModel, TModelID> : IDisposable
     /// <param name="id">The id of the <typeparamref name="TModel"/> to delete</param>
     /// <returns>A <see cref="Task"/> to <see langword="await"/></returns>
     Task DeleteAsync(TModelID id);
+
+    /// <summary>
+    /// The data source of the repository
+    /// </summary>
+    IQueryable<TModel> Source { get; }
 }

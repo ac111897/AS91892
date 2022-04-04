@@ -1,5 +1,8 @@
 ﻿namespace AS91892.Tests.RepoTests;
 
+/// <summary>
+/// Tests for the song repository, methods are self-explanatory
+/// </summary>
 public class SongTests
 {
     [Fact]

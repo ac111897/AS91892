@@ -6,4 +6,3 @@ global using AS91892.Data.Context;
 global using AS91892.Data.Repositories.Abstractions;
 global using Microsoft.EntityFrameworkCore;
 global using System.Linq.Expressions;
-global using AS91892.Data.Validation;

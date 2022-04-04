@@ -6,6 +6,9 @@
 public class LabelRepository : BaseRepository<LabelRepository>, ILabelRepository
 {
     /// <inheritdoc></inheritdoc>/>
+    public IQueryable<RecordLabel> Source => Context.RecordLabels.AsNoTracking();
+
+    /// <inheritdoc></inheritdoc>/>
     public LabelRepository(ApplicationDbContext context) : base(context)
     {
     }

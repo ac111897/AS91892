@@ -7,6 +7,9 @@
 public class ImageRepository : BaseRepository<ImageRepository>, IImageRepository
 {
     /// <inheritdoc></inheritdoc>/>
+    public IQueryable<Image> Source => Context.Images.AsNoTracking();
+
+    /// <inheritdoc></inheritdoc>/>
     public ImageRepository(ApplicationDbContext context) : base(context)
     {
     }

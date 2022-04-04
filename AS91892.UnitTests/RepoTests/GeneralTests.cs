@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace AS91892.Tests.RepoTests;
 
-namespace AS91892.Tests.RepoTests;
-
+/// <summary>
+/// General tests relating to the repositories, methods are self-explanatory
+/// </summary>
 public class GeneralTests
 {
     [Fact]
-    public async Task Artist_Linked()
+    public async Task Artists_IsLinkedToAlbum()
     {
         var context = await CreateContext();
         IArtistRepository repo = new ArtistRepository(context);

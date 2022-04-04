@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace AS91892.Tests;
 
+/// <summary>
+/// Tests relating to the image converters and saving files
+/// </summary>
 public class ImageTests
 {
     private const string FileName = "image.jpg";
