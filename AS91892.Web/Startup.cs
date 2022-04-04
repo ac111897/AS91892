@@ -10,7 +10,7 @@ public class Startup
     /// <summary>
     /// Initializes a new instance of the <see cref="Startup"/> class
     /// </summary>
-    /// <param name="configuration"></param>
+    /// <param name="configuration">Web application configuration</param>
     public Startup(IConfiguration configuration)
     {
         Configuration = configuration;
@@ -21,14 +21,16 @@ public class Startup
     /// </summary>
     public IConfiguration Configuration { get; }
 
-
+    /// <summary>
+    /// If the test data should be enabled
+    /// </summary>
     private bool IsTest => Configuration.GetSection("Data").GetValue<bool>("Enable-Test-Data");
 
     // This method gets called by the runtime. Use this method to add services to the container.
     /// <summary>
     /// Configures services to be used in the application
     /// </summary>
-    /// <param name="services"></param>
+    /// <param name="services">The service collection to add services to</param>
     public void ConfigureServices(IServiceCollection services)
     {        
         services.AddControllersWithViews();
@@ -55,16 +57,18 @@ public class Startup
     /// <summary>
     /// Configures the application
     /// </summary>
-    /// <param name="app"></param>
-    /// <param name="env"></param>
-    /// <param name="context"></param>
-    /// <param name="provider"></param>
+    /// <param name="app">The application and it's settings</param>
+    /// <param name="env">The environment our web app is run on</param>
+    /// <param name="context">Our context passed in by DI</param>
+    /// <param name="provider">Our service provider to retrieve services whilst in the configure method</param>
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context, IServiceProvider provider)
     {
+
         if (IsTest) // adds our dummy data to the app
         {
             DataInitializer.InitializeData(ref context, provider);
         }
+
 
         if (env.IsDevelopment())
         {

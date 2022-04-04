@@ -13,15 +13,47 @@ public class LabelsController : ControllerWithRepo<LabelsController, ILabelRepos
     {
     }
 
-
     /// <summary>
-    /// Returns the index view of the labels controller
+    /// Returns the index view of the controller
     /// </summary>
     /// <returns></returns>
     [Route("Index")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(
+        string sortOrder,
+        string currentFilter,
+        string searchString,
+        int? pageNumber)
     {
-        return View(await Repository.GetAllAsync());
+        ViewData["CurrentSort"] = sortOrder;
+        ViewData["NameSortParm"] = string.IsNullOrEmpty(sortOrder) ? "name_desc" : string.Empty;
+
+        if (searchString is not null)
+        {
+            pageNumber = 1;
+        }
+        else
+        {
+            searchString = currentFilter;
+        }
+
+        ViewData["CurrentFiler"] = searchString;
+
+        var labelSource = Repository.Source;
+
+
+        var source = !string.IsNullOrEmpty(searchString) ?
+            labelSource.Where(a => a.Name.ToLower().Contains(searchString.ToLower()))
+            : labelSource;
+
+        source = sortOrder switch
+        {
+            "name_desc" => source.OrderByDescending(x => x.Name),
+            _ => source.OrderBy(x => x.Name),
+        };
+
+        int pageSize = 5;
+
+        return View(await PaginatedList<RecordLabel>.CreateAsync(source, pageNumber ?? 1, pageSize));
     }
 
     /// <summary>

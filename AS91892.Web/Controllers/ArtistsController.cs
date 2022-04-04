@@ -1,5 +1,6 @@
 ﻿using AS91892.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 #if DEBUG
 using System.Diagnostics;
 #endif
@@ -50,21 +51,25 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
 
         ViewData["CurrentFiler"] = searchString;
 
+        var artistSource = Repository.Source;
 
-        IList<Artist> artists = !string.IsNullOrEmpty(searchString) ? 
-            await Repository.GetAllAsync(x => x.ArtistName.ToLower().Contains(searchString.ToLower())) 
-            : await Repository.GetAllAsync();
 
-        artists = sortOrder switch
+        var source = !string.IsNullOrEmpty(searchString) ?
+            artistSource.Where(a => a.ArtistName.ToLower().Contains(searchString.ToLower()))
+            : artistSource;
+
+        source = sortOrder switch
         {
-            "name_desc" => artists.OrderByDescending(x => x.ArtistName).ToList(),
-            _ => artists.OrderBy(x => x.ArtistName).ToList(),
+            "name_desc" => source.OrderByDescending(x => x.ArtistName),
+            _ => source.OrderBy(x => x.ArtistName),
         };
 
         int pageSize = 5;
 
-        return View(PaginatedList<Artist>.Create(artists, pageNumber ?? 1, pageSize));
+        return View(await PaginatedList<Artist>.CreateAsync(source, pageNumber ?? 1, pageSize));
     }
+
+
 
     /// <summary>
     /// Creates an <see cref="Artist"/> in the database
@@ -84,15 +89,10 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
 
         if (!Guid.TryParse(artist.LabelId, out var labelId))
         {
-            return BadRequest();    
+            return BadRequest();
         }
 
         artist.Label = labelId == Guid.Empty ? null : await LabelRepository.GetAsync(labelId);
-
-        if (artist.Label is null)
-        {
-            return BadRequest();
-        }
 
         artist.Albums = new List<Album>();
 
@@ -120,6 +120,34 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
         return View(artist);
     }
 
+
+    /// <summary>
+    /// Returns the update view for the artists
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet]
+    [Route(nameof(Update))]
+    public override async Task<IActionResult> Update(Guid id)
+    {
+        var artist = await Repository.GetAsync(id);
+
+        if (artist is null)
+        {
+            return NotFound();
+        }
+
+        return View(new ArtistViewModel()
+        {
+            Id = artist.Id,
+            ArtistName = artist.ArtistName,
+            Albums = artist.Albums,
+            LabelId = artist.Label?.Id.ToString() ?? Guid.Empty.ToString()
+        });
+    }
+
+
+
     /// <summary>
     /// Http post method for updating an <see cref="Artist"/>
     /// </summary>
@@ -127,21 +155,33 @@ public class ArtistsController : ControllerWithRepo<ArtistsController, IArtistRe
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="Artist"/> to <see langword="await"/></returns>
     [HttpPost]
     [Route("Update")]
-    public async Task<IActionResult> Update(Artist artist)
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateAsync([Bind("Id, ArtistName, LabelId")] ArtistViewModel artist) 
     {
-        if (await Repository.GetAsync(artist.Id) is null)
-        {
-            return View();
-        }
-
-        Logger.LogInformation("Updated: {model}", artist);
 
         if (!ModelState.IsValid)
         {
-            return View(nameof(Update));
+            return View(nameof(UpdateAsync));
         }
 
-        await Repository.UpdateAsync(artist.Id, artist);
+
+        if (!Guid.TryParse(artist.LabelId, out var labelId))
+        {
+            return BadRequest();
+        }
+
+        artist.Label = labelId == Guid.Empty ? null : await LabelRepository.GetAsync(labelId);
+
+
+        try
+        {
+            await Repository.UpdateAsync(artist.Id, artist);
+        }
+        catch (DBConcurrencyException)
+        {
+            Logger?.LogInformation("Error occured in update of artists");
+            return NotFound();
+        }
 
         return RedirectToAction(nameof(Details), new { id = artist.Id });
     }

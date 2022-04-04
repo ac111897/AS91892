@@ -64,7 +64,11 @@ public class SongRepository : BaseRepository<SongRepository>, ISongRepository
     /// <inheritdoc></inheritdoc>/>
     public async Task<Song?> GetAsync(Guid id)
     {
-        return await Context.Songs.FindAsync(id);
+        return await Context.Songs
+            .Include(x => x.Cover)
+            .Include(x => x.Features)
+            .Include(x => x.Genre)
+            .SingleOrDefaultAsync(x => x.Id == id);
     }
 
     /// <inheritdoc></inheritdoc>/>

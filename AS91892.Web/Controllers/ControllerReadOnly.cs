@@ -88,7 +88,7 @@ public abstract class ControllerReadOnly<TController, TRepository, TModel> : Con
     /// <returns></returns>
     [Route(nameof(Update))]
     [HttpGet]
-    public async Task<IActionResult> Update(Guid id)
+    public virtual async Task<IActionResult> Update(Guid id)
     {
         var item = await Repository.GetAsync(id);
 

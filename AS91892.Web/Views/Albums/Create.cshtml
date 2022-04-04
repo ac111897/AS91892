@@ -8,8 +8,45 @@
 
 <h1>@ViewData["Title"] - @nameof(Album)</h1>
 
+<h2>For Artist Id: @ViewData["ArtistId"]</h2>
 
 
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="Albums" asp-route-id="@((Guid)ViewData["ArtistId"]!)">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                       
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" min=0 />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Photo"></label>
+                <br />
+                <input asp-for="Photo" type="file"/>
+                <br />
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
 
 
 

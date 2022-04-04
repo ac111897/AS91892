@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Details";
+    if (Model!.Cover is not null)
+    {
+        ViewData["Path"] = $"{Model.Cover.Id}.jpg";
+    }
 }
 
 <a asp-action="Index">
@@ -35,5 +39,12 @@
         </dd>
 
     </dl>
-    <img src="@Model!.Cover?.FilePath" alt="cover"/>
+    @{
+        <h2>Image</h2>
+        if (Model.Cover is not null)
+        {
+            <img src="/img/@((string)ViewData["Path"]!)" alt="cover"/>
+        }
+    }
+    
 </div>

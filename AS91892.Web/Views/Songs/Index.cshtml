@@ -1,20 +1,27 @@
-﻿@model IEnumerable<Song>
+﻿@model PaginatedList<Song>
 
 @{
     ViewData["Title"] = "Songs";
 }
 
-<p>
-    <a asp-action="Create">Create new</a>
-</p>
-
 <h1>@ViewData["Title"]</h1>
+
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
 
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Id)</th>
-            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>Id</th>
+            <th>Title</th>
             <th></th>
         </tr>
     </thead>
@@ -30,8 +37,7 @@
                 </td>
                 <td>
                     <a asp-controller="Songs" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-controller="Songs" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                    <a asp-controller="Songs" asp-action="Delete" asp-route-id="@item.Id" class="link-danger">Delete</a>
+                    <a asp-controller="Songs" asp-action="Update" asp-route-id="@item.Id">Update</a>
                 </td>
 
             </tr>
@@ -42,3 +48,23 @@
 @if (Model is null || !Model.Any()) {
     <h2>No data available</h2>
 }
+
+@{
+    var prevDisabled = !Model!.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

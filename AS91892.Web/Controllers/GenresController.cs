@@ -14,12 +14,46 @@ public class GenresController : ControllerWithRepo<GenresController, IGenreRepos
     }
 
     /// <summary>
-    /// Returns the index view of genres
+    /// Returns the index view of the controller
     /// </summary>
     /// <returns></returns>
-    public async Task<IActionResult> Index()
+    [Route("Index")]
+    public async Task<IActionResult> Index(
+        string sortOrder,
+        string currentFilter,
+        string searchString,
+        int? pageNumber)
     {
-        return View(await Repository.GetAllAsync());
+        ViewData["CurrentSort"] = sortOrder;
+        ViewData["NameSortParm"] = string.IsNullOrEmpty(sortOrder) ? "name_desc" : string.Empty;
+
+        if (searchString is not null)
+        {
+            pageNumber = 1;
+        }
+        else
+        {
+            searchString = currentFilter;
+        }
+
+        ViewData["CurrentFiler"] = searchString;
+
+        var genreSource = Repository.Source;
+
+
+        var source = !string.IsNullOrEmpty(searchString) ?
+            genreSource.Where(a => a.Title.ToLower().Contains(searchString.ToLower()))
+            : genreSource;
+
+        source = sortOrder switch
+        {
+            "name_desc" => source.OrderByDescending(x => x.Title),
+            _ => source.OrderBy(x => x.Title),
+        };
+
+        int pageSize = 5;
+
+        return View(await PaginatedList<Genre>.CreateAsync(source, pageNumber ?? 1, pageSize));
     }
 
     /// <summary>

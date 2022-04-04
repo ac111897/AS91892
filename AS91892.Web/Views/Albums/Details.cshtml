@@ -31,20 +31,26 @@
     </dl>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-2 underline">
             Tracklist
         </dt>
-        <dd class="col-sm-10">
+         <dt class="col-sm-10">
             @{
-                if (Model.AlbumSongs is null || !Model.AlbumSongs.Any())
+                if (Model!.AlbumSongs is null || !Model!.AlbumSongs.Any())
                 {
-                    @Html.Display("No Tracks");
+                    @Html.Encode("No albums available")
                 }
                 else
                 {
-                    @Html.Display(string.Join(", ", Model.AlbumSongs))
+                    foreach (var item in Model.AlbumSongs)
+                    {
+                        <a asp-action="Details" asp-controller="Songs" asp-route-id="@item.Id">
+                           @Html.Encode(item.Title)
+                        </a>
+                        <br />
+                    }
                 }
             }
-        </dd>
+        </dt>
     </dl>
 </div>
