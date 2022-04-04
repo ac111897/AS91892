@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['validate_0',['Validate',['../class_image_view_model.html#a9ecd8a4e79c2db0520601ba5381547f4',1,'ImageViewModel']]]
+  ['year_0',['Year',['../class_album.html#a9cde9bd9ffad36d4fa8c48d27db09597',1,'Album']]]
 ];

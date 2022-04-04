@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -88,9 +89,17 @@ $(document).ready(function(){initNavTree('class_albums_controller.html',''); ini
 
 <p>This is the complete list of members for <a class="el" href="class_albums_controller.html">AlbumsController</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_albums_controller.html#a73c493d69fafd4d077d59a8423d7f658">AlbumsController</a>(ILogger&lt; AlbumsController &gt; logger, IAlbumRepository repository)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_albums_controller.html#a01c2e49c5246c7c78517e3806f77385e">CreateAsync</a>(Album album)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_albums_controller.html#a7c5a39e11b455b5eb72e82b51c89c8f6">Index</a>()</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_albums_controller.html#a91968be5059098d626b3ad2684f8f13b">AlbumsController</a>(ILogger&lt; AlbumsController &gt; logger, IAlbumRepository repository, IImageConverter&lt; Guid &gt; converter, IWebHostEnvironment environment, IArtistRepository artistRepository)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_controller_read_only.html#a7dcc291cd2d2d0aff073663dee1d239f">ControllerReadOnly</a>(ILogger&lt; TController &gt; logger, TRepository repository)</td><td class="entry"><a class="el" href="class_controller_read_only.html">ControllerReadOnly&lt; AlbumsController, IAlbumRepository, Album &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_albums_controller.html#a211eca612778143e1edff22a94ef8805">Create</a>(Guid id)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_albums_controller.html#a948c5686d4926a6a88a194d906e4c6d0">CreateAsync</a>(Guid id, [Bind(&quot;Title, Year, Photo&quot;)] AlbumViewModel album)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_controller_read_only.html#af4daa62f273369108bca4db8afdb8a73">Delete</a>(Guid id)</td><td class="entry"><a class="el" href="class_controller_read_only.html">ControllerReadOnly&lt; AlbumsController, IAlbumRepository, Album &gt;</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_controller_read_only.html#ad3f7b752bfcf7de522a2811a2582e31d">DeleteConfirmedAsync</a>(Guid id)</td><td class="entry"><a class="el" href="class_controller_read_only.html">ControllerReadOnly&lt; AlbumsController, IAlbumRepository, Album &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_controller_read_only.html#a13535b266aae593a89478334ba063f40">Details</a>(Guid id)</td><td class="entry"><a class="el" href="class_controller_read_only.html">ControllerReadOnly&lt; AlbumsController, IAlbumRepository, Album &gt;</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_albums_controller.html#a1c6665c22aa97fa7ba7607bc7a7129dc">Index</a>(string sortOrder, string currentFilter, string searchString, int? pageNumber)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_controller_read_only.html#a3abd0478d494e16f8e5075b00ee7b472">Logger</a></td><td class="entry"><a class="el" href="class_controller_read_only.html">ControllerReadOnly&lt; AlbumsController, IAlbumRepository, Album &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_controller_read_only.html#a3df288bfddfe20b45d021ed899e22eeb">Repository</a></td><td class="entry"><a class="el" href="class_controller_read_only.html">ControllerReadOnly&lt; AlbumsController, IAlbumRepository, Album &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_albums_controller.html#aff68b7b7747e597598de541a34520b0a">Update</a>(Guid id)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_albums_controller.html#a7e0a2b613c6f29b4a8aa14ea617a1cb4">UpdateAsync</a>(Album album)</td><td class="entry"><a class="el" href="class_albums_controller.html">AlbumsController</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->

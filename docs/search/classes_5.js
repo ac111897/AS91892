@@ -1,28 +1,4 @@
 var searchData=
 [
-  ['ialbumrepository_0',['IAlbumRepository',['../interface_i_album_repository.html',1,'']]],
-  ['iartistrepository_1',['IArtistRepository',['../interface_i_artist_repository.html',1,'']]],
-  ['igenrerepository_2',['IGenreRepository',['../interface_i_genre_repository.html',1,'']]],
-  ['iimageconverter_3',['IImageConverter',['../interface_i_image_converter.html',1,'']]],
-  ['iimageconverter_3c_20guid_20_3e_4',['IImageConverter&lt; Guid &gt;',['../interface_i_image_converter.html',1,'']]],
-  ['iimagerepository_5',['IImageRepository',['../interface_i_image_repository.html',1,'']]],
-  ['ilabelrepository_6',['ILabelRepository',['../interface_i_label_repository.html',1,'']]],
-  ['image_7',['Image',['../class_image.html',1,'']]],
-  ['imageconverter_8',['ImageConverter',['../class_image_converter.html',1,'']]],
-  ['imagecouldnotbecreatedexception_9',['ImageCouldNotBeCreatedException',['../class_image_could_not_be_created_exception.html',1,'']]],
-  ['imagerepository_10',['ImageRepository',['../class_image_repository.html',1,'']]],
-  ['imagescontroller_11',['ImagesController',['../class_images_controller.html',1,'']]],
-  ['imagetests_12',['ImageTests',['../class_image_tests.html',1,'']]],
-  ['imageviewmodel_13',['ImageViewModel',['../class_image_view_model.html',1,'']]],
-  ['imockdataresolver_14',['IMockDataResolver',['../interface_i_mock_data_resolver.html',1,'']]],
-  ['imockdataresolver_3c_20artist_20_3e_15',['IMockDataResolver&lt; Artist &gt;',['../interface_i_mock_data_resolver.html',1,'']]],
-  ['internalstests_16',['InternalsTests',['../class_internals_tests.html',1,'']]],
-  ['irepository_17',['IRepository',['../interface_i_repository.html',1,'']]],
-  ['irepository_3c_20album_2c_20guid_20_3e_18',['IRepository&lt; Album, Guid &gt;',['../interface_i_repository.html',1,'']]],
-  ['irepository_3c_20artist_2c_20guid_20_3e_19',['IRepository&lt; Artist, Guid &gt;',['../interface_i_repository.html',1,'']]],
-  ['irepository_3c_20genre_2c_20guid_20_3e_20',['IRepository&lt; Genre, Guid &gt;',['../interface_i_repository.html',1,'']]],
-  ['irepository_3c_20image_2c_20guid_20_3e_21',['IRepository&lt; Image, Guid &gt;',['../interface_i_repository.html',1,'']]],
-  ['irepository_3c_20recordlabel_2c_20guid_20_3e_22',['IRepository&lt; RecordLabel, Guid &gt;',['../interface_i_repository.html',1,'']]],
-  ['irepository_3c_20song_2c_20guid_20_3e_23',['IRepository&lt; Song, Guid &gt;',['../interface_i_repository.html',1,'']]],
-  ['isongrepository_24',['ISongRepository',['../interface_i_song_repository.html',1,'']]]
+  ['homecontroller_0',['HomeController',['../class_home_controller.html',1,'']]]
 ];

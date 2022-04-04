@@ -27,7 +27,12 @@ var NAVTREE =
   [ "AS91892", "index.html", [
     [ "The MIT License (MIT)", "md__a_s91892__web_wwwroot_lib_jquery_validation__l_i_c_e_n_s_e.html", null ],
     [ "AS91892", "md__r_e_a_d_m_e.html", [
-      [ "Github repository for AS91892 internal", "md__r_e_a_d_m_e.html#autotoc_md1", null ]
+      [ "Github repository for AS91892 internal", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Running the project", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Relevant Implications of the Project", "md__r_e_a_d_m_e.html#autotoc_md3", null ]
+    ] ],
+    [ "Packages", "namespaces.html", [
+      [ "Packages", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -47,8 +52,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_a_s91892_8_core_2_assembly_info_8cs.html",
-"class_image_could_not_be_created_exception.html#a46054692aa4c34fb3b9b7c6e9543972c"
+"20220323215809___initial_create_8_designer_8cs_source.html",
+"class_label_repository.html#a619648850eef881cf253cb58bc3bde1b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

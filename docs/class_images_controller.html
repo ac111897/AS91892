@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -103,14 +104,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af73a10179590351c94badf1e48b6d8dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_images_controller.html#af73a10179590351c94badf1e48b6d8dd">ImagesController</a> (ILogger&lt; <a class="el" href="class_images_controller.html">ImagesController</a> &gt; logger, <a class="el" href="interface_i_image_repository.html">IImageRepository</a> repository)</td></tr>
 <tr class="memdesc:af73a10179590351c94badf1e48b6d8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="class_images_controller.html" title="Controller for the Image class">ImagesController</a> class  <a href="class_images_controller.html#af73a10179590351c94badf1e48b6d8dd">More...</a><br /></td></tr>
 <tr class="separator:af73a10179590351c94badf1e48b6d8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9b7e014346ecca8cf48000474bc14a"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_images_controller.html#a4b9b7e014346ecca8cf48000474bc14a">Index</a> ()</td></tr>
-<tr class="memdesc:a4b9b7e014346ecca8cf48000474bc14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index method of the <a class="el" href="class_images_controller.html" title="Controller for the Image class">ImagesController</a> class  <a href="class_images_controller.html#a4b9b7e014346ecca8cf48000474bc14a">More...</a><br /></td></tr>
-<tr class="separator:a4b9b7e014346ecca8cf48000474bc14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca14f07654ec59085791ea579800435d"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_images_controller.html#aca14f07654ec59085791ea579800435d">Index</a> (string sortOrder, string currentFilter, string searchString, int? pageNumber)</td></tr>
+<tr class="memdesc:aca14f07654ec59085791ea579800435d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index view of the controller  <a href="class_images_controller.html#aca14f07654ec59085791ea579800435d">More...</a><br /></td></tr>
+<tr class="separator:aca14f07654ec59085791ea579800435d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b488d03a781b86c69d0f0ad8ff583f8"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_images_controller.html#a3b488d03a781b86c69d0f0ad8ff583f8">Details</a> (Guid id)</td></tr>
+<tr class="memdesc:a3b488d03a781b86c69d0f0ad8ff583f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Details of an image - displays it  <a href="class_images_controller.html#a3b488d03a781b86c69d0f0ad8ff583f8">More...</a><br /></td></tr>
+<tr class="separator:a3b488d03a781b86c69d0f0ad8ff583f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Controller for the <a class="el" href="class_image.html" title="Represents an image in the database">Image</a> class </p>
 
-<p class="definition">Definition at line <a class="el" href="_images_controller_8cs_source.html#l00008">8</a> of file <a class="el" href="_images_controller_8cs_source.html">ImagesController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_images_controller_8cs_source.html#l00009">9</a> of file <a class="el" href="_images_controller_8cs_source.html">ImagesController.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af73a10179590351c94badf1e48b6d8dd" name="af73a10179590351c94badf1e48b6d8dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af73a10179590351c94badf1e48b6d8dd">&#9670;&nbsp;</a></span>ImagesController()</h2>
@@ -147,30 +151,82 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_images_controller_8cs_source.html#l00015">15</a> of file <a class="el" href="_images_controller_8cs_source.html">ImagesController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_images_controller_8cs_source.html#l00016">16</a> of file <a class="el" href="_images_controller_8cs_source.html">ImagesController.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4b9b7e014346ecca8cf48000474bc14a" name="a4b9b7e014346ecca8cf48000474bc14a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b9b7e014346ecca8cf48000474bc14a">&#9670;&nbsp;</a></span>Index()</h2>
+<a id="a3b488d03a781b86c69d0f0ad8ff583f8" name="a3b488d03a781b86c69d0f0ad8ff583f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b488d03a781b86c69d0f0ad8ff583f8">&#9670;&nbsp;</a></span>Details()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">IActionResult ImagesController.Index </td>
+          <td class="memname">async Task&lt; IActionResult &gt; ImagesController.Details </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">Guid&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Index method of the <a class="el" href="class_images_controller.html" title="Controller for the Image class">ImagesController</a> class </p>
+<p>Details of an image - displays it </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_images_controller_8cs_source.html#l00028">28</a> of file <a class="el" href="_images_controller_8cs_source.html">ImagesController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_images_controller_8cs_source.html#l00075">75</a> of file <a class="el" href="_images_controller_8cs_source.html">ImagesController.cs</a>.</p>
+
+</div>
+</div>
+<a id="aca14f07654ec59085791ea579800435d" name="aca14f07654ec59085791ea579800435d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca14f07654ec59085791ea579800435d">&#9670;&nbsp;</a></span>Index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; ImagesController.Index </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>sortOrder</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>currentFilter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>searchString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>pageNumber</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the index view of the controller </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_images_controller_8cs_source.html#l00031">31</a> of file <a class="el" href="_images_controller_8cs_source.html">ImagesController.cs</a>.</p>
 
 </div>
 </div>

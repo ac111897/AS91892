@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,25 +86,26 @@ $(document).ready(function(){initNavTree('_genre_8cs_source.html',''); initResiz
   <div class="headertitle"><div class="title">Genre.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_genre_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Entities;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Entities;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#nullable disable</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_genre.html">    8</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_genre.html">Genre</a> : <a class="code hl_class" href="class_base_entity.html">BaseEntity</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    [Required]</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    [Required(AllowEmptyStrings = <span class="keyword">false</span>, ErrorMessage = $<span class="stringliteral">&quot;You must provide a value for the {nameof(Genre)}&quot;</span>)]</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    [StringLength(50, ErrorMessage = $<span class="stringliteral">&quot;Length of {nameof(Title)} should be between 2 &amp; 50&quot;</span>, MinimumLength = 2)]</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_genre.html#a75791f8b3ab8c80df3aba90513d5f69e">   15</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_genre.html#a75791f8b3ab8c80df3aba90513d5f69e">Title</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    [JsonPropertyName(<span class="stringliteral">&quot;title&quot;</span>)]</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_genre.html#a75791f8b3ab8c80df3aba90513d5f69e">   16</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_genre.html#a75791f8b3ab8c80df3aba90513d5f69e">Title</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
 <div class="ttc" id="aclass_base_entity_html"><div class="ttname"><a href="class_base_entity.html">BaseEntity</a></div><div class="ttdoc">Represents a entity in the database using an id, this is to make it simpler to create an entity</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00008">BaseEntity.cs:9</a></div></div>
 <div class="ttc" id="aclass_genre_html"><div class="ttname"><a href="class_genre.html">Genre</a></div><div class="ttdoc">Represents a genre in music</div><div class="ttdef"><b>Definition:</b> <a href="_genre_8cs_source.html#l00008">Genre.cs:9</a></div></div>
-<div class="ttc" id="aclass_genre_html_a75791f8b3ab8c80df3aba90513d5f69e"><div class="ttname"><a href="class_genre.html#a75791f8b3ab8c80df3aba90513d5f69e">Genre.Title</a></div><div class="ttdeci">string Title</div><div class="ttdoc">The name of the genre</div><div class="ttdef"><b>Definition:</b> <a href="_genre_8cs_source.html#l00015">Genre.cs:15</a></div></div>
+<div class="ttc" id="aclass_genre_html_a75791f8b3ab8c80df3aba90513d5f69e"><div class="ttname"><a href="class_genre.html#a75791f8b3ab8c80df3aba90513d5f69e">Genre.Title</a></div><div class="ttdeci">string Title</div><div class="ttdoc">The name of the genre</div><div class="ttdef"><b>Definition:</b> <a href="_genre_8cs_source.html#l00016">Genre.cs:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_e8392fb551a323a2c87a39e063cd24e0.html">Entities</a></li><li class="navelem"><a class="el" href="_genre_8cs.html">Genre.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_e8392fb551a323a2c87a39e063cd24e0.html">Entities</a></li><li class="navelem"><b>Genre.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

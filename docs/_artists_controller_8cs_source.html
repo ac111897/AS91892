@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,82 +86,194 @@ $(document).ready(function(){initNavTree('_artists_controller_8cs_source.html','
   <div class="headertitle"><div class="title">ArtistsController.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_artists_controller_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> Microsoft.AspNetCore.Mvc;</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span>AS91892.Web.Controllers;</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>[Route(<span class="stringliteral">&quot;artists&quot;</span>)]</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_artists_controller.html">    9</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_artists_controller.html">ArtistsController</a> : Controller</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a07b459dd002fdd02c25e6ee043c4be44">   16</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="class_artists_controller.html#a07b459dd002fdd02c25e6ee043c4be44">ArtistsController</a>(ILogger&lt;ArtistsController&gt; logger, <a class="code hl_interface" href="interface_i_artist_repository.html">IArtistRepository</a> repository)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        Logger = logger;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        Repository = repository;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">private</span> ILogger&lt;ArtistsController&gt; Logger { <span class="keyword">get</span>; }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">private</span> <a class="code hl_interface" href="interface_i_artist_repository.html">IArtistRepository</a> Repository { <span class="keyword">get</span>; }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    [Route(<span class="stringliteral">&quot;{id}&quot;</span>)]</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a4134046174af129915d03e38ab978597">   29</a></span>    <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="class_artists_controller.html#a4134046174af129915d03e38ab978597">Index</a>(Guid? <span class="keywordtype">id</span>)</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">if</span> (<span class="keywordtype">id</span> is <span class="keyword">null</span>)</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordflow">return</span> View(await Repository.<a class="code hl_function" href="interface_i_repository.html#a2bef13bcf0d63c6e21690955a6111aa2">GetAllAsync</a>());</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        var model = await Repository.<a class="code hl_function" href="interface_i_repository.html#a7298a5f1505f4f39a62ab99c47f2ecf4">GetAsync</a>(<span class="keywordtype">id</span>.Value);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">if</span> (model is <span class="keyword">null</span>)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">return</span> NotFound();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> View(model);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    [HttpPost]</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    [ValidateAntiForgeryToken]</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a38d112c7a4b13cc34e24c47de4745f6d">   52</a></span>    <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="class_artists_controller.html#a38d112c7a4b13cc34e24c47de4745f6d">Create</a>(<a class="code hl_class" href="class_artist.html">Artist</a> artist)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        await Repository.<a class="code hl_function" href="interface_i_repository.html#ad8af1a17ca38916e77518ac402da3d64">CreateAsync</a>(artist);</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> <a class="code hl_namespace" href="namespace_a_s91892.html">AS91892</a>.Web.Models;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using</span> Microsoft.AspNetCore.Mvc;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using</span> System.<a class="code hl_namespace" href="namespace_a_s91892_1_1_data.html">Data</a>;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#if DEBUG</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using</span> System.Diagnostics;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>AS91892.Web.Controllers;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>[Route(<span class="stringliteral">&quot;Artists&quot;</span>)]</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_artists_controller.html">   14</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_artists_controller.html">ArtistsController</a> : <a class="code hl_class" href="class_controller_with_repo.html">ControllerWithRepo</a>&lt;ArtistsController, IArtistRepository, Artist&gt;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a3060364b169d7f34b8fcbac76d1488fb">   22</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="class_artists_controller.html#a3060364b169d7f34b8fcbac76d1488fb">ArtistsController</a>(ILogger&lt;ArtistsController&gt; logger, <a class="code hl_interface" href="interface_i_artist_repository.html">IArtistRepository</a> repository, <a class="code hl_interface" href="interface_i_label_repository.html">ILabelRepository</a> labelRepository) : base(logger, repository)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_class" href="class_label_repository.html">LabelRepository</a> = labelRepository;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">private</span> <a class="code hl_interface" href="interface_i_label_repository.html">ILabelRepository</a> <a class="code hl_class" href="class_label_repository.html">LabelRepository</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    [Route(<span class="stringliteral">&quot;Index&quot;</span>)]</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a4f711d869386bacf6cd268e5d2f07d3b">   34</a></span>    <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="class_artists_controller.html#a4f711d869386bacf6cd268e5d2f07d3b">Index</a>(</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">string</span> sortOrder,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">string</span> currentFilter,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordtype">string</span> searchString,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">int</span>? pageNumber)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        ViewData[<span class="stringliteral">&quot;CurrentSort&quot;</span>] = sortOrder;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        ViewData[<span class="stringliteral">&quot;NameSortParm&quot;</span>] = <span class="keywordtype">string</span>.IsNullOrEmpty(sortOrder) ? <span class="stringliteral">&quot;name_desc&quot;</span> : <span class="keywordtype">string</span>.Empty;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> (searchString is not <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            pageNumber = 1;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            searchString = currentFilter;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        ViewData[<span class="stringliteral">&quot;CurrentFiler&quot;</span>] = searchString;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        var artistSource = Repository.Source;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        Logger.LogInformation(<span class="stringliteral">&quot;Created: {model}&quot;</span>, artist);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> View(artist);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        var source = !<span class="keywordtype">string</span>.IsNullOrEmpty(searchString) ?</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            artistSource.Where(a =&gt; a.ArtistName.ToLower().Contains(searchString.ToLower()))</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            : artistSource;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    [HttpPost]</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a16ffc55f0c740a72f88e7e72a4551a89">   67</a></span>    <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="class_artists_controller.html#a16ffc55f0c740a72f88e7e72a4551a89">Update</a>(<a class="code hl_class" href="class_artist.html">Artist</a> artist)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">if</span> (await Repository.<a class="code hl_function" href="interface_i_repository.html#a7298a5f1505f4f39a62ab99c47f2ecf4">GetAsync</a>(artist.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a>) is <span class="keyword">null</span>)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordflow">return</span> View();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        source = sortOrder <span class="keywordflow">switch</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="stringliteral">&quot;name_desc&quot;</span> =&gt; source.OrderByDescending(x =&gt; x.ArtistName),</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            _ =&gt; source.OrderBy(x =&gt; x.ArtistName),</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        };</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">int</span> pageSize = 5;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> View(await <a class="code hl_class" href="class_paginated_list.html">PaginatedList&lt;Artist&gt;</a>.CreateAsync(source, pageNumber ?? 1, pageSize));</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        Logger.LogInformation(<span class="stringliteral">&quot;Updated: {model}&quot;</span>, artist);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        await Repository.<a class="code hl_function" href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">UpdateAsync</a>(artist.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a>, artist);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> View(await Repository.<a class="code hl_function" href="interface_i_repository.html#a2bef13bcf0d63c6e21690955a6111aa2">GetAllAsync</a>());</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    [HttpPost, ActionName(nameof(<a class="code hl_function" href="class_controller_with_repo.html#a29ccfabba5cd6b122d84af49317b09e9">Create</a>))]</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    [Route(nameof(<a class="code hl_function" href="class_controller_with_repo.html#a29ccfabba5cd6b122d84af49317b09e9">Create</a>))]</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    [ValidateAntiForgeryToken]</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a84b1e68ab65cffb10cd6f9be54ffa548">   82</a></span>    <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="class_artists_controller.html#a84b1e68ab65cffb10cd6f9be54ffa548">Create</a>([Bind(<span class="stringliteral">&quot;ArtistName, LabelId&quot;</span>)] <a class="code hl_class" href="class_artist_view_model.html">ArtistViewModel</a> artist)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#if DEBUG</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        Debug.WriteLine(<span class="stringliteral">&quot;hit Artists/Create&quot;</span>);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        Debug.WriteLine($<span class="stringliteral">&quot;LabelId is {artist.LabelId}&quot;</span>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        artist.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a> = Guid.NewGuid();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">if</span> (!Guid.TryParse(artist.<a class="code hl_property" href="class_artist_view_model.html#acaba3cfa82ccd14f28f263e746d60eec">LabelId</a>, out var labelId))</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">return</span> BadRequest();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        artist.<a class="code hl_property" href="class_artist.html#aa26e882f13f80b5227528f499d16db67">Label</a> = labelId == Guid.Empty ? null : await <a class="code hl_class" href="class_label_repository.html">LabelRepository</a>.<a class="code hl_function" href="class_label_repository.html#a67eab3aec61609728a6584ae6fb51ac2">GetAsync</a>(labelId);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        artist.<a class="code hl_property" href="class_artist.html#a5e689fd597bb47ee6a9c133461a48164">Albums</a> = <span class="keyword">new</span> List&lt;Album&gt;();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        var completeArtist = <span class="keyword">new</span> <a class="code hl_class" href="class_artist.html">Artist</a>()</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            Id = artist.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a>,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            ArtistName = artist.<a class="code hl_property" href="class_artist.html#a05cab5e0cdebd2663be1cbd273103534">ArtistName</a>,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            Label = artist.<a class="code hl_property" href="class_artist.html#aa26e882f13f80b5227528f499d16db67">Label</a></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        };</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">if</span> (ModelState.IsValid)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#if DEBUG</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            Debug.WriteLine(<span class="stringliteral">&quot;trying create Artists/Create&quot;</span>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            await Repository.CreateAsync(completeArtist);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            Logger.LogInformation(<span class="stringliteral">&quot;Created {model}&quot;</span>, completeArtist);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="keywordflow">return</span> RedirectToAction(nameof(<a class="code hl_function" href="class_artists_controller.html#a4f711d869386bacf6cd268e5d2f07d3b">Index</a>));</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#if DEBUG</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        Debug.WriteLine(<span class="stringliteral">&quot;returning Artists/Create&quot;</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        Logger.LogInformation(<span class="stringliteral">&quot;ModelState is {model}, Reasons: {reasons}&quot;</span>, ModelState.ValidationState, <span class="keywordtype">string</span>.Join(<span class="stringliteral">&quot;, &quot;</span>, ModelState.Values.Select(x =&gt; x.RawValue)));</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> View(artist);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    [HttpGet]</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    [Route(nameof(<a class="code hl_function" href="class_artists_controller.html#a7368d31c32cc8bcd0568b3297951729a">Update</a>))]</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="class_artists_controller.html#a7368d31c32cc8bcd0568b3297951729a">  131</a></span>    <span class="keyword">public</span> <span class="keyword">override</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="class_artists_controller.html#a7368d31c32cc8bcd0568b3297951729a">Update</a>(Guid <span class="keywordtype">id</span>)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        var artist = await Repository.GetAsync(<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">if</span> (artist is <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="keywordflow">return</span> NotFound();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_artist_view_model.html">ArtistViewModel</a>()</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            Id = artist.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a>,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            ArtistName = artist.ArtistName,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            Albums = artist.Albums,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            LabelId = artist.Label?.Id.ToString() ?? Guid.Empty.ToString()</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        });</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    [HttpPost]</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    [Route(<span class="stringliteral">&quot;Update&quot;</span>)]</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    [ValidateAntiForgeryToken]</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="class_artists_controller.html#ab3f0ec752de7990ec2d288d21d5ba858">  159</a></span>    <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code hl_function" href="class_artists_controller.html#ab3f0ec752de7990ec2d288d21d5ba858">UpdateAsync</a>([Bind(<span class="stringliteral">&quot;Id, ArtistName, LabelId&quot;</span>)] <a class="code hl_class" href="class_artist_view_model.html">ArtistViewModel</a> artist) </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">if</span> (!ModelState.IsValid)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <span class="keywordflow">return</span> View(nameof(<a class="code hl_function" href="class_artists_controller.html#ab3f0ec752de7990ec2d288d21d5ba858">UpdateAsync</a>));</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">if</span> (!Guid.TryParse(artist.<a class="code hl_property" href="class_artist_view_model.html#acaba3cfa82ccd14f28f263e746d60eec">LabelId</a>, out var labelId))</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="keywordflow">return</span> BadRequest();</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        artist.<a class="code hl_property" href="class_artist.html#aa26e882f13f80b5227528f499d16db67">Label</a> = labelId == Guid.Empty ? null : await <a class="code hl_class" href="class_label_repository.html">LabelRepository</a>.<a class="code hl_function" href="class_label_repository.html#a67eab3aec61609728a6584ae6fb51ac2">GetAsync</a>(labelId);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            await Repository.UpdateAsync(artist.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a>, artist);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        }</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">catch</span> (DBConcurrencyException)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            Logger?.LogInformation(<span class="stringliteral">&quot;Error occured in update of artists&quot;</span>);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keywordflow">return</span> NotFound();</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">return</span> RedirectToAction(nameof(Details), <span class="keyword">new</span> { <span class="keywordtype">id</span> = artist.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a> });</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}</div>
 <div class="ttc" id="aclass_artist_html"><div class="ttname"><a href="class_artist.html">Artist</a></div><div class="ttdoc">Represents an Artist in the database</div><div class="ttdef"><b>Definition:</b> <a href="_artist_8cs_source.html#l00011">Artist.cs:12</a></div></div>
-<div class="ttc" id="aclass_artists_controller_html"><div class="ttname"><a href="class_artists_controller.html">ArtistsController</a></div><div class="ttdoc">Controller for artists</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00009">ArtistsController.cs:10</a></div></div>
-<div class="ttc" id="aclass_artists_controller_html_a07b459dd002fdd02c25e6ee043c4be44"><div class="ttname"><a href="class_artists_controller.html#a07b459dd002fdd02c25e6ee043c4be44">ArtistsController.ArtistsController</a></div><div class="ttdeci">ArtistsController(ILogger&lt; ArtistsController &gt; logger, IArtistRepository repository)</div><div class="ttdoc">Initializes a new instance of the ArtistsController class</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00016">ArtistsController.cs:16</a></div></div>
-<div class="ttc" id="aclass_artists_controller_html_a16ffc55f0c740a72f88e7e72a4551a89"><div class="ttname"><a href="class_artists_controller.html#a16ffc55f0c740a72f88e7e72a4551a89">ArtistsController.Update</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Update(Artist artist)</div><div class="ttdoc">Http post method for updating an Artist</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00067">ArtistsController.cs:67</a></div></div>
-<div class="ttc" id="aclass_artists_controller_html_a38d112c7a4b13cc34e24c47de4745f6d"><div class="ttname"><a href="class_artists_controller.html#a38d112c7a4b13cc34e24c47de4745f6d">ArtistsController.Create</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Create(Artist artist)</div><div class="ttdoc">Creates an Artist in the database</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00052">ArtistsController.cs:52</a></div></div>
-<div class="ttc" id="aclass_artists_controller_html_a4134046174af129915d03e38ab978597"><div class="ttname"><a href="class_artists_controller.html#a4134046174af129915d03e38ab978597">ArtistsController.Index</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Index(Guid? id)</div><div class="ttdoc">Gets the main page</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00029">ArtistsController.cs:29</a></div></div>
-<div class="ttc" id="aclass_base_entity_html_a6b592bd1c683269b0b7d7abf6f977669"><div class="ttname"><a href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">BaseEntity.Id</a></div><div class="ttdeci">Guid Id</div><div class="ttdoc">Represents the key of the entity in the database</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00016">BaseEntity.cs:16</a></div></div>
+<div class="ttc" id="aclass_artist_html_a05cab5e0cdebd2663be1cbd273103534"><div class="ttname"><a href="class_artist.html#a05cab5e0cdebd2663be1cbd273103534">Artist.ArtistName</a></div><div class="ttdeci">string ArtistName</div><div class="ttdoc">Represents the Artist's name</div><div class="ttdef"><b>Definition:</b> <a href="_artist_8cs_source.html#l00026">Artist.cs:26</a></div></div>
+<div class="ttc" id="aclass_artist_html_a5e689fd597bb47ee6a9c133461a48164"><div class="ttname"><a href="class_artist.html#a5e689fd597bb47ee6a9c133461a48164">Artist.Albums</a></div><div class="ttdeci">ICollection&lt; Album &gt; Albums</div><div class="ttdoc">Represents the albums the artists have created</div><div class="ttdef"><b>Definition:</b> <a href="_artist_8cs_source.html#l00017">Artist.cs:17</a></div></div>
+<div class="ttc" id="aclass_artist_html_aa26e882f13f80b5227528f499d16db67"><div class="ttname"><a href="class_artist.html#aa26e882f13f80b5227528f499d16db67">Artist.Label</a></div><div class="ttdeci">RecordLabel Label</div><div class="ttdoc">The Artist's label that they are signed to</div><div class="ttdef"><b>Definition:</b> <a href="_artist_8cs_source.html#l00032">Artist.cs:32</a></div></div>
+<div class="ttc" id="aclass_artist_view_model_html"><div class="ttname"><a href="class_artist_view_model.html">ArtistViewModel</a></div><div class="ttdoc">View model for Artist so I don't have to implement multiple parameter binding</div><div class="ttdef"><b>Definition:</b> <a href="_artist_view_model_8cs_source.html#l00011">ArtistViewModel.cs:12</a></div></div>
+<div class="ttc" id="aclass_artist_view_model_html_acaba3cfa82ccd14f28f263e746d60eec"><div class="ttname"><a href="class_artist_view_model.html#acaba3cfa82ccd14f28f263e746d60eec">ArtistViewModel.LabelId</a></div><div class="ttdeci">string LabelId</div><div class="ttdoc">Id for the label to retrieve from the database to supply the label</div><div class="ttdef"><b>Definition:</b> <a href="_artist_view_model_8cs_source.html#l00018">ArtistViewModel.cs:18</a></div></div>
+<div class="ttc" id="aclass_artists_controller_html"><div class="ttname"><a href="class_artists_controller.html">ArtistsController</a></div><div class="ttdoc">Controller for artists</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00014">ArtistsController.cs:15</a></div></div>
+<div class="ttc" id="aclass_artists_controller_html_a3060364b169d7f34b8fcbac76d1488fb"><div class="ttname"><a href="class_artists_controller.html#a3060364b169d7f34b8fcbac76d1488fb">ArtistsController.ArtistsController</a></div><div class="ttdeci">ArtistsController(ILogger&lt; ArtistsController &gt; logger, IArtistRepository repository, ILabelRepository labelRepository)</div><div class="ttdoc">Initializes a new instance of the ArtistsController class</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00022">ArtistsController.cs:22</a></div></div>
+<div class="ttc" id="aclass_artists_controller_html_a4f711d869386bacf6cd268e5d2f07d3b"><div class="ttname"><a href="class_artists_controller.html#a4f711d869386bacf6cd268e5d2f07d3b">ArtistsController.Index</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)</div><div class="ttdoc">Returns the index view of the controller</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00034">ArtistsController.cs:34</a></div></div>
+<div class="ttc" id="aclass_artists_controller_html_a7368d31c32cc8bcd0568b3297951729a"><div class="ttname"><a href="class_artists_controller.html#a7368d31c32cc8bcd0568b3297951729a">ArtistsController.Update</a></div><div class="ttdeci">override async Task&lt; IActionResult &gt; Update(Guid id)</div><div class="ttdoc">Returns the update view for the artists</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00131">ArtistsController.cs:131</a></div></div>
+<div class="ttc" id="aclass_artists_controller_html_a84b1e68ab65cffb10cd6f9be54ffa548"><div class="ttname"><a href="class_artists_controller.html#a84b1e68ab65cffb10cd6f9be54ffa548">ArtistsController.Create</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Create([Bind(&quot;ArtistName, LabelId&quot;)] ArtistViewModel artist)</div><div class="ttdoc">Creates an Artist in the database</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00082">ArtistsController.cs:82</a></div></div>
+<div class="ttc" id="aclass_artists_controller_html_ab3f0ec752de7990ec2d288d21d5ba858"><div class="ttname"><a href="class_artists_controller.html#ab3f0ec752de7990ec2d288d21d5ba858">ArtistsController.UpdateAsync</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; UpdateAsync([Bind(&quot;Id, ArtistName, LabelId&quot;)] ArtistViewModel artist)</div><div class="ttdoc">Http post method for updating an Artist</div><div class="ttdef"><b>Definition:</b> <a href="_artists_controller_8cs_source.html#l00159">ArtistsController.cs:159</a></div></div>
+<div class="ttc" id="aclass_base_entity_html_a6b592bd1c683269b0b7d7abf6f977669"><div class="ttname"><a href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">BaseEntity.Id</a></div><div class="ttdeci">Guid Id</div><div class="ttdoc">Represents the key of the entity in the database</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00017">BaseEntity.cs:17</a></div></div>
+<div class="ttc" id="aclass_controller_with_repo_html"><div class="ttname"><a href="class_controller_with_repo.html">ControllerWithRepo</a></div><div class="ttdoc">A base controller that sets up the logger and the repository, as well as the index view and the detai...</div><div class="ttdef"><b>Definition:</b> <a href="_controller_with_repo_8cs_source.html#l00020">ControllerWithRepo.cs:24</a></div></div>
+<div class="ttc" id="aclass_controller_with_repo_html_a29ccfabba5cd6b122d84af49317b09e9"><div class="ttname"><a href="class_controller_with_repo.html#a29ccfabba5cd6b122d84af49317b09e9">ControllerWithRepo&lt; ArtistsController, IArtistRepository, Artist &gt;::Create</a></div><div class="ttdeci">IActionResult Create()</div><div class="ttdoc">Returns the create view to the user</div><div class="ttdef"><b>Definition:</b> <a href="_controller_with_repo_8cs_source.html#l00041">ControllerWithRepo.cs:41</a></div></div>
+<div class="ttc" id="aclass_label_repository_html"><div class="ttname"><a href="class_label_repository.html">LabelRepository</a></div><div class="ttdoc">Data repository for RecordLabel's</div><div class="ttdef"><b>Definition:</b> <a href="_label_repository_8cs_source.html#l00006">LabelRepository.cs:7</a></div></div>
+<div class="ttc" id="aclass_label_repository_html_a67eab3aec61609728a6584ae6fb51ac2"><div class="ttname"><a href="class_label_repository.html#a67eab3aec61609728a6584ae6fb51ac2">LabelRepository.GetAsync</a></div><div class="ttdeci">Task&lt; RecordLabel?&gt; GetAsync(Guid id)</div><div class="ttdef"><b>Definition:</b> <a href="_label_repository_8cs_source.html#l00063">LabelRepository.cs:63</a></div></div>
+<div class="ttc" id="aclass_paginated_list_html"><div class="ttname"><a href="class_paginated_list.html">PaginatedList</a></div><div class="ttdoc">Paginated list used for pagination on web pages so we don't hit the database too much</div><div class="ttdef"><b>Definition:</b> <a href="_paginated_list_8cs_source.html#l00009">PaginatedList.cs:10</a></div></div>
 <div class="ttc" id="ainterface_i_artist_repository_html"><div class="ttname"><a href="interface_i_artist_repository.html">IArtistRepository</a></div><div class="ttdoc">Abstraction layer for the table of Artist</div><div class="ttdef"><b>Definition:</b> <a href="_i_artist_repository_8cs_source.html#l00006">IArtistRepository.cs:6</a></div></div>
-<div class="ttc" id="ainterface_i_repository_html_a2bef13bcf0d63c6e21690955a6111aa2"><div class="ttname"><a href="interface_i_repository.html#a2bef13bcf0d63c6e21690955a6111aa2">IRepository.GetAllAsync</a></div><div class="ttdeci">Task&lt; IList&lt; TModel &gt; &gt; GetAllAsync()</div><div class="ttdoc">Gets all of the TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
-<div class="ttc" id="ainterface_i_repository_html_a342ea0883d95b4fec2e074910bbacb22"><div class="ttname"><a href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">IRepository.UpdateAsync</a></div><div class="ttdeci">Task UpdateAsync(TModelID id, TModel model)</div><div class="ttdoc">Updates a TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
-<div class="ttc" id="ainterface_i_repository_html_a7298a5f1505f4f39a62ab99c47f2ecf4"><div class="ttname"><a href="interface_i_repository.html#a7298a5f1505f4f39a62ab99c47f2ecf4">IRepository.GetAsync</a></div><div class="ttdeci">Task&lt; TModel?&gt; GetAsync(TModelID id)</div><div class="ttdoc">Gets a TModel  by its identifier of TModelID</div></div>
-<div class="ttc" id="ainterface_i_repository_html_ad8af1a17ca38916e77518ac402da3d64"><div class="ttname"><a href="interface_i_repository.html#ad8af1a17ca38916e77518ac402da3d64">IRepository.CreateAsync</a></div><div class="ttdeci">Task CreateAsync(TModel model)</div><div class="ttdoc">Creates a TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
+<div class="ttc" id="ainterface_i_label_repository_html"><div class="ttname"><a href="interface_i_label_repository.html">ILabelRepository</a></div><div class="ttdoc">Abstraction layer for RecordLabel table</div><div class="ttdef"><b>Definition:</b> <a href="_i_label_repository_8cs_source.html#l00006">ILabelRepository.cs:6</a></div></div>
+<div class="ttc" id="anamespace_a_s91892_1_1_data_html"><div class="ttname"><a href="namespace_a_s91892_1_1_data.html">AS91892.Data</a></div><div class="ttdef"><b>Definition:</b> <a href="20220323215809___initial_create_8_designer_8cs_source.html#l00012">20220323215809_InitialCreate.Designer.cs:13</a></div></div>
+<div class="ttc" id="anamespace_a_s91892_html"><div class="ttname"><a href="namespace_a_s91892.html">AS91892</a></div><div class="ttdef"><b>Definition:</b> <a href="20220323215809___initial_create_8_designer_8cs_source.html#l00012">20220323215809_InitialCreate.Designer.cs:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_547f0757595ba8d6d533278c160bb894.html">AS91892.Web</a></li><li class="navelem"><a class="el" href="dir_bf0af6fa437f7919c80be388fb44d7a5.html">Controllers</a></li><li class="navelem"><a class="el" href="_artists_controller_8cs.html">ArtistsController.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_547f0757595ba8d6d533278c160bb894.html">AS91892.Web</a></li><li class="navelem"><a class="el" href="dir_bf0af6fa437f7919c80be388fb44d7a5.html">Controllers</a></li><li class="navelem"><b>ArtistsController.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

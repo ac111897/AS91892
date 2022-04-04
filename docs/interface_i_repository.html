@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -84,6 +85,7 @@ $(document).ready(function(){initNavTree('interface_i_repository.html',''); init
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="interface_i_repository-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">IRepository&lt; TModel, TModelID &gt; Interface Template Reference</div></div>
 </div><!--header-->
@@ -115,9 +117,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a342ea0883d95b4fec2e074910bbacb22"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">UpdateAsync</a> (TModelID id, TModel model)</td></tr>
 <tr class="memdesc:a342ea0883d95b4fec2e074910bbacb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a <em>TModel</em>  in the IRepository&lt;TModel,TModelID&gt;  <a href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">More...</a><br /></td></tr>
 <tr class="separator:a342ea0883d95b4fec2e074910bbacb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f99f8286d3ed59636b2080471525d6"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">CountAsync</a> ()</td></tr>
+<tr class="memdesc:a80f99f8286d3ed59636b2080471525d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of records in the database table  <a href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">More...</a><br /></td></tr>
+<tr class="separator:a80f99f8286d3ed59636b2080471525d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb2ffb7e571591fece57b2f7ef14997f"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">CountAsync</a> (Expression&lt; Func&lt; TModel, bool &gt; &gt; predicate)</td></tr>
+<tr class="memdesc:afb2ffb7e571591fece57b2f7ef14997f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of records in the database table that match the predicates  <a href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">More...</a><br /></td></tr>
+<tr class="separator:afb2ffb7e571591fece57b2f7ef14997f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3661f4f88c16b01bd7786cf2ac1dfbe"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">DeleteAsync</a> (TModelID id)</td></tr>
 <tr class="memdesc:ad3661f4f88c16b01bd7786cf2ac1dfbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <em>TModel</em>  in the IRepository&lt;TModel,TModelID&gt;  <a href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">More...</a><br /></td></tr>
 <tr class="separator:ad3661f4f88c16b01bd7786cf2ac1dfbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a77082574d804dc18e3ac206fb429185d"><td class="memItemLeft" align="right" valign="top">IQueryable&lt; TModel &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">Source</a><code> [get]</code></td></tr>
+<tr class="memdesc:a77082574d804dc18e3ac206fb429185d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data source of the repository  <a href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">More...</a><br /></td></tr>
+<tr class="separator:a77082574d804dc18e3ac206fb429185d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Generic repository for data models </p>
@@ -140,6 +154,53 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_i_repository_8cs_source.html#l00008">8</a> of file <a class="el" href="_i_repository_8cs_source.html">IRepository.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a80f99f8286d3ed59636b2080471525d6" name="a80f99f8286d3ed59636b2080471525d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80f99f8286d3ed59636b2080471525d6">&#9670;&nbsp;</a></span>CountAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; int &gt; <a class="el" href="interface_i_repository.html">IRepository</a>&lt; TModel, TModelID &gt;.CountAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of records in the database table </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of records in the database table</dd></dl>
+
+</div>
+</div>
+<a id="afb2ffb7e571591fece57b2f7ef14997f" name="afb2ffb7e571591fece57b2f7ef14997f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb2ffb7e571591fece57b2f7ef14997f">&#9670;&nbsp;</a></span>CountAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; int &gt; <a class="el" href="interface_i_repository.html">IRepository</a>&lt; TModel, TModelID &gt;.CountAsync </td>
+          <td>(</td>
+          <td class="paramtype">Expression&lt; Func&lt; TModel, bool &gt; &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of records in the database table that match the predicates </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>The condition that it must match</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A filtered count by the predicate</dd></dl>
+
+</div>
+</div>
 <a id="ad8af1a17ca38916e77518ac402da3d64" name="ad8af1a17ca38916e77518ac402da3d64"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8af1a17ca38916e77518ac402da3d64">&#9670;&nbsp;</a></span>CreateAsync()</h2>
 
@@ -322,6 +383,33 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A Task to <code>await</code></dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a77082574d804dc18e3ac206fb429185d" name="a77082574d804dc18e3ac206fb429185d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77082574d804dc18e3ac206fb429185d">&#9670;&nbsp;</a></span>Source</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IQueryable&lt;TModel&gt; <a class="el" href="interface_i_repository.html">IRepository</a>&lt; TModel, TModelID &gt;.Source</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The data source of the repository </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_repository_8cs_source.html#l00074">74</a> of file <a class="el" href="_i_repository_8cs_source.html">IRepository.cs</a>.</p>
 
 </div>
 </div>

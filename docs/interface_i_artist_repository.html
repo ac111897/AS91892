@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -119,9 +120,19 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a342ea0883d95b4fec2e074910bbacb22 inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">UpdateAsync</a> (TModelID id, TModel model)</td></tr>
 <tr class="memdesc:a342ea0883d95b4fec2e074910bbacb22 inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a <em>TModel</em>  in the IRepository&lt;TModel,TModelID&gt;  <a href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">More...</a><br /></td></tr>
 <tr class="separator:a342ea0883d95b4fec2e074910bbacb22 inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f99f8286d3ed59636b2080471525d6 inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">CountAsync</a> ()</td></tr>
+<tr class="memdesc:a80f99f8286d3ed59636b2080471525d6 inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of records in the database table  <a href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">More...</a><br /></td></tr>
+<tr class="separator:a80f99f8286d3ed59636b2080471525d6 inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb2ffb7e571591fece57b2f7ef14997f inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">CountAsync</a> (Expression&lt; Func&lt; TModel, bool &gt; &gt; predicate)</td></tr>
+<tr class="memdesc:afb2ffb7e571591fece57b2f7ef14997f inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of records in the database table that match the predicates  <a href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">More...</a><br /></td></tr>
+<tr class="separator:afb2ffb7e571591fece57b2f7ef14997f inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3661f4f88c16b01bd7786cf2ac1dfbe inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">DeleteAsync</a> (TModelID id)</td></tr>
 <tr class="memdesc:ad3661f4f88c16b01bd7786cf2ac1dfbe inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <em>TModel</em>  in the IRepository&lt;TModel,TModelID&gt;  <a href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">More...</a><br /></td></tr>
 <tr class="separator:ad3661f4f88c16b01bd7786cf2ac1dfbe inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_interface_i_repository"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_i_repository')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interface_i_repository.html">IRepository&lt; Artist, Guid &gt;</a></td></tr>
+<tr class="memitem:a77082574d804dc18e3ac206fb429185d inherit properties_interface_i_repository"><td class="memItemLeft" align="right" valign="top">IQueryable&lt; TModel &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">Source</a><code> [get]</code></td></tr>
+<tr class="memdesc:a77082574d804dc18e3ac206fb429185d inherit properties_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data source of the repository  <a href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">More...</a><br /></td></tr>
+<tr class="separator:a77082574d804dc18e3ac206fb429185d inherit properties_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Abstraction layer for the table of <a class="el" href="class_artist.html">Artist</a> </p>

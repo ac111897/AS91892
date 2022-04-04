@@ -1,4 +1,28 @@
 var searchData=
 [
-  ['_2enetcoreapp_2cversion_3dv6_2e0_2eassemblyattributes_2ecs_0',['.NETCoreApp,Version=v6.0.AssemblyAttributes.cs',['../_a_s91892_8_core_2obj_2_debug_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)'],['../_a_s91892_8_core_2obj_2_release_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)'],['../_a_s91892_8_data_2obj_2_debug_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)'],['../_a_s91892_8_data_2obj_2_release_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)'],['../_a_s91892_8_unit_tests_2obj_2_debug_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)'],['../_a_s91892_8_unit_tests_2obj_2_release_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)'],['../_a_s91892_8_web_2obj_2_debug_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)'],['../_a_s91892_8_web_2obj_2_release_2net6_80_2_8_n_e_t_core_app_00_version_0av6_80_8_assembly_attributes_8cs.html',1,'(Global Namespace)']]]
+  ['address_0',['Address',['../class_record_label.html#a056bde0fa580310a7b201dbedc7d8c43',1,'RecordLabel']]],
+  ['album_1',['Album',['../class_album.html',1,'']]],
+  ['albumcover_2',['AlbumCover',['../class_album.html#a3d2a954317bde1cc4df974c6c0b92878',1,'Album']]],
+  ['albummockresolver_3',['AlbumMockResolver',['../class_album_mock_resolver.html',1,'']]],
+  ['albumrepository_4',['AlbumRepository',['../class_album_repository.html',1,'AlbumRepository'],['../class_album_repository.html#aa6ac890c03923dc1036995f2742ae0a2',1,'AlbumRepository.AlbumRepository()']]],
+  ['albums_5',['Albums',['../class_application_db_context.html#a2f1412afc9fb506d3269bf75bef2ad0e',1,'ApplicationDbContext.Albums()'],['../class_artist.html#a5e689fd597bb47ee6a9c133461a48164',1,'Artist.Albums()']]],
+  ['albumscontroller_6',['AlbumsController',['../class_albums_controller.html',1,'AlbumsController'],['../class_albums_controller.html#a91968be5059098d626b3ad2684f8f13b',1,'AlbumsController.AlbumsController()']]],
+  ['albumsongs_7',['AlbumSongs',['../class_album.html#af6ebdfed5b690b07b159bec7114839c8',1,'Album']]],
+  ['albumtests_8',['AlbumTests',['../class_album_tests.html',1,'']]],
+  ['albumviewmodel_9',['AlbumViewModel',['../class_album_view_model.html',1,'']]],
+  ['allowedextensionsattribute_10',['AllowedExtensionsAttribute',['../class_allowed_extensions_attribute.html',1,'AllowedExtensionsAttribute'],['../class_allowed_extensions_attribute.html#a5349e9d37facc8512edfa11470e570dd',1,'AllowedExtensionsAttribute.AllowedExtensionsAttribute()']]],
+  ['applicationdbcontext_11',['ApplicationDbContext',['../class_application_db_context.html',1,'ApplicationDbContext'],['../class_application_db_context.html#a893d3189a54c107bbda26c990e4f27d1',1,'ApplicationDbContext.ApplicationDbContext()']]],
+  ['applicationdbcontextmodelsnapshot_12',['ApplicationDbContextModelSnapshot',['../class_a_s91892_1_1_data_1_1_migrations_1_1_application_db_context_model_snapshot.html',1,'AS91892::Data::Migrations']]],
+  ['artist_13',['Artist',['../class_artist.html',1,'']]],
+  ['artistcontrollertests_14',['ArtistControllerTests',['../class_artist_controller_tests.html',1,'']]],
+  ['artistmockresolver_15',['ArtistMockResolver',['../class_artist_mock_resolver.html',1,'']]],
+  ['artistname_16',['ArtistName',['../class_artist.html#a05cab5e0cdebd2663be1cbd273103534',1,'Artist']]],
+  ['artistrepository_17',['ArtistRepository',['../class_artist_repository.html',1,'ArtistRepository'],['../class_artist_repository.html#a7a922c882c42802a508fbd8cf67fc6ff',1,'ArtistRepository.ArtistRepository()']]],
+  ['artists_18',['Artists',['../class_application_db_context.html#a2e70ca01fa2aa66b796e60226d69b9d8',1,'ApplicationDbContext']]],
+  ['artistscontroller_19',['ArtistsController',['../class_artists_controller.html',1,'ArtistsController'],['../class_artists_controller.html#a3060364b169d7f34b8fcbac76d1488fb',1,'ArtistsController.ArtistsController()']]],
+  ['artisttests_20',['ArtistTests',['../class_artist_tests.html',1,'']]],
+  ['artistviewmodel_21',['ArtistViewModel',['../class_artist_view_model.html',1,'']]],
+  ['as91892_22',['AS91892',['../namespace_a_s91892.html',1,'AS91892'],['../md__r_e_a_d_m_e.html',1,'(Global Namespace)']]],
+  ['data_23',['Data',['../namespace_a_s91892_1_1_data.html',1,'AS91892']]],
+  ['migrations_24',['Migrations',['../namespace_a_s91892_1_1_data_1_1_migrations.html',1,'AS91892::Data']]]
 ];

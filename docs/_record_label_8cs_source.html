@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,7 +86,7 @@ $(document).ready(function(){initNavTree('_record_label_8cs_source.html',''); in
   <div class="headertitle"><div class="title">RecordLabel.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_record_label_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Entities;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Entities;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#nullable disable</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -93,20 +94,30 @@ $(document).ready(function(){initNavTree('_record_label_8cs_source.html',''); in
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    [Required]</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    [StringLength(50, ErrorMessage = $<span class="stringliteral">&quot;Length of {nameof(Name)} should be between 2 &amp; 50&quot;</span>, MinimumLength = 2)]</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_record_label.html#afc2af53dd251ce4980a3b4019a0b126d">   15</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_record_label.html#afc2af53dd251ce4980a3b4019a0b126d">Name</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_record_label.html#a056bde0fa580310a7b201dbedc7d8c43">   20</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_record_label.html#a056bde0fa580310a7b201dbedc7d8c43">Address</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    [JsonPropertyName(<span class="stringliteral">&quot;name&quot;</span>)]</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_record_label.html#afc2af53dd251ce4980a3b4019a0b126d">   16</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_record_label.html#afc2af53dd251ce4980a3b4019a0b126d">Name</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    [Required]</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    [StringLength(50, ErrorMessage = $<span class="stringliteral">&quot;Length of {nameof(Address)} should be between 2 &amp; 50&quot;</span>, MinimumLength = 2)]</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    [JsonPropertyName(<span class="stringliteral">&quot;address&quot;</span>)]</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_record_label.html#a056bde0fa580310a7b201dbedc7d8c43">   24</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_record_label.html#a056bde0fa580310a7b201dbedc7d8c43">Address</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_record_label.html#a21a3d774e3bd0b096018cc255226ec43">   27</a></span>    <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">string</span> <a class="code hl_function" href="class_record_label.html#a21a3d774e3bd0b096018cc255226ec43">ToString</a>()</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">return</span> $<span class="stringliteral">&quot;{Name} - {Address}&quot;</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="ttc" id="aclass_base_entity_html"><div class="ttname"><a href="class_base_entity.html">BaseEntity</a></div><div class="ttdoc">Represents a entity in the database using an id, this is to make it simpler to create an entity</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00008">BaseEntity.cs:9</a></div></div>
 <div class="ttc" id="aclass_record_label_html"><div class="ttname"><a href="class_record_label.html">RecordLabel</a></div><div class="ttdoc">Represent's an Artist's managing corporation</div><div class="ttdef"><b>Definition:</b> <a href="_record_label_8cs_source.html#l00008">RecordLabel.cs:9</a></div></div>
-<div class="ttc" id="aclass_record_label_html_a056bde0fa580310a7b201dbedc7d8c43"><div class="ttname"><a href="class_record_label.html#a056bde0fa580310a7b201dbedc7d8c43">RecordLabel.Address</a></div><div class="ttdeci">string Address</div><div class="ttdoc">Business address of the label</div><div class="ttdef"><b>Definition:</b> <a href="_record_label_8cs_source.html#l00020">RecordLabel.cs:20</a></div></div>
-<div class="ttc" id="aclass_record_label_html_afc2af53dd251ce4980a3b4019a0b126d"><div class="ttname"><a href="class_record_label.html#afc2af53dd251ce4980a3b4019a0b126d">RecordLabel.Name</a></div><div class="ttdeci">string Name</div><div class="ttdoc">Name of the RecordLabel</div><div class="ttdef"><b>Definition:</b> <a href="_record_label_8cs_source.html#l00015">RecordLabel.cs:15</a></div></div>
+<div class="ttc" id="aclass_record_label_html_a056bde0fa580310a7b201dbedc7d8c43"><div class="ttname"><a href="class_record_label.html#a056bde0fa580310a7b201dbedc7d8c43">RecordLabel.Address</a></div><div class="ttdeci">string Address</div><div class="ttdoc">Business address of the label</div><div class="ttdef"><b>Definition:</b> <a href="_record_label_8cs_source.html#l00024">RecordLabel.cs:24</a></div></div>
+<div class="ttc" id="aclass_record_label_html_a21a3d774e3bd0b096018cc255226ec43"><div class="ttname"><a href="class_record_label.html#a21a3d774e3bd0b096018cc255226ec43">RecordLabel.ToString</a></div><div class="ttdeci">override string ToString()</div><div class="ttdoc">/&gt;</div><div class="ttdef"><b>Definition:</b> <a href="_record_label_8cs_source.html#l00027">RecordLabel.cs:27</a></div></div>
+<div class="ttc" id="aclass_record_label_html_afc2af53dd251ce4980a3b4019a0b126d"><div class="ttname"><a href="class_record_label.html#afc2af53dd251ce4980a3b4019a0b126d">RecordLabel.Name</a></div><div class="ttdeci">string Name</div><div class="ttdoc">Name of the RecordLabel</div><div class="ttdef"><b>Definition:</b> <a href="_record_label_8cs_source.html#l00016">RecordLabel.cs:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_e8392fb551a323a2c87a39e063cd24e0.html">Entities</a></li><li class="navelem"><a class="el" href="_record_label_8cs.html">RecordLabel.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_e8392fb551a323a2c87a39e063cd24e0.html">Entities</a></li><li class="navelem"><b>RecordLabel.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

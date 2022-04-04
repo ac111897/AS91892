@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,50 +86,47 @@ $(document).ready(function(){initNavTree('_general_tests_8cs_source.html',''); i
   <div class="headertitle"><div class="title">GeneralTests.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_general_tests_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> System;</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using</span> System.Collections.Generic;</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span>AS91892.Tests.RepoTests;</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_general_tests.html">    5</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_general_tests.html">GeneralTests</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    [Fact]</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_general_tests.html#a42a28c76842ef435a342672bd2a6dcb1">    8</a></span>    <span class="keyword">public</span> async Task <a class="code hl_function" href="class_general_tests.html#a42a28c76842ef435a342672bd2a6dcb1">Artist_Linked</a>()</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        var context = await CreateContext();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <a class="code hl_interface" href="interface_i_artist_repository.html">IArtistRepository</a> repo = <span class="keyword">new</span> <a class="code hl_class" href="class_artist_repository.html">ArtistRepository</a>(context);</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <a class="code hl_class" href="class_album.html">Album</a> album = <span class="keyword">new</span>() { AlbumCover = <span class="keyword">null</span>, Id = Guid.NewGuid(), Title = <span class="stringliteral">&quot;Nice&quot;</span> };</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_class" href="class_artist.html">Artist</a> artist = <span class="keyword">new</span>() { ArtistName = <span class="stringliteral">&quot;nice&quot;</span>, Id = Guid.NewGuid(), Albums = <span class="keyword">new</span> List&lt;Album&gt;() { album } };</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        await repo.<a class="code hl_function" href="interface_i_repository.html#ad8af1a17ca38916e77518ac402da3d64">CreateAsync</a>(artist);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        Assert.NotNull(await context.Albums.FindAsync(album.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a>));</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">private</span> <span class="keyword">static</span> async Task&lt;ApplicationDbContext&gt; CreateContext()</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        var context = Creation.CreateContext((x, r) =&gt; r.Artists.Add(x), GetDataset());</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        await context.SaveChangesAsync();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">return</span> context;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">private</span> <span class="keyword">static</span> List&lt;Artist&gt; GetDataset() =&gt; <span class="keyword">new</span>()</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keyword">new</span> <a class="code hl_class" href="class_artist.html">Artist</a>() </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            { Id = Guid.NewGuid(), ArtistName = <span class="stringliteral">&quot;safsdfklsdfj&quot;</span>, Albums = <span class="keyword">new</span> List&lt;Album&gt;()</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            },</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keyword">new</span> <a class="code hl_class" href="class_artist.html">Artist</a>() { Id = Guid.NewGuid(), ArtistName = <span class="stringliteral">&quot;somessafjd&quot;</span>, Albums = <span class="keyword">new</span> List&lt;Album&gt;()}</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        };</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Tests.RepoTests;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_general_tests.html">    6</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_general_tests.html">GeneralTests</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    [Fact]</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">public</span> async Task Artists_IsLinkedToAlbum()</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        var context = await CreateContext();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_interface" href="interface_i_artist_repository.html">IArtistRepository</a> repo = <span class="keyword">new</span> <a class="code hl_class" href="class_artist_repository.html">ArtistRepository</a>(context);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_class" href="class_album.html">Album</a> album = <span class="keyword">new</span>() { AlbumCover = <span class="keyword">null</span>, Id = Guid.NewGuid(), Title = <span class="stringliteral">&quot;Nice&quot;</span> };</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_class" href="class_artist.html">Artist</a> artist = <span class="keyword">new</span>() { ArtistName = <span class="stringliteral">&quot;nice&quot;</span>, Id = Guid.NewGuid(), Albums = <span class="keyword">new</span> List&lt;Album&gt;() { album } };</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        await repo.<a class="code hl_function" href="interface_i_repository.html#ad8af1a17ca38916e77518ac402da3d64">CreateAsync</a>(artist);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        Assert.NotNull(await context.Albums.FindAsync(album.<a class="code hl_property" href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">Id</a>));</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">private</span> <span class="keyword">static</span> async Task&lt;ApplicationDbContext&gt; CreateContext()</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        var context = Creation.CreateContext((x, r) =&gt; r.Artists.Add(x), GetDataset());</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        await context.SaveChangesAsync();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">return</span> context;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">private</span> <span class="keyword">static</span> List&lt;Artist&gt; GetDataset() =&gt; <span class="keyword">new</span>()</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keyword">new</span> <a class="code hl_class" href="class_artist.html">Artist</a>() </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            { Id = Guid.NewGuid(), ArtistName = <span class="stringliteral">&quot;safsdfklsdfj&quot;</span>, Albums = <span class="keyword">new</span> List&lt;Album&gt;()</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            },</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keyword">new</span> <a class="code hl_class" href="class_artist.html">Artist</a>() { Id = Guid.NewGuid(), ArtistName = <span class="stringliteral">&quot;somessafjd&quot;</span>, Albums = <span class="keyword">new</span> List&lt;Album&gt;()}</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        };</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
 <div class="ttc" id="aclass_album_html"><div class="ttname"><a href="class_album.html">Album</a></div><div class="ttdoc">Represents an Album in the database</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00006">Album.cs:7</a></div></div>
 <div class="ttc" id="aclass_artist_html"><div class="ttname"><a href="class_artist.html">Artist</a></div><div class="ttdoc">Represents an Artist in the database</div><div class="ttdef"><b>Definition:</b> <a href="_artist_8cs_source.html#l00011">Artist.cs:12</a></div></div>
-<div class="ttc" id="aclass_artist_repository_html"><div class="ttname"><a href="class_artist_repository.html">ArtistRepository</a></div><div class="ttdoc">Repository to manage Artist's</div><div class="ttdef"><b>Definition:</b> <a href="_artist_repository_8cs_source.html#l00006">ArtistRepository.cs:7</a></div></div>
-<div class="ttc" id="aclass_base_entity_html_a6b592bd1c683269b0b7d7abf6f977669"><div class="ttname"><a href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">BaseEntity.Id</a></div><div class="ttdeci">Guid Id</div><div class="ttdoc">Represents the key of the entity in the database</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00016">BaseEntity.cs:16</a></div></div>
-<div class="ttc" id="aclass_general_tests_html"><div class="ttname"><a href="class_general_tests.html">GeneralTests</a></div><div class="ttdef"><b>Definition:</b> <a href="_general_tests_8cs_source.html#l00005">GeneralTests.cs:6</a></div></div>
-<div class="ttc" id="aclass_general_tests_html_a42a28c76842ef435a342672bd2a6dcb1"><div class="ttname"><a href="class_general_tests.html#a42a28c76842ef435a342672bd2a6dcb1">GeneralTests.Artist_Linked</a></div><div class="ttdeci">async Task Artist_Linked()</div><div class="ttdef"><b>Definition:</b> <a href="_general_tests_8cs_source.html#l00008">GeneralTests.cs:8</a></div></div>
+<div class="ttc" id="aclass_artist_repository_html"><div class="ttname"><a href="class_artist_repository.html">ArtistRepository</a></div><div class="ttdoc">Repository to manage Artist's</div><div class="ttdef"><b>Definition:</b> <a href="_artist_repository_8cs_source.html#l00008">ArtistRepository.cs:9</a></div></div>
+<div class="ttc" id="aclass_base_entity_html_a6b592bd1c683269b0b7d7abf6f977669"><div class="ttname"><a href="class_base_entity.html#a6b592bd1c683269b0b7d7abf6f977669">BaseEntity.Id</a></div><div class="ttdeci">Guid Id</div><div class="ttdoc">Represents the key of the entity in the database</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00017">BaseEntity.cs:17</a></div></div>
+<div class="ttc" id="aclass_general_tests_html"><div class="ttname"><a href="class_general_tests.html">GeneralTests</a></div><div class="ttdoc">General tests relating to the repositories, methods are self-explanatory</div><div class="ttdef"><b>Definition:</b> <a href="_general_tests_8cs_source.html#l00006">GeneralTests.cs:7</a></div></div>
 <div class="ttc" id="ainterface_i_artist_repository_html"><div class="ttname"><a href="interface_i_artist_repository.html">IArtistRepository</a></div><div class="ttdoc">Abstraction layer for the table of Artist</div><div class="ttdef"><b>Definition:</b> <a href="_i_artist_repository_8cs_source.html#l00006">IArtistRepository.cs:6</a></div></div>
 <div class="ttc" id="ainterface_i_repository_html_ad8af1a17ca38916e77518ac402da3d64"><div class="ttname"><a href="interface_i_repository.html#ad8af1a17ca38916e77518ac402da3d64">IRepository.CreateAsync</a></div><div class="ttdeci">Task CreateAsync(TModel model)</div><div class="ttdoc">Creates a TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -136,7 +134,7 @@ $(document).ready(function(){initNavTree('_general_tests_8cs_source.html',''); i
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_f1cf3182bbf534c361ae56e4178b7f79.html">AS91892.UnitTests</a></li><li class="navelem"><a class="el" href="dir_af85bc1d610a7600793f8d2242384be3.html">RepoTests</a></li><li class="navelem"><a class="el" href="_general_tests_8cs.html">GeneralTests.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_f1cf3182bbf534c361ae56e4178b7f79.html">AS91892.UnitTests</a></li><li class="navelem"><a class="el" href="dir_af85bc1d610a7600793f8d2242384be3.html">RepoTests</a></li><li class="navelem"><b>GeneralTests.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

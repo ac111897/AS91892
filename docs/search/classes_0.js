@@ -1,12 +1,19 @@
 var searchData=
 [
   ['album_0',['Album',['../class_album.html',1,'']]],
-  ['albumrepository_1',['AlbumRepository',['../class_album_repository.html',1,'']]],
-  ['albumscontroller_2',['AlbumsController',['../class_albums_controller.html',1,'']]],
-  ['applicationdbcontext_3',['ApplicationDbContext',['../class_application_db_context.html',1,'']]],
-  ['artist_4',['Artist',['../class_artist.html',1,'']]],
-  ['artistmockresolver_5',['ArtistMockResolver',['../class_artist_mock_resolver.html',1,'']]],
-  ['artistrepository_6',['ArtistRepository',['../class_artist_repository.html',1,'']]],
-  ['artistscontroller_7',['ArtistsController',['../class_artists_controller.html',1,'']]],
-  ['artisttests_8',['ArtistTests',['../class_artist_tests.html',1,'']]]
+  ['albummockresolver_1',['AlbumMockResolver',['../class_album_mock_resolver.html',1,'']]],
+  ['albumrepository_2',['AlbumRepository',['../class_album_repository.html',1,'']]],
+  ['albumscontroller_3',['AlbumsController',['../class_albums_controller.html',1,'']]],
+  ['albumtests_4',['AlbumTests',['../class_album_tests.html',1,'']]],
+  ['albumviewmodel_5',['AlbumViewModel',['../class_album_view_model.html',1,'']]],
+  ['allowedextensionsattribute_6',['AllowedExtensionsAttribute',['../class_allowed_extensions_attribute.html',1,'']]],
+  ['applicationdbcontext_7',['ApplicationDbContext',['../class_application_db_context.html',1,'']]],
+  ['applicationdbcontextmodelsnapshot_8',['ApplicationDbContextModelSnapshot',['../class_a_s91892_1_1_data_1_1_migrations_1_1_application_db_context_model_snapshot.html',1,'AS91892::Data::Migrations']]],
+  ['artist_9',['Artist',['../class_artist.html',1,'']]],
+  ['artistcontrollertests_10',['ArtistControllerTests',['../class_artist_controller_tests.html',1,'']]],
+  ['artistmockresolver_11',['ArtistMockResolver',['../class_artist_mock_resolver.html',1,'']]],
+  ['artistrepository_12',['ArtistRepository',['../class_artist_repository.html',1,'']]],
+  ['artistscontroller_13',['ArtistsController',['../class_artists_controller.html',1,'']]],
+  ['artisttests_14',['ArtistTests',['../class_artist_tests.html',1,'']]],
+  ['artistviewmodel_15',['ArtistViewModel',['../class_artist_view_model.html',1,'']]]
 ];

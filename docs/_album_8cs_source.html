@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,28 +86,32 @@ $(document).ready(function(){initNavTree('_album_8cs_source.html',''); initResiz
   <div class="headertitle"><div class="title">Album.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_album_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Entities;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Entities;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_album.html">    6</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_album.html">Album</a> : <a class="code hl_class" href="class_base_entity.html">BaseEntity</a></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_album.html#a3d2a954317bde1cc4df974c6c0b92878">   11</a></span>    <span class="keyword">public</span> <a class="code hl_class" href="class_image.html">Image</a>? <a class="code hl_property" href="class_album.html#a3d2a954317bde1cc4df974c6c0b92878">AlbumCover</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#nullable disable</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    [Required]</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    [Display(Name = <span class="stringliteral">&quot;Album Songs&quot;</span>)]</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_album.html#af6ebdfed5b690b07b159bec7114839c8">   18</a></span>    <span class="keyword">public</span> ICollection&lt;Song&gt; <a class="code hl_property" href="class_album.html#af6ebdfed5b690b07b159bec7114839c8">AlbumSongs</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    [Required]</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    [StringLength(50, MinimumLength = 2)]</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_album.html#aee59c059fa6490c7498ab39bc09e02cc">   25</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_album.html#aee59c059fa6490c7498ab39bc09e02cc">Title</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    [Required]</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_album.html#a9cde9bd9ffad36d4fa8c48d27db09597">   31</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="class_album.html#a9cde9bd9ffad36d4fa8c48d27db09597">Year</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    [JsonPropertyName(<span class="stringliteral">&quot;albumCover&quot;</span>)]</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_album.html#a3d2a954317bde1cc4df974c6c0b92878">   12</a></span>    <span class="keyword">public</span> <a class="code hl_class" href="class_image.html">Image</a>? <a class="code hl_property" href="class_album.html#a3d2a954317bde1cc4df974c6c0b92878">AlbumCover</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#nullable disable</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    [Required]</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    [Display(Name = <span class="stringliteral">&quot;Album Songs&quot;</span>)]</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    [JsonPropertyName(<span class="stringliteral">&quot;albumSongs&quot;</span>)]</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_album.html#af6ebdfed5b690b07b159bec7114839c8">   20</a></span>    <span class="keyword">public</span> ICollection&lt;Song&gt; <a class="code hl_property" href="class_album.html#af6ebdfed5b690b07b159bec7114839c8">AlbumSongs</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    [Required]</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    [StringLength(50, MinimumLength = 2)]</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    [JsonPropertyName(<span class="stringliteral">&quot;title&quot;</span>)]</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_album.html#aee59c059fa6490c7498ab39bc09e02cc">   28</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_album.html#aee59c059fa6490c7498ab39bc09e02cc">Title</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    [Required]</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    [JsonPropertyName(<span class="stringliteral">&quot;year&quot;</span>)]</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_album.html#a9cde9bd9ffad36d4fa8c48d27db09597">   35</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="class_album.html#a9cde9bd9ffad36d4fa8c48d27db09597">Year</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
 <div class="ttc" id="aclass_album_html"><div class="ttname"><a href="class_album.html">Album</a></div><div class="ttdoc">Represents an Album in the database</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00006">Album.cs:7</a></div></div>
-<div class="ttc" id="aclass_album_html_a3d2a954317bde1cc4df974c6c0b92878"><div class="ttname"><a href="class_album.html#a3d2a954317bde1cc4df974c6c0b92878">Album.AlbumCover</a></div><div class="ttdeci">Image? AlbumCover</div><div class="ttdoc">An image for the album covers</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00011">Album.cs:11</a></div></div>
-<div class="ttc" id="aclass_album_html_a9cde9bd9ffad36d4fa8c48d27db09597"><div class="ttname"><a href="class_album.html#a9cde9bd9ffad36d4fa8c48d27db09597">Album.Year</a></div><div class="ttdeci">int Year</div><div class="ttdoc">Year that the album was released</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00031">Album.cs:31</a></div></div>
-<div class="ttc" id="aclass_album_html_aee59c059fa6490c7498ab39bc09e02cc"><div class="ttname"><a href="class_album.html#aee59c059fa6490c7498ab39bc09e02cc">Album.Title</a></div><div class="ttdeci">string Title</div><div class="ttdoc">Title of the album</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00025">Album.cs:25</a></div></div>
-<div class="ttc" id="aclass_album_html_af6ebdfed5b690b07b159bec7114839c8"><div class="ttname"><a href="class_album.html#af6ebdfed5b690b07b159bec7114839c8">Album.AlbumSongs</a></div><div class="ttdeci">ICollection&lt; Song &gt; AlbumSongs</div><div class="ttdoc">Represents the songs in the album</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00018">Album.cs:18</a></div></div>
+<div class="ttc" id="aclass_album_html_a3d2a954317bde1cc4df974c6c0b92878"><div class="ttname"><a href="class_album.html#a3d2a954317bde1cc4df974c6c0b92878">Album.AlbumCover</a></div><div class="ttdeci">Image? AlbumCover</div><div class="ttdoc">An image for the album covers</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00012">Album.cs:12</a></div></div>
+<div class="ttc" id="aclass_album_html_a9cde9bd9ffad36d4fa8c48d27db09597"><div class="ttname"><a href="class_album.html#a9cde9bd9ffad36d4fa8c48d27db09597">Album.Year</a></div><div class="ttdeci">int Year</div><div class="ttdoc">Year that the album was released</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00035">Album.cs:35</a></div></div>
+<div class="ttc" id="aclass_album_html_aee59c059fa6490c7498ab39bc09e02cc"><div class="ttname"><a href="class_album.html#aee59c059fa6490c7498ab39bc09e02cc">Album.Title</a></div><div class="ttdeci">string Title</div><div class="ttdoc">Title of the album</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00028">Album.cs:28</a></div></div>
+<div class="ttc" id="aclass_album_html_af6ebdfed5b690b07b159bec7114839c8"><div class="ttname"><a href="class_album.html#af6ebdfed5b690b07b159bec7114839c8">Album.AlbumSongs</a></div><div class="ttdeci">ICollection&lt; Song &gt; AlbumSongs</div><div class="ttdoc">Represents the songs in the album</div><div class="ttdef"><b>Definition:</b> <a href="_album_8cs_source.html#l00020">Album.cs:20</a></div></div>
 <div class="ttc" id="aclass_base_entity_html"><div class="ttname"><a href="class_base_entity.html">BaseEntity</a></div><div class="ttdoc">Represents a entity in the database using an id, this is to make it simpler to create an entity</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00008">BaseEntity.cs:9</a></div></div>
 <div class="ttc" id="aclass_image_html"><div class="ttname"><a href="class_image.html">Image</a></div><div class="ttdoc">Represents an image in the database</div><div class="ttdef"><b>Definition:</b> <a href="_image_8cs_source.html#l00008">Image.cs:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -114,7 +119,7 @@ $(document).ready(function(){initNavTree('_album_8cs_source.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_e8392fb551a323a2c87a39e063cd24e0.html">Entities</a></li><li class="navelem"><a class="el" href="_album_8cs.html">Album.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_e8392fb551a323a2c87a39e063cd24e0.html">Entities</a></li><li class="navelem"><b>Album.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

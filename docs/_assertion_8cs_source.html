@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,25 +86,25 @@ $(document).ready(function(){initNavTree('_assertion_8cs_source.html',''); initR
   <div class="headertitle"><div class="title">Assertion.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_assertion_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Repositories;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Repositories;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">internal</span> <span class="keyword">class </span>Assertion</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keyword">internal</span> <span class="keyword">static</span> <span class="keywordtype">void</span> AssertIdIsSame&lt;TEntity&gt;(Guid <span class="keywordtype">id</span>, TEntity entity) where TEntity : <a class="code hl_class" href="class_base_entity.html">BaseEntity</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>        <span class="keywordflow">if</span> (<span class="keywordtype">id</span> != entity.Id)</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;The id passed in is not the same as the entities id&quot;</span>);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        }</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    }</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">internal</span> <span class="keyword">class </span>Assertion</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">internal</span> <span class="keyword">static</span> <span class="keywordtype">void</span> AssertIdIsSame&lt;TEntity&gt;(Guid <span class="keywordtype">id</span>, TEntity entity) where TEntity : <a class="code hl_class" href="class_base_entity.html">BaseEntity</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">if</span> (<span class="keywordtype">id</span> != entity.Id)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;The id passed in is not the same as the entities id&quot;</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
 <div class="ttc" id="aclass_base_entity_html"><div class="ttname"><a href="class_base_entity.html">BaseEntity</a></div><div class="ttdoc">Represents a entity in the database using an id, this is to make it simpler to create an entity</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00008">BaseEntity.cs:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_0c09c45db679d59d6fbf4e87837b6670.html">Repositories</a></li><li class="navelem"><a class="el" href="_assertion_8cs.html">Assertion.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_0c09c45db679d59d6fbf4e87837b6670.html">Repositories</a></li><li class="navelem"><b>Assertion.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

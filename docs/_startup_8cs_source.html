@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,23 +86,20 @@ $(document).ready(function(){initNavTree('_startup_8cs_source.html',''); initRes
   <div class="headertitle"><div class="title">Startup.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_startup_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> System.Web.Mvc;</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using</span> AS91892.Core.ImageConversion;</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using</span> AS91892.Core.MockData;</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using</span> AS91892.Data.Context;</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using</span> AS91892.Data.Repositories;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using</span> Microsoft.EntityFrameworkCore;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>AS91892.Web;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_startup.html">   13</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_startup.html">Startup</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414">   19</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414">Startup</a>(IConfiguration configuration)</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a> = configuration;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> Microsoft.EntityFrameworkCore;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span>AS91892.Web;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_startup.html">    8</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_startup.html">Startup</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414">   14</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414">Startup</a>(IConfiguration configuration)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a> = configuration;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">   22</a></span>    <span class="keyword">public</span> IConfiguration <a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a> { <span class="keyword">get</span>; }</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">   27</a></span>    <span class="keyword">public</span> IConfiguration <a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> IsTest =&gt; <a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a>.GetSection(<span class="stringliteral">&quot;Data&quot;</span>).GetValue&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;Enable-Test-Data&quot;</span>);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// This method gets called by the runtime. Use this method to add services to the container.</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_startup.html#adebde517d2b3ef4f17193e66c5270b86">   34</a></span><span class="comment"></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_startup.html#adebde517d2b3ef4f17193e66c5270b86">ConfigureServices</a>(IServiceCollection services)</div>
@@ -112,63 +110,62 @@ $(document).ready(function(){initNavTree('_startup_8cs_source.html',''); initRes
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        services.AddDbContext&lt;<a class="code hl_class" href="class_application_db_context.html">ApplicationDbContext</a>&gt;(options =&gt;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="comment">// If Enable-Test-Data is set to true then Add-Migration [migration-name] won&#39;t as this is an in memory db</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a>.GetValue&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;Enable-Test-Data&quot;</span>))</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">if</span> (IsTest)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            {</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                options.UseInMemoryDatabase($<span class="stringliteral">&quot;Tests&quot;</span>);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            options.UseSqlServer(<a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a>.GetConnectionString(nameof(<a class="code hl_class" href="class_application_db_context.html">ApplicationDbContext</a>)), x =&gt; x.MigrationsAssembly(<span class="stringliteral">&quot;AS91892.Data&quot;</span>));</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                options.UseSqlServer(<a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a>.GetConnectionString(nameof(<a class="code hl_class" href="class_application_db_context.html">ApplicationDbContext</a>)), x =&gt; x.MigrationsAssembly(<span class="stringliteral">&quot;AS91892.Data&quot;</span>));</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            }</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        });</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        ServicesSetup.ConfigureSingletons(services);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        ServicesSetup.ConfigureScoped(services);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        services.ConfigureSingletons();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        services.ConfigureScoped();</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_startup.html#a0d430f7b9ec3734389bbe1f48af357c5">   63</a></span><span class="comment"></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_startup.html#a0d430f7b9ec3734389bbe1f48af357c5">Configure</a>(IApplicationBuilder app, IWebHostEnvironment env, <a class="code hl_class" href="class_application_db_context.html">ApplicationDbContext</a> context)</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (<a class="code hl_property" href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Configuration</a>.GetValue&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;Enable-Test-Data&quot;</span>)) <span class="comment">// adds our dummy data to the app</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            context.<a class="code hl_property" href="class_application_db_context.html#a2e70ca01fa2aa66b796e60226d69b9d8">Artists</a>.AddRange(TestData.GenerateMock());</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            context.SaveChanges();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (env.IsDevelopment())</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            app.UseDeveloperExceptionPage();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            app.UseExceptionHandler(<span class="stringliteral">&quot;/Home/Error&quot;</span>);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            app.UseHsts();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        app.UseStatusCodePagesWithReExecute(<span class="stringliteral">&quot;/Home/HandlerErrorAsync/{0}&quot;</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_startup.html#a2e3ede5de670247f407558f3e4d86cac">   64</a></span><span class="comment"></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_startup.html#a2e3ede5de670247f407558f3e4d86cac">Configure</a>(IApplicationBuilder app, IWebHostEnvironment env, <a class="code hl_class" href="class_application_db_context.html">ApplicationDbContext</a> context, IServiceProvider provider)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">if</span> (IsTest) <span class="comment">// adds our dummy data to the app</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            DataInitializer.InitializeData(ref context, provider);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">if</span> (env.IsDevelopment())</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            app.UseDeveloperExceptionPage();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            app.UseExceptionHandler(<span class="stringliteral">&quot;/Home/Error&quot;</span>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            app.UseHsts();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        app.UseHttpsRedirection();</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        app.UseStaticFiles();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        app.UseRouting();</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        app.UseAuthorization();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        app.UseEndpoints(endpoints =&gt; endpoints.MapControllerRoute(name: <span class="stringliteral">&quot;default&quot;</span>, pattern: <span class="stringliteral">&quot;{controller=Home}/{action=Index}/{id?}&quot;</span>));</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        app.UseEndpoints(endpoints =&gt; endpoints.MapControllerRoute(name: <span class="stringliteral">&quot;default&quot;</span>, pattern: <span class="stringliteral">&quot;{controller=Artists}/{action=Index}/{id?}&quot;</span>, <span class="keyword">new</span> { id = UrlParameter.Optional }));</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="comment">//app.UseStatusCodePagesWithReExecute(&quot;/Home/HandleError/{0}&quot;);</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        app.UseHttpsRedirection();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        app.UseStaticFiles();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        app.UseRouting();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        app.UseAuthorization();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        app.UseEndpoints(endpoints =&gt; endpoints.MapControllerRoute(name: <span class="stringliteral">&quot;default&quot;</span>, pattern: <span class="stringliteral">&quot;{controller=Home}/{action=Index}/{id?}&quot;</span>));</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
 <div class="ttc" id="aclass_application_db_context_html"><div class="ttname"><a href="class_application_db_context.html">ApplicationDbContext</a></div><div class="ttdoc">The applications connection to the database</div><div class="ttdef"><b>Definition:</b> <a href="_application_db_context_8cs_source.html#l00010">ApplicationDbContext.cs:11</a></div></div>
-<div class="ttc" id="aclass_application_db_context_html_a2e70ca01fa2aa66b796e60226d69b9d8"><div class="ttname"><a href="class_application_db_context.html#a2e70ca01fa2aa66b796e60226d69b9d8">ApplicationDbContext.Artists</a></div><div class="ttdeci">DbSet&lt; Artist &gt; Artists</div><div class="ttdoc">The artists contained within the database</div><div class="ttdef"><b>Definition:</b> <a href="_application_db_context_8cs_source.html#l00033">ApplicationDbContext.cs:33</a></div></div>
-<div class="ttc" id="aclass_startup_html"><div class="ttname"><a href="class_startup.html">Startup</a></div><div class="ttdoc">The Startup class configures the application services and our request pipline</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00013">Startup.cs:14</a></div></div>
-<div class="ttc" id="aclass_startup_html_a0d430f7b9ec3734389bbe1f48af357c5"><div class="ttname"><a href="class_startup.html#a0d430f7b9ec3734389bbe1f48af357c5">Startup.Configure</a></div><div class="ttdeci">void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)</div><div class="ttdoc">Configures the application</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00063">Startup.cs:63</a></div></div>
-<div class="ttc" id="aclass_startup_html_a2c486bf45979feb3399a78fc6f4e4965"><div class="ttname"><a href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Startup.Configuration</a></div><div class="ttdeci">IConfiguration Configuration</div><div class="ttdoc">The IConfiguration for the Startup class</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00027">Startup.cs:27</a></div></div>
-<div class="ttc" id="aclass_startup_html_a4ed598b3ee7fa85ea02337d6a9037414"><div class="ttname"><a href="class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414">Startup.Startup</a></div><div class="ttdeci">Startup(IConfiguration configuration)</div><div class="ttdoc">Initializes a new instance of the Startup class</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00019">Startup.cs:19</a></div></div>
+<div class="ttc" id="aclass_startup_html"><div class="ttname"><a href="class_startup.html">Startup</a></div><div class="ttdoc">The Startup class configures the application services and our request pipline</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00008">Startup.cs:9</a></div></div>
+<div class="ttc" id="aclass_startup_html_a2c486bf45979feb3399a78fc6f4e4965"><div class="ttname"><a href="class_startup.html#a2c486bf45979feb3399a78fc6f4e4965">Startup.Configuration</a></div><div class="ttdeci">IConfiguration Configuration</div><div class="ttdoc">The IConfiguration for the Startup class</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00022">Startup.cs:22</a></div></div>
+<div class="ttc" id="aclass_startup_html_a2e3ede5de670247f407558f3e4d86cac"><div class="ttname"><a href="class_startup.html#a2e3ede5de670247f407558f3e4d86cac">Startup.Configure</a></div><div class="ttdeci">void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context, IServiceProvider provider)</div><div class="ttdoc">Configures the application</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00064">Startup.cs:64</a></div></div>
+<div class="ttc" id="aclass_startup_html_a4ed598b3ee7fa85ea02337d6a9037414"><div class="ttname"><a href="class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414">Startup.Startup</a></div><div class="ttdeci">Startup(IConfiguration configuration)</div><div class="ttdoc">Initializes a new instance of the Startup class</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00014">Startup.cs:14</a></div></div>
 <div class="ttc" id="aclass_startup_html_adebde517d2b3ef4f17193e66c5270b86"><div class="ttname"><a href="class_startup.html#adebde517d2b3ef4f17193e66c5270b86">Startup.ConfigureServices</a></div><div class="ttdeci">void ConfigureServices(IServiceCollection services)</div><div class="ttdoc">Configures services to be used in the application</div><div class="ttdef"><b>Definition:</b> <a href="_startup_8cs_source.html#l00034">Startup.cs:34</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_547f0757595ba8d6d533278c160bb894.html">AS91892.Web</a></li><li class="navelem"><a class="el" href="_startup_8cs.html">Startup.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_547f0757595ba8d6d533278c160bb894.html">AS91892.Web</a></li><li class="navelem"><b>Startup.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

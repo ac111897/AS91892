@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -84,6 +85,7 @@ $(document).ready(function(){initNavTree('class_album_repository.html',''); init
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="class_album_repository-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">AlbumRepository Class Reference</div></div>
 </div><!--header-->
@@ -107,6 +109,10 @@ Inheritance diagram for AlbumRepository:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa6ac890c03923dc1036995f2742ae0a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_album_repository.html#aa6ac890c03923dc1036995f2742ae0a2">AlbumRepository</a> (<a class="el" href="class_application_db_context.html">ApplicationDbContext</a> context)</td></tr>
 <tr class="separator:aa6ac890c03923dc1036995f2742ae0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad037e1399333bfcbdf7892b5ae80cbcd"><td class="memItemLeft" align="right" valign="top">async Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_album_repository.html#ad037e1399333bfcbdf7892b5ae80cbcd">CountAsync</a> (Expression&lt; Func&lt; <a class="el" href="class_album.html">Album</a>, bool &gt; &gt; predicate)</td></tr>
+<tr class="separator:ad037e1399333bfcbdf7892b5ae80cbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a622db155cfdfa9cdcea3aabc3cd65158"><td class="memItemLeft" align="right" valign="top">async Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_album_repository.html#a622db155cfdfa9cdcea3aabc3cd65158">CountAsync</a> ()</td></tr>
+<tr class="separator:a622db155cfdfa9cdcea3aabc3cd65158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a485b063ec429e7046623047e55f494bf"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_album_repository.html#a485b063ec429e7046623047e55f494bf">CreateAsync</a> (<a class="el" href="class_album.html">Album</a> model)</td></tr>
 <tr class="separator:a485b063ec429e7046623047e55f494bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff31b17dc8a8b5105cc0e644bc755c3"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_album_repository.html#a4ff31b17dc8a8b5105cc0e644bc755c3">DeleteAsync</a> (Guid id)</td></tr>
@@ -142,9 +148,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a342ea0883d95b4fec2e074910bbacb22 inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">UpdateAsync</a> (TModelID id, TModel model)</td></tr>
 <tr class="memdesc:a342ea0883d95b4fec2e074910bbacb22 inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a <em>TModel</em>  in the IRepository&lt;TModel,TModelID&gt;  <a href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">More...</a><br /></td></tr>
 <tr class="separator:a342ea0883d95b4fec2e074910bbacb22 inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f99f8286d3ed59636b2080471525d6 inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">CountAsync</a> ()</td></tr>
+<tr class="memdesc:a80f99f8286d3ed59636b2080471525d6 inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of records in the database table  <a href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">More...</a><br /></td></tr>
+<tr class="separator:a80f99f8286d3ed59636b2080471525d6 inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb2ffb7e571591fece57b2f7ef14997f inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">CountAsync</a> (Expression&lt; Func&lt; TModel, bool &gt; &gt; predicate)</td></tr>
+<tr class="memdesc:afb2ffb7e571591fece57b2f7ef14997f inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of records in the database table that match the predicates  <a href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">More...</a><br /></td></tr>
+<tr class="separator:afb2ffb7e571591fece57b2f7ef14997f inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3661f4f88c16b01bd7786cf2ac1dfbe inherit pub_methods_interface_i_repository"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">DeleteAsync</a> (TModelID id)</td></tr>
 <tr class="memdesc:ad3661f4f88c16b01bd7786cf2ac1dfbe inherit pub_methods_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <em>TModel</em>  in the IRepository&lt;TModel,TModelID&gt;  <a href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">More...</a><br /></td></tr>
 <tr class="separator:ad3661f4f88c16b01bd7786cf2ac1dfbe inherit pub_methods_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a3771c162a48594045bb52cbb7adf91f2"><td class="memItemLeft" align="right" valign="top">IQueryable&lt; <a class="el" href="class_album.html">Album</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_album_repository.html#a3771c162a48594045bb52cbb7adf91f2">Source</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3771c162a48594045bb52cbb7adf91f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">/&gt;  <a href="class_album_repository.html#a3771c162a48594045bb52cbb7adf91f2">More...</a><br /></td></tr>
+<tr class="separator:a3771c162a48594045bb52cbb7adf91f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_class_base_repository"><td colspan="2" onclick="javascript:toggleInherit('properties_class_base_repository')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_base_repository.html">BaseRepository&lt; AlbumRepository &gt;</a></td></tr>
+<tr class="memitem:a3c2f1a4b295b826515c1f2673ed29eec inherit properties_class_base_repository"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_application_db_context.html">ApplicationDbContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_repository.html#a3c2f1a4b295b826515c1f2673ed29eec">Context</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3c2f1a4b295b826515c1f2673ed29eec inherit properties_class_base_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backing database for the repository  <a href="class_base_repository.html#a3c2f1a4b295b826515c1f2673ed29eec">More...</a><br /></td></tr>
+<tr class="separator:a3c2f1a4b295b826515c1f2673ed29eec inherit properties_class_base_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_interface_i_repository"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_i_repository')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interface_i_repository.html">IRepository&lt; Album, Guid &gt;</a></td></tr>
+<tr class="memitem:a77082574d804dc18e3ac206fb429185d inherit properties_interface_i_repository"><td class="memItemLeft" align="right" valign="top">IQueryable&lt; TModel &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">Source</a><code> [get]</code></td></tr>
+<tr class="memdesc:a77082574d804dc18e3ac206fb429185d inherit properties_interface_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data source of the repository  <a href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">More...</a><br /></td></tr>
+<tr class="separator:a77082574d804dc18e3ac206fb429185d inherit properties_interface_i_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -152,10 +178,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae758c53fd2e05c3a9dac54e13213ac2e inherit pro_methods_class_base_repository"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_repository.html#ae758c53fd2e05c3a9dac54e13213ac2e">Dispose</a> (bool disposing)</td></tr>
 <tr class="memdesc:ae758c53fd2e05c3a9dac54e13213ac2e inherit pro_methods_class_base_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">/&gt;  <a href="class_base_repository.html#ae758c53fd2e05c3a9dac54e13213ac2e">More...</a><br /></td></tr>
 <tr class="separator:ae758c53fd2e05c3a9dac54e13213ac2e inherit pro_methods_class_base_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_class_base_repository"><td colspan="2" onclick="javascript:toggleInherit('properties_class_base_repository')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_base_repository.html">BaseRepository&lt; AlbumRepository &gt;</a></td></tr>
-<tr class="memitem:a3c2f1a4b295b826515c1f2673ed29eec inherit properties_class_base_repository"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_application_db_context.html">ApplicationDbContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_repository.html#a3c2f1a4b295b826515c1f2673ed29eec">Context</a><code> [get]</code></td></tr>
-<tr class="memdesc:a3c2f1a4b295b826515c1f2673ed29eec inherit properties_class_base_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backing database for the repository  <a href="class_base_repository.html#a3c2f1a4b295b826515c1f2673ed29eec">More...</a><br /></td></tr>
-<tr class="separator:a3c2f1a4b295b826515c1f2673ed29eec inherit properties_class_base_repository"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -179,11 +201,54 @@ Additional Inherited Members</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00007">7</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00009">9</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a622db155cfdfa9cdcea3aabc3cd65158" name="a622db155cfdfa9cdcea3aabc3cd65158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622db155cfdfa9cdcea3aabc3cd65158">&#9670;&nbsp;</a></span>CountAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; int &gt; AlbumRepository.CountAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00021">21</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad037e1399333bfcbdf7892b5ae80cbcd" name="ad037e1399333bfcbdf7892b5ae80cbcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad037e1399333bfcbdf7892b5ae80cbcd">&#9670;&nbsp;</a></span>CountAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; int &gt; AlbumRepository.CountAsync </td>
+          <td>(</td>
+          <td class="paramtype">Expression&lt; Func&lt; <a class="el" href="class_album.html">Album</a>, bool &gt; &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00015">15</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+
+</div>
+</div>
 <a id="a485b063ec429e7046623047e55f494bf" name="a485b063ec429e7046623047e55f494bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a485b063ec429e7046623047e55f494bf">&#9670;&nbsp;</a></span>CreateAsync()</h2>
 
@@ -202,7 +267,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00012">12</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00027">27</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
 
 </div>
 </div>
@@ -224,7 +289,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00020">20</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00035">35</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
 
 </div>
 </div>
@@ -245,7 +310,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00035">35</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00050">50</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
 
 </div>
 </div>
@@ -267,7 +332,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00041">41</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00059">59</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
 
 </div>
 </div>
@@ -289,7 +354,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00047">47</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00065">65</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
 
 </div>
 </div>
@@ -321,7 +386,34 @@ Additional Inherited Members</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00053">53</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00079">79</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a3771c162a48594045bb52cbb7adf91f2" name="a3771c162a48594045bb52cbb7adf91f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3771c162a48594045bb52cbb7adf91f2">&#9670;&nbsp;</a></span>Source</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IQueryable&lt;<a class="el" href="class_album.html">Album</a>&gt; AlbumRepository.Source</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>/&gt; </p>
+
+<p class="definition">Definition at line <a class="el" href="_album_repository_8cs_source.html#l00007">7</a> of file <a class="el" href="_album_repository_8cs_source.html">AlbumRepository.cs</a>.</p>
 
 </div>
 </div>

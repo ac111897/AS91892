@@ -1,4 +1,28 @@
 var searchData=
 [
-  ['labelrepository_0',['LabelRepository',['../class_label_repository.html',1,'']]]
+  ['ialbumrepository_0',['IAlbumRepository',['../interface_i_album_repository.html',1,'']]],
+  ['iartistrepository_1',['IArtistRepository',['../interface_i_artist_repository.html',1,'']]],
+  ['icontrollernamefinder_2',['IControllerNameFinder',['../interface_i_controller_name_finder.html',1,'']]],
+  ['igenrerepository_3',['IGenreRepository',['../interface_i_genre_repository.html',1,'']]],
+  ['iimageconverter_4',['IImageConverter',['../interface_i_image_converter.html',1,'']]],
+  ['iimageconverter_3c_20guid_20_3e_5',['IImageConverter&lt; Guid &gt;',['../interface_i_image_converter.html',1,'']]],
+  ['iimagerepository_6',['IImageRepository',['../interface_i_image_repository.html',1,'']]],
+  ['ilabelrepository_7',['ILabelRepository',['../interface_i_label_repository.html',1,'']]],
+  ['image_8',['Image',['../class_image.html',1,'']]],
+  ['imageconverter_9',['ImageConverter',['../class_image_converter.html',1,'']]],
+  ['imagerepository_10',['ImageRepository',['../class_image_repository.html',1,'']]],
+  ['imagescontroller_11',['ImagesController',['../class_images_controller.html',1,'']]],
+  ['imagetests_12',['ImageTests',['../class_image_tests.html',1,'']]],
+  ['imockdataresolver_13',['IMockDataResolver',['../interface_i_mock_data_resolver.html',1,'']]],
+  ['imockdataresolver_3c_20t_20_3e_14',['IMockDataResolver&lt; T &gt;',['../interface_i_mock_data_resolver.html',1,'']]],
+  ['initialcreate_15',['InitialCreate',['../class_a_s91892_1_1_data_1_1_migrations_1_1_initial_create.html',1,'AS91892.Data.Migrations.InitialCreate'],['../class_initial_create.html',1,'InitialCreate']]],
+  ['internalstests_16',['InternalsTests',['../class_internals_tests.html',1,'']]],
+  ['irepository_17',['IRepository',['../interface_i_repository.html',1,'']]],
+  ['irepository_3c_20album_2c_20guid_20_3e_18',['IRepository&lt; Album, Guid &gt;',['../interface_i_repository.html',1,'']]],
+  ['irepository_3c_20artist_2c_20guid_20_3e_19',['IRepository&lt; Artist, Guid &gt;',['../interface_i_repository.html',1,'']]],
+  ['irepository_3c_20genre_2c_20guid_20_3e_20',['IRepository&lt; Genre, Guid &gt;',['../interface_i_repository.html',1,'']]],
+  ['irepository_3c_20image_2c_20guid_20_3e_21',['IRepository&lt; Image, Guid &gt;',['../interface_i_repository.html',1,'']]],
+  ['irepository_3c_20recordlabel_2c_20guid_20_3e_22',['IRepository&lt; RecordLabel, Guid &gt;',['../interface_i_repository.html',1,'']]],
+  ['irepository_3c_20song_2c_20guid_20_3e_23',['IRepository&lt; Song, Guid &gt;',['../interface_i_repository.html',1,'']]],
+  ['isongrepository_24',['ISongRepository',['../interface_i_song_repository.html',1,'']]]
 ];

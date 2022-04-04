@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -88,46 +89,62 @@ $(document).ready(function(){initNavTree('class_artist_mock_resolver.html',''); 
   <div class="headertitle"><div class="title">ArtistMockResolver Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Mock resolver to get <a class="el" href="class_artist.html" title="Represents an Artist in the database">Artist</a> data  
+ <a href="class_artist_mock_resolver.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ArtistMockResolver:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_artist_mock_resolver.png" usemap="#ArtistMockResolver_map" alt=""/>
   <map id="ArtistMockResolver_map" name="ArtistMockResolver_map">
-<area href="interface_i_mock_data_resolver.html" alt="IMockDataResolver&lt; Artist &gt;" shape="rect" coords="0,0,175,24"/>
+<area href="class_mock_resolver_base.html" alt="MockResolverBase&lt; Artist &gt;" shape="rect" coords="0,0,174,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af27b306b7f6f559a219fb772667e9067"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="class_artist.html">Artist</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_artist_mock_resolver.html#af27b306b7f6f559a219fb772667e9067">GenerateMock</a> (int amount)</td></tr>
-<tr class="separator:af27b306b7f6f559a219fb772667e9067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_interface_i_mock_data_resolver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interface_i_mock_data_resolver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interface_i_mock_data_resolver.html">IMockDataResolver&lt; Artist &gt;</a></td></tr>
-<tr class="memitem:a3427fbbe25bc89aa8a3517cd20707efc inherit pub_methods_interface_i_mock_data_resolver"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; TEntity &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_mock_data_resolver.html#a3427fbbe25bc89aa8a3517cd20707efc">GenerateMock</a> (int amount)</td></tr>
-<tr class="memdesc:a3427fbbe25bc89aa8a3517cd20707efc inherit pub_methods_interface_i_mock_data_resolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a iterable IEnumerable&lt;T&gt; where T is <em>TEntity</em>  for mock data purposes  <a href="interface_i_mock_data_resolver.html#a3427fbbe25bc89aa8a3517cd20707efc">More...</a><br /></td></tr>
-<tr class="separator:a3427fbbe25bc89aa8a3517cd20707efc inherit pub_methods_interface_i_mock_data_resolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98fdb98bef144c4ce9b1d1e558f655f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_artist_mock_resolver.html#a98fdb98bef144c4ce9b1d1e558f655f3">ArtistMockResolver</a> (ILogger&lt; <a class="el" href="interface_i_mock_data_resolver.html">IMockDataResolver</a>&lt; <a class="el" href="class_artist.html">Artist</a> &gt; &gt; logger, IConfiguration configuration)</td></tr>
+<tr class="separator:a98fdb98bef144c4ce9b1d1e558f655f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_mock_resolver_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_mock_resolver_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_mock_resolver_base.html">MockResolverBase&lt; Artist &gt;</a></td></tr>
+<tr class="memitem:ac3d4d79cbc9a69b3dff0878c684b73d6 inherit pub_methods_class_mock_resolver_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mock_resolver_base.html#ac3d4d79cbc9a69b3dff0878c684b73d6">MockResolverBase</a> (string fileName, ILogger&lt; <a class="el" href="interface_i_mock_data_resolver.html">IMockDataResolver</a>&lt; T &gt; &gt; logger, IConfiguration config)</td></tr>
+<tr class="memdesc:ac3d4d79cbc9a69b3dff0878c684b73d6 inherit pub_methods_class_mock_resolver_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the IMockDataResolver&lt;TEntity&gt; implementation class  <a href="class_mock_resolver_base.html#ac3d4d79cbc9a69b3dff0878c684b73d6">More...</a><br /></td></tr>
+<tr class="separator:ac3d4d79cbc9a69b3dff0878c684b73d6 inherit pub_methods_class_mock_resolver_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cba5b277a76a79d33e2da1eafe1db49 inherit pub_methods_class_mock_resolver_base"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mock_resolver_base.html#a0cba5b277a76a79d33e2da1eafe1db49">GenerateMock</a> ()</td></tr>
+<tr class="separator:a0cba5b277a76a79d33e2da1eafe1db49 inherit pub_methods_class_mock_resolver_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_artist_mock_resolver_8cs_source.html#l00005">5</a> of file <a class="el" href="_artist_mock_resolver_8cs_source.html">ArtistMockResolver.cs</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af27b306b7f6f559a219fb772667e9067" name="af27b306b7f6f559a219fb772667e9067"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af27b306b7f6f559a219fb772667e9067">&#9670;&nbsp;</a></span>GenerateMock()</h2>
+<div class="textblock"><p >Mock resolver to get <a class="el" href="class_artist.html" title="Represents an Artist in the database">Artist</a> data </p>
+
+<p class="definition">Definition at line <a class="el" href="_artist_mock_resolver_8cs_source.html#l00010">10</a> of file <a class="el" href="_artist_mock_resolver_8cs_source.html">ArtistMockResolver.cs</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a98fdb98bef144c4ce9b1d1e558f655f3" name="a98fdb98bef144c4ce9b1d1e558f655f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98fdb98bef144c4ce9b1d1e558f655f3">&#9670;&nbsp;</a></span>ArtistMockResolver()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">IEnumerable&lt; <a class="el" href="class_artist.html">Artist</a> &gt; ArtistMockResolver.GenerateMock </td>
+          <td class="memname">ArtistMockResolver.ArtistMockResolver </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td class="paramtype">ILogger&lt; <a class="el" href="interface_i_mock_data_resolver.html">IMockDataResolver</a>&lt; <a class="el" href="class_artist.html">Artist</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">IConfiguration&#160;</td>
+          <td class="paramname"><em>configuration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_artist_mock_resolver_8cs_source.html#l00007">7</a> of file <a class="el" href="_artist_mock_resolver_8cs_source.html">ArtistMockResolver.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_artist_mock_resolver_8cs_source.html#l00012">12</a> of file <a class="el" href="_artist_mock_resolver_8cs_source.html">ArtistMockResolver.cs</a>.</p>
 
 </div>
 </div>

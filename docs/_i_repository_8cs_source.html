@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -85,7 +86,7 @@ $(document).ready(function(){initNavTree('_i_repository_8cs_source.html',''); in
   <div class="headertitle"><div class="title">IRepository.cs</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_i_repository_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">namespace </span>AS91892.Data.Repositories;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="interface_i_repository.html">    8</a></span><span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interface_i_repository.html">IRepository</a>&lt;TModel, TModelID&gt; : IDisposable</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    where TModel : <a class="code hl_class" href="class_base_entity.html">BaseEntity</a></div>
@@ -101,23 +102,31 @@ $(document).ready(function(){initNavTree('_i_repository_8cs_source.html',''); in
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">   49</a></span>    Task <a class="code hl_function" href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">UpdateAsync</a>(TModelID <span class="keywordtype">id</span>, TModel model);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">   57</a></span>    Task <a class="code hl_function" href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">DeleteAsync</a>(TModelID <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">   55</a></span>    Task&lt;int&gt; <a class="code hl_function" href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">CountAsync</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">   62</a></span>    Task&lt;int&gt; <a class="code hl_function" href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">CountAsync</a>(Expression&lt;Func&lt;TModel, bool&gt;&gt; predicate);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">   69</a></span>    Task <a class="code hl_function" href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">DeleteAsync</a>(TModelID <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">   74</a></span>    IQueryable&lt;TModel&gt; <a class="code hl_property" href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">Source</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
 <div class="ttc" id="aclass_base_entity_html"><div class="ttname"><a href="class_base_entity.html">BaseEntity</a></div><div class="ttdoc">Represents a entity in the database using an id, this is to make it simpler to create an entity</div><div class="ttdef"><b>Definition:</b> <a href="_base_entity_8cs_source.html#l00008">BaseEntity.cs:9</a></div></div>
 <div class="ttc" id="ainterface_i_repository_html"><div class="ttname"><a href="interface_i_repository.html">IRepository</a></div><div class="ttdoc">Generic repository for data models</div><div class="ttdef"><b>Definition:</b> <a href="_i_repository_8cs_source.html#l00008">IRepository.cs:11</a></div></div>
 <div class="ttc" id="ainterface_i_repository_html_a2bef13bcf0d63c6e21690955a6111aa2"><div class="ttname"><a href="interface_i_repository.html#a2bef13bcf0d63c6e21690955a6111aa2">IRepository.GetAllAsync</a></div><div class="ttdeci">Task&lt; IList&lt; TModel &gt; &gt; GetAllAsync()</div><div class="ttdoc">Gets all of the TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
 <div class="ttc" id="ainterface_i_repository_html_a342ea0883d95b4fec2e074910bbacb22"><div class="ttname"><a href="interface_i_repository.html#a342ea0883d95b4fec2e074910bbacb22">IRepository.UpdateAsync</a></div><div class="ttdeci">Task UpdateAsync(TModelID id, TModel model)</div><div class="ttdoc">Updates a TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
 <div class="ttc" id="ainterface_i_repository_html_a7298a5f1505f4f39a62ab99c47f2ecf4"><div class="ttname"><a href="interface_i_repository.html#a7298a5f1505f4f39a62ab99c47f2ecf4">IRepository.GetAsync</a></div><div class="ttdeci">Task&lt; TModel?&gt; GetAsync(TModelID id)</div><div class="ttdoc">Gets a TModel  by its identifier of TModelID</div></div>
+<div class="ttc" id="ainterface_i_repository_html_a77082574d804dc18e3ac206fb429185d"><div class="ttname"><a href="interface_i_repository.html#a77082574d804dc18e3ac206fb429185d">IRepository.Source</a></div><div class="ttdeci">IQueryable&lt; TModel &gt; Source</div><div class="ttdoc">The data source of the repository</div><div class="ttdef"><b>Definition:</b> <a href="_i_repository_8cs_source.html#l00074">IRepository.cs:74</a></div></div>
+<div class="ttc" id="ainterface_i_repository_html_a80f99f8286d3ed59636b2080471525d6"><div class="ttname"><a href="interface_i_repository.html#a80f99f8286d3ed59636b2080471525d6">IRepository.CountAsync</a></div><div class="ttdeci">Task&lt; int &gt; CountAsync()</div><div class="ttdoc">Gets the number of records in the database table</div></div>
 <div class="ttc" id="ainterface_i_repository_html_aac9179a1eaee183ad88c4697085106ed"><div class="ttname"><a href="interface_i_repository.html#aac9179a1eaee183ad88c4697085106ed">IRepository.GetAllAsync</a></div><div class="ttdeci">Task&lt; IList&lt; TModel &gt; &gt; GetAllAsync(Func&lt; TModel, bool &gt; predicate)</div><div class="ttdoc">Gets all of TModel  in the IRepository&lt;TModel,TModelID&gt; that match the condition passed</div></div>
 <div class="ttc" id="ainterface_i_repository_html_ad3661f4f88c16b01bd7786cf2ac1dfbe"><div class="ttname"><a href="interface_i_repository.html#ad3661f4f88c16b01bd7786cf2ac1dfbe">IRepository.DeleteAsync</a></div><div class="ttdeci">Task DeleteAsync(TModelID id)</div><div class="ttdoc">Removes a TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
 <div class="ttc" id="ainterface_i_repository_html_ad8af1a17ca38916e77518ac402da3d64"><div class="ttname"><a href="interface_i_repository.html#ad8af1a17ca38916e77518ac402da3d64">IRepository.CreateAsync</a></div><div class="ttdeci">Task CreateAsync(TModel model)</div><div class="ttdoc">Creates a TModel  in the IRepository&lt;TModel,TModelID&gt;</div></div>
+<div class="ttc" id="ainterface_i_repository_html_afb2ffb7e571591fece57b2f7ef14997f"><div class="ttname"><a href="interface_i_repository.html#afb2ffb7e571591fece57b2f7ef14997f">IRepository.CountAsync</a></div><div class="ttdeci">Task&lt; int &gt; CountAsync(Expression&lt; Func&lt; TModel, bool &gt; &gt; predicate)</div><div class="ttdoc">Gets the number of records in the database table that match the predicates</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_0c09c45db679d59d6fbf4e87837b6670.html">Repositories</a></li><li class="navelem"><a class="el" href="_i_repository_8cs.html">IRepository.cs</a></li>
+    <li class="navelem"><a class="el" href="dir_12fe631edfa5ffd675e09e18d8fd6bb2.html">AS91892.Data</a></li><li class="navelem"><a class="el" href="dir_0c09c45db679d59d6fbf4e87837b6670.html">Repositories</a></li><li class="navelem"><b>IRepository.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

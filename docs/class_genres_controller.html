@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -95,25 +96,37 @@ $(document).ready(function(){initNavTree('class_genres_controller.html',''); ini
 Inheritance diagram for GenresController:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_genres_controller.png" alt=""/>
- </div></div>
+  <img src="class_genres_controller.png" usemap="#GenresController_map" alt=""/>
+  <map id="GenresController_map" name="GenresController_map">
+<area href="class_controller_with_repo.html" alt="ControllerWithRepo&lt; GenresController, IGenreRepository, Genre &gt;" shape="rect" coords="0,0,393,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa216d34c4c534aa4b9527dcd541c2812"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genres_controller.html#aa216d34c4c534aa4b9527dcd541c2812">GenresController</a> (ILogger&lt; <a class="el" href="class_genres_controller.html">GenresController</a> &gt; logger, <a class="el" href="interface_i_genre_repository.html">IGenreRepository</a> repository)</td></tr>
-<tr class="memdesc:aa216d34c4c534aa4b9527dcd541c2812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="class_genres_controller.html" title="Controller for the Genre model">GenresController</a> class  <a href="class_genres_controller.html#aa216d34c4c534aa4b9527dcd541c2812">More...</a><br /></td></tr>
 <tr class="separator:aa216d34c4c534aa4b9527dcd541c2812"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dcb7f2684889a9bdb6e3e21c861567e"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genres_controller.html#a6dcb7f2684889a9bdb6e3e21c861567e">CreateAsync</a> (<a class="el" href="class_genre.html">Genre</a> genre)</td></tr>
-<tr class="memdesc:a6dcb7f2684889a9bdb6e3e21c861567e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation end point on the <a class="el" href="class_genres_controller.html" title="Controller for the Genre model">GenresController</a>  <a href="class_genres_controller.html#a6dcb7f2684889a9bdb6e3e21c861567e">More...</a><br /></td></tr>
-<tr class="separator:a6dcb7f2684889a9bdb6e3e21c861567e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a317f5bf2874aa6dd5916a70af144701e"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genres_controller.html#a317f5bf2874aa6dd5916a70af144701e">Index</a> ()</td></tr>
-<tr class="memdesc:a317f5bf2874aa6dd5916a70af144701e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index method of the <a class="el" href="class_genres_controller.html" title="Controller for the Genre model">GenresController</a>  <a href="class_genres_controller.html#a317f5bf2874aa6dd5916a70af144701e">More...</a><br /></td></tr>
-<tr class="separator:a317f5bf2874aa6dd5916a70af144701e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd39f2e2aebbee1f170fe03626302d9"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genres_controller.html#a4bd39f2e2aebbee1f170fe03626302d9">Index</a> (string sortOrder, string currentFilter, string searchString, int? pageNumber)</td></tr>
+<tr class="memdesc:a4bd39f2e2aebbee1f170fe03626302d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index view of the controller  <a href="class_genres_controller.html#a4bd39f2e2aebbee1f170fe03626302d9">More...</a><br /></td></tr>
+<tr class="separator:a4bd39f2e2aebbee1f170fe03626302d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52f502fb406cde30bf7e0df1319a4ccf"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genres_controller.html#a52f502fb406cde30bf7e0df1319a4ccf">CreateAsync</a> ([Bind(&quot;Title&quot;)] Genre genre)</td></tr>
+<tr class="memdesc:a52f502fb406cde30bf7e0df1319a4ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation end point on the <a class="el" href="class_genres_controller.html" title="Controller for the Genre model">GenresController</a>  <a href="class_genres_controller.html#a52f502fb406cde30bf7e0df1319a4ccf">More...</a><br /></td></tr>
+<tr class="separator:a52f502fb406cde30bf7e0df1319a4ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3ad3d52b3ffc9a1ea2dbdefb49f11a0"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genres_controller.html#ad3ad3d52b3ffc9a1ea2dbdefb49f11a0">UpdateAsync</a> (Guid id, [Bind(&quot;Id, Title&quot;)] Genre genre)</td></tr>
+<tr class="memdesc:ad3ad3d52b3ffc9a1ea2dbdefb49f11a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the genre asynchrounously  <a href="class_genres_controller.html#ad3ad3d52b3ffc9a1ea2dbdefb49f11a0">More...</a><br /></td></tr>
+<tr class="separator:ad3ad3d52b3ffc9a1ea2dbdefb49f11a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_controller_with_repo"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_controller_with_repo')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_controller_with_repo.html">ControllerWithRepo&lt; GenresController, IGenreRepository, Genre &gt;</a></td></tr>
+<tr class="memitem:a93acb5db7dc554a2202e6de36eb79637 inherit pub_methods_class_controller_with_repo"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller_with_repo.html#a93acb5db7dc554a2202e6de36eb79637">ControllerWithRepo</a> (ILogger&lt; TController &gt; logger, TRepository repository)</td></tr>
+<tr class="memdesc:a93acb5db7dc554a2202e6de36eb79637 inherit pub_methods_class_controller_with_repo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the  <a href="class_controller_with_repo.html#a93acb5db7dc554a2202e6de36eb79637">More...</a><br /></td></tr>
+<tr class="separator:a93acb5db7dc554a2202e6de36eb79637 inherit pub_methods_class_controller_with_repo"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ccfabba5cd6b122d84af49317b09e9 inherit pub_methods_class_controller_with_repo"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller_with_repo.html#a29ccfabba5cd6b122d84af49317b09e9">Create</a> ()</td></tr>
+<tr class="memdesc:a29ccfabba5cd6b122d84af49317b09e9 inherit pub_methods_class_controller_with_repo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the create view to the user  <a href="class_controller_with_repo.html#a29ccfabba5cd6b122d84af49317b09e9">More...</a><br /></td></tr>
+<tr class="separator:a29ccfabba5cd6b122d84af49317b09e9 inherit pub_methods_class_controller_with_repo"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Controller for the <a class="el" href="class_genre.html" title="Represents a genre in music">Genre</a> model </p>
 
-<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00008">8</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00009">9</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa216d34c4c534aa4b9527dcd541c2812" name="aa216d34c4c534aa4b9527dcd541c2812"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa216d34c4c534aa4b9527dcd541c2812">&#9670;&nbsp;</a></span>GenresController()</h2>
@@ -141,15 +154,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a new instance of the <a class="el" href="class_genres_controller.html" title="Controller for the Genre model">GenresController</a> class </p>
+<p></p>
 
-<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00013">13</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00012">12</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6dcb7f2684889a9bdb6e3e21c861567e" name="a6dcb7f2684889a9bdb6e3e21c861567e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dcb7f2684889a9bdb6e3e21c861567e">&#9670;&nbsp;</a></span>CreateAsync()</h2>
+<a id="a52f502fb406cde30bf7e0df1319a4ccf" name="a52f502fb406cde30bf7e0df1319a4ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52f502fb406cde30bf7e0df1319a4ccf">&#9670;&nbsp;</a></span>CreateAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +170,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">async Task&lt; IActionResult &gt; GenresController.CreateAsync </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_genre.html">Genre</a>&#160;</td>
+          <td class="paramtype">[Bind(&quot;Title&quot;)] <a class="el" href="class_genre.html">Genre</a>&#160;</td>
           <td class="paramname"><em>genre</em></td><td>)</td>
           <td></td>
         </tr>
@@ -173,29 +186,92 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00031">31</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00067">67</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
 
 </div>
 </div>
-<a id="a317f5bf2874aa6dd5916a70af144701e" name="a317f5bf2874aa6dd5916a70af144701e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a317f5bf2874aa6dd5916a70af144701e">&#9670;&nbsp;</a></span>Index()</h2>
+<a id="a4bd39f2e2aebbee1f170fe03626302d9" name="a4bd39f2e2aebbee1f170fe03626302d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bd39f2e2aebbee1f170fe03626302d9">&#9670;&nbsp;</a></span>Index()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">IActionResult GenresController.Index </td>
+          <td class="memname">async Task&lt; IActionResult &gt; GenresController.Index </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>sortOrder</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>currentFilter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>searchString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>pageNumber</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Index method of the <a class="el" href="class_genres_controller.html" title="Controller for the Genre model">GenresController</a> </p>
+<p>Returns the index view of the controller </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00045">45</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00021">21</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad3ad3d52b3ffc9a1ea2dbdefb49f11a0" name="ad3ad3d52b3ffc9a1ea2dbdefb49f11a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3ad3d52b3ffc9a1ea2dbdefb49f11a0">&#9670;&nbsp;</a></span>UpdateAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; GenresController.UpdateAsync </td>
+          <td>(</td>
+          <td class="paramtype">Guid&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[Bind(&quot;Id, Title&quot;)] <a class="el" href="class_genre.html">Genre</a>&#160;</td>
+          <td class="paramname"><em>genre</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the genre asynchrounously </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">genre</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_genres_controller_8cs_source.html#l00089">89</a> of file <a class="el" href="_genres_controller_8cs_source.html">GenresController.cs</a>.</p>
 
 </div>
 </div>

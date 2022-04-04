@@ -1,16 +1,9 @@
 var searchData=
 [
-  ['servicessetup_2ecs_0',['ServicesSetup.cs',['../_services_setup_8cs.html',1,'']]],
-  ['shouldbedisposed_1',['ShouldBeDisposed',['../class_artist_tests.html#a95951ab5f98629e12709e4206d51c05e',1,'ArtistTests']]],
-  ['shouldhaveelementsinrepo_2',['ShouldHaveElementsInRepo',['../class_artist_tests.html#ad8214043008fe99fc5b5c3247f0e8ff7',1,'ArtistTests']]],
-  ['showrequestid_3',['ShowRequestId',['../class_error_view_model.html#a538c240f49b8a66e137115d2e6eacdf8',1,'ErrorViewModel']]],
-  ['song_4',['Song',['../class_song.html',1,'']]],
-  ['song_2ecs_5',['Song.cs',['../_song_8cs.html',1,'']]],
-  ['songrepository_6',['SongRepository',['../class_song_repository.html',1,'SongRepository'],['../class_song_repository.html#a5cfc1826efa2e0d92f1b6691540545da',1,'SongRepository.SongRepository()']]],
-  ['songrepository_2ecs_7',['SongRepository.cs',['../_song_repository_8cs.html',1,'']]],
-  ['songs_8',['Songs',['../class_application_db_context.html#ab34b71e7ee524cea27bf21fb00061b57',1,'ApplicationDbContext']]],
-  ['songscontroller_9',['SongsController',['../class_songs_controller.html',1,'SongsController'],['../class_songs_controller.html#a7ad3c51ae5c6d1c0e867c653c23ac6a8',1,'SongsController.SongsController()']]],
-  ['songscontroller_2ecs_10',['SongsController.cs',['../_songs_controller_8cs.html',1,'']]],
-  ['startup_11',['Startup',['../class_startup.html',1,'Startup'],['../class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414',1,'Startup.Startup()']]],
-  ['startup_2ecs_12',['Startup.cs',['../_startup_8cs.html',1,'']]]
+  ['the_20mit_20license_20_28mit_29_0',['The MIT License (MIT)',['../md__a_s91892__web_wwwroot_lib_jquery_validation__l_i_c_e_n_s_e.html',1,'']]],
+  ['timespanconverter_1',['TimeSpanConverter',['../class_time_span_converter.html',1,'']]],
+  ['title_2',['Title',['../class_album.html#aee59c059fa6490c7498ab39bc09e02cc',1,'Album.Title()'],['../class_genre.html#a75791f8b3ab8c80df3aba90513d5f69e',1,'Genre.Title()'],['../class_song.html#a9e83f8909e2002075289be93737cba2e',1,'Song.Title()']]],
+  ['toimageasync_3',['ToImageAsync',['../interface_i_image_converter.html#a5cfe7a34d8864803d9eb2c78469d7c82',1,'IImageConverter.ToImageAsync()'],['../class_image_converter.html#a4d217adf46a1b5639436f8f8b42bb6e4',1,'ImageConverter.ToImageAsync()']]],
+  ['tostring_4',['ToString',['../class_artist.html#ad57e2ee2a3a3097cc650169b6b05e53c',1,'Artist.ToString()'],['../class_record_label.html#a21a3d774e3bd0b096018cc255226ec43',1,'RecordLabel.ToString()']]],
+  ['totalpages_5',['TotalPages',['../class_paginated_list.html#a64c3a99fbe8b136a61250419aeebd567',1,'PaginatedList']]]
 ];

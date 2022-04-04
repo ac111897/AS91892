@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['recordlabelscontroller_0',['RecordLabelsController',['../class_record_labels_controller.html#a053b205b715c863316a343886bcb069c',1,'RecordLabelsController']]]
+  ['read_0',['Read',['../class_time_span_converter.html#ab669eb86eb0aa4dd5c19b570b55cab84',1,'TimeSpanConverter']]]
 ];

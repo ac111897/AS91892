@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">AS91892
    </div>
+   <div id="projectbrief">Library for music</div>
   </td>
  </tr>
  </tbody>
@@ -101,9 +102,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adebde517d2b3ef4f17193e66c5270b86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_startup.html#adebde517d2b3ef4f17193e66c5270b86">ConfigureServices</a> (IServiceCollection services)</td></tr>
 <tr class="memdesc:adebde517d2b3ef4f17193e66c5270b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures services to be used in the application  <a href="class_startup.html#adebde517d2b3ef4f17193e66c5270b86">More...</a><br /></td></tr>
 <tr class="separator:adebde517d2b3ef4f17193e66c5270b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d430f7b9ec3734389bbe1f48af357c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_startup.html#a0d430f7b9ec3734389bbe1f48af357c5">Configure</a> (IApplicationBuilder app, IWebHostEnvironment env, <a class="el" href="class_application_db_context.html">ApplicationDbContext</a> context)</td></tr>
-<tr class="memdesc:a0d430f7b9ec3734389bbe1f48af357c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the application  <a href="class_startup.html#a0d430f7b9ec3734389bbe1f48af357c5">More...</a><br /></td></tr>
-<tr class="separator:a0d430f7b9ec3734389bbe1f48af357c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e3ede5de670247f407558f3e4d86cac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_startup.html#a2e3ede5de670247f407558f3e4d86cac">Configure</a> (IApplicationBuilder app, IWebHostEnvironment env, <a class="el" href="class_application_db_context.html">ApplicationDbContext</a> context, IServiceProvider provider)</td></tr>
+<tr class="memdesc:a2e3ede5de670247f407558f3e4d86cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the application  <a href="class_startup.html#a2e3ede5de670247f407558f3e4d86cac">More...</a><br /></td></tr>
+<tr class="separator:a2e3ede5de670247f407558f3e4d86cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -114,7 +115,7 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="class_startup.html" title="The Startup class configures the application services and our request pipline">Startup</a> class configures the application services and our request pipline </p>
 
-<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00013">13</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00008">8</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ed598b3ee7fa85ea02337d6a9037414" name="a4ed598b3ee7fa85ea02337d6a9037414"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ed598b3ee7fa85ea02337d6a9037414">&#9670;&nbsp;</a></span>Startup()</h2>
@@ -135,18 +136,18 @@ Properties</h2></td></tr>
 <p>Initializes a new instance of the <a class="el" href="class_startup.html" title="The Startup class configures the application services and our request pipline">Startup</a> class </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">configuration</td><td></td></tr>
+    <tr><td class="paramname">configuration</td><td>Web application configuration</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00019">19</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00014">14</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0d430f7b9ec3734389bbe1f48af357c5" name="a0d430f7b9ec3734389bbe1f48af357c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d430f7b9ec3734389bbe1f48af357c5">&#9670;&nbsp;</a></span>Configure()</h2>
+<a id="a2e3ede5de670247f407558f3e4d86cac" name="a2e3ede5de670247f407558f3e4d86cac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e3ede5de670247f407558f3e4d86cac">&#9670;&nbsp;</a></span>Configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +168,13 @@ Properties</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_application_db_context.html">ApplicationDbContext</a>&#160;</td>
-          <td class="paramname"><em>context</em>&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IServiceProvider&#160;</td>
+          <td class="paramname"><em>provider</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -180,14 +187,15 @@ Properties</h2></td></tr>
 <p>Configures the application </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">app</td><td></td></tr>
-    <tr><td class="paramname">env</td><td></td></tr>
-    <tr><td class="paramname">context</td><td></td></tr>
+    <tr><td class="paramname">app</td><td>The application and it's settings</td></tr>
+    <tr><td class="paramname">env</td><td>The environment our web app is run on</td></tr>
+    <tr><td class="paramname">context</td><td>Our context passed in by DI</td></tr>
+    <tr><td class="paramname">provider</td><td>Our service provider to retrieve services whilst in the configure method</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00063">63</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00064">64</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
 
 </div>
 </div>
@@ -210,7 +218,7 @@ Properties</h2></td></tr>
 <p>Configures services to be used in the application </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">services</td><td></td></tr>
+    <tr><td class="paramname">services</td><td>The service collection to add services to</td></tr>
   </table>
   </dd>
 </dl>
@@ -242,7 +250,7 @@ Properties</h2></td></tr>
 
 <p>The IConfiguration for the <a class="el" href="class_startup.html" title="The Startup class configures the application services and our request pipline">Startup</a> class </p>
 
-<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00027">27</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_8cs_source.html#l00022">22</a> of file <a class="el" href="_startup_8cs_source.html">Startup.cs</a>.</p>
 
 </div>
 </div>

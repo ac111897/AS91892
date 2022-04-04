@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['recordlabel_1',['RecordLabel',['../class_record_label.html',1,'']]],
-  ['recordlabel_2ecs_2',['RecordLabel.cs',['../_record_label_8cs.html',1,'']]],
-  ['recordlabels_3',['RecordLabels',['../class_application_db_context.html#a2fed97c06df1d497269f88ca2f168a66',1,'ApplicationDbContext']]],
-  ['recordlabelscontroller_4',['RecordLabelsController',['../class_record_labels_controller.html',1,'RecordLabelsController'],['../class_record_labels_controller.html#a053b205b715c863316a343886bcb069c',1,'RecordLabelsController.RecordLabelsController()']]],
-  ['recordlabelscontroller_2ecs_5',['RecordLabelsController.cs',['../_record_labels_controller_8cs.html',1,'']]],
-  ['recordlabeltests_6',['RecordLabelTests',['../class_record_label_tests.html',1,'']]],
-  ['recordlabeltests_2ecs_7',['RecordLabelTests.cs',['../_record_label_tests_8cs.html',1,'']]],
-  ['requestid_8',['RequestId',['../class_error_view_model.html#a3fcf3ab622ee4623673b3fcc47ef6e81',1,'ErrorViewModel']]]
+  ['seconds_0',['Seconds',['../class_song_view_model.html#ab82a98165291f22184693eceb6ea282d',1,'SongViewModel']]],
+  ['showrequestid_1',['ShowRequestId',['../class_error_view_model.html#a538c240f49b8a66e137115d2e6eacdf8',1,'ErrorViewModel']]],
+  ['song_2',['Song',['../class_song.html',1,'']]],
+  ['songmockresolver_3',['SongMockResolver',['../class_song_mock_resolver.html',1,'']]],
+  ['songrepository_4',['SongRepository',['../class_song_repository.html',1,'SongRepository'],['../class_song_repository.html#a5cfc1826efa2e0d92f1b6691540545da',1,'SongRepository.SongRepository()']]],
+  ['songs_5',['Songs',['../class_application_db_context.html#ab34b71e7ee524cea27bf21fb00061b57',1,'ApplicationDbContext']]],
+  ['songscontroller_6',['SongsController',['../class_songs_controller.html',1,'SongsController'],['../class_songs_controller.html#a5252c54f8248d061cca4b5bcabb0f314',1,'SongsController.SongsController()']]],
+  ['songtests_7',['SongTests',['../class_song_tests.html',1,'']]],
+  ['songviewmodel_8',['SongViewModel',['../class_song_view_model.html',1,'SongViewModel'],['../class_song_view_model.html#a8c86c509b854042968865b6bb71d958b',1,'SongViewModel.SongViewModel()']]],
+  ['source_9',['Source',['../class_album_repository.html#a3771c162a48594045bb52cbb7adf91f2',1,'AlbumRepository.Source()'],['../class_artist_repository.html#afed071b9d8b30e2294368bf30370fd5b',1,'ArtistRepository.Source()'],['../class_genre_repository.html#a61ca455c32c98a514d9698c3271461c1',1,'GenreRepository.Source()'],['../class_image_repository.html#a9e944f80b14d71d4fa5946ffb87af251',1,'ImageRepository.Source()'],['../interface_i_repository.html#a77082574d804dc18e3ac206fb429185d',1,'IRepository.Source()'],['../class_label_repository.html#a4d8ec4804768dfa5d20560ceb8b4afb6',1,'LabelRepository.Source()'],['../class_song_repository.html#ad0f2e82fb194e2c7e1bc6be3abd2defc',1,'SongRepository.Source()']]],
+  ['startup_10',['Startup',['../class_startup.html',1,'Startup'],['../class_startup.html#a4ed598b3ee7fa85ea02337d6a9037414',1,'Startup.Startup()']]]
 ];

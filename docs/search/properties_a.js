@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['showrequestid_0',['ShowRequestId',['../class_error_view_model.html#a538c240f49b8a66e137115d2e6eacdf8',1,'ErrorViewModel']]],
-  ['songs_1',['Songs',['../class_application_db_context.html#ab34b71e7ee524cea27bf21fb00061b57',1,'ApplicationDbContext']]]
+  ['pageindex_0',['PageIndex',['../class_paginated_list.html#afefe9919974f3abbdfe3924fa184c182',1,'PaginatedList']]],
+  ['photo_1',['Photo',['../class_album_view_model.html#a45332915841a3c38f18ec051381ca8b2',1,'AlbumViewModel.Photo()'],['../class_song_view_model.html#a402896385416f4bac67d2f14fc084870',1,'SongViewModel.Photo()']]]
 ];
