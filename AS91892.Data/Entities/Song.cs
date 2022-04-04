@@ -1,4 +1,6 @@
-﻿namespace AS91892.Data.Entities;
+﻿using System.Text.Json.Serialization;
+
+namespace AS91892.Data.Entities;
 
 /// <summary>
 /// An <see cref="Artist"/>'s <see cref="Song"/> in the database
@@ -32,6 +34,7 @@ public class Song : BaseEntity
     [Required]
     [DataType(DataType.Duration)]
     [JsonPropertyName("duration")]
+    [JsonConverter(typeof(TimeSpanConverter))]
     public TimeSpan Duration { get; set; }
 
     /// <summary>
