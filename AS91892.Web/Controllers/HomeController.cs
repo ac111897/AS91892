@@ -1,6 +1,7 @@
 ﻿using AS91892.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace AS91892.Web.Controllers;
 
@@ -15,7 +16,6 @@ public class HomeController : Controller
         { StatusCodes.Status400BadRequest, "BadRequest" },
     };
     private ILogger<HomeController> Logger { get; }
-
     /// <summary>
     /// Initializes a new instance of the <see cref="HomeController"/> class
     /// </summary>

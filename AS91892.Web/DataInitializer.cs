@@ -34,9 +34,6 @@ public static class DataInitializer
 
         context.SaveChanges();
 
-        // to randomly pick labels for artists or no labels
-        var random = new Random();
-
         AddAlbumsAndSongsToContext(ref context, 
             artistResolver.GenerateMock(), 
             albumResolver.GenerateMock(), 
@@ -46,14 +43,40 @@ public static class DataInitializer
     private static void AddAlbumsAndSongsToContext(ref ApplicationDbContext context, 
         IEnumerable<Artist> artists, IEnumerable<Album> albums, IEnumerable<Song> songs)
     {
-        var albumList = albums.ToList();
-        var songsList = songs.ToList();
+        Random random = new();
 
-        context.Artists.AddRange(artists);
+        var artistsList = artists.ToList();
+        var albumsList = albums.ToList();
 
-        //context.Songs.AddRange(songs);
+        var genresList = context.Genres.ToList();
 
-        context.Albums.AddRange(albums);
+        foreach (var song in songs)
+        {
+            song.Genre = genresList[random.Next(genresList.Count)];
+            albumsList[random.Next(albumsList.Count)].AlbumSongs.Add(song);
+        }
+
+        foreach (var album in albums)
+        {
+            artistsList[random.Next(artistsList.Count)].Albums.Add(album);
+        }
+
+        var labels = context.RecordLabels.ToList();
+
+        for (int i = 0; i < 10; i++)
+        {
+            labels.Add(null!);
+        }
+
+
+        foreach (var artist in artistsList)
+        {
+            artist.Label = labels[random.Next(labels.Count)];
+        }
+
+        context.Artists.AddRange(artistsList);
+
+        context.SaveChanges();
     }
 
     private static void ThrowIfNull<T>(T resolver) 
