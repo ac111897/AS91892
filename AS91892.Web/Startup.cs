@@ -1,8 +1,4 @@
-﻿using AS91892.Core.ImageConversion;
-using AS91892.Core.MockData;
-using AS91892.Data.Context;
-using AS91892.Data.Repositories;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace AS91892.Web;
 
@@ -67,7 +63,7 @@ public class Startup
     {
         if (IsTest) // adds our dummy data to the app
         {
-            InitialiseData(ref context, provider);
+            DataInitializer.InitializeData(ref context, provider);
         }
 
         if (env.IsDevelopment())
@@ -88,21 +84,5 @@ public class Startup
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints => endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"));
-    }
-
-    private static void InitialiseData(ref ApplicationDbContext context, IServiceProvider provider)
-    {
-        var genreResolver = provider.GetService<IMockDataResolver<Genre>>();
-        var labelResolver = provider.GetService<IMockDataResolver<RecordLabel>>();
-
-        if (genreResolver is null || labelResolver is null)
-        {
-            throw new InvalidOperationException("Test data services not added to the container");
-        }
-
-        context.Genres.AddRange(genreResolver.GenerateMock());
-        context.RecordLabels.AddRange(labelResolver.GenerateMock());
-
-        context.SaveChanges();
     }
 }

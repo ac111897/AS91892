@@ -17,6 +17,8 @@ internal static class ServicesSetup
         services.AddScoped<IMockDataResolver<Artist>, ArtistMockResolver>();
         services.AddScoped<IMockDataResolver<RecordLabel>, LabelMockResolver>();
         services.AddScoped<IMockDataResolver<Genre>, GenreMockResolver>();
+        services.AddScoped<IMockDataResolver<Album>, AlbumMockResolver>();
+        services.AddScoped<IMockDataResolver<Song>, SongMockResolver>();
 
         // configure our data repositories
         services.AddScoped<IArtistRepository, ArtistRepository>();
